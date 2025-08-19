@@ -65,9 +65,6 @@ export function Header() {
            <Button asChild variant="outline">
             <Link href="/e-pass">Request E-Pass</Link>
           </Button>
-          <Button asChild>
-            <Link href="/join">Join Us</Link>
-          </Button>
         </div>
 
         <div className="md:hidden">
@@ -99,7 +96,6 @@ export function Header() {
                     </Link>
                   ))}
                    <Link href="/e-pass" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary">Request E-Pass</Link>
-                   <Link href="/join" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary">Join Us</Link>
                 </nav>
               </div>
             </SheetContent>
