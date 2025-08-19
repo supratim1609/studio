@@ -21,11 +21,8 @@ export function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setIsMounted(true);
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -40,7 +37,7 @@ export function Header() {
 
   const headerClasses = cn(
     "sticky top-0 z-50 w-full transition-all duration-300",
-    isMounted && isScrolled
+    isScrolled
       ? "border-b border-border/40 bg-background/80 backdrop-blur-sm"
       : "bg-transparent"
   );
