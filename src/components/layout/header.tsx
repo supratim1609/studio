@@ -15,7 +15,6 @@ const navLinks = [
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
-  { href: "/join", label: "Join Us" },
 ];
 
 export function Header() {
@@ -63,7 +62,10 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-           <Button asChild variant="outline">
+          <Button asChild>
+            <Link href="/join">Join Us</Link>
+          </Button>
+          <Button asChild variant="outline">
             <Link href="/e-pass">Request E-Pass <ArrowRight /></Link>
           </Button>
         </div>
@@ -96,6 +98,9 @@ export function Header() {
                       {link.label}
                     </Link>
                   ))}
+                  <Button asChild onClick={() => setIsOpen(false)}>
+                    <Link href="/join">Join Us</Link>
+                  </Button>
                    <Button asChild variant="outline" onClick={() => setIsOpen(false)}>
                     <Link href="/e-pass">Request E-Pass</Link>
                   </Button>
