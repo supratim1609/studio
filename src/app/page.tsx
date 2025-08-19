@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AlpanaIcon } from "@/components/icons/alpana";
 import { Countdown } from "@/components/countdown";
+import { DhakPlayer } from "@/components/dhak-player";
 
 export default function Home() {
   const pujaStartDate = new Date("2025-09-28T18:00:00");
@@ -159,6 +160,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <DhakPlayer />
     </div>
   );
 }
