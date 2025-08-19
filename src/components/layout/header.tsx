@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import React from "react";
 import { AlpanaIcon } from "../icons/alpana";
 
@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
+  { href: "/join", label: "Join Us" },
 ];
 
 export function Header() {
@@ -62,6 +63,9 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+           <Button asChild variant="outline">
+            <Link href="/e-pass">Request E-Pass <ArrowRight /></Link>
+          </Button>
         </div>
 
         <div className="md:hidden">
@@ -92,7 +96,9 @@ export function Header() {
                       {link.label}
                     </Link>
                   ))}
-                   <Link href="/join" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary">Join Us</Link>
+                   <Button asChild variant="outline" onClick={() => setIsOpen(false)}>
+                    <Link href="/e-pass">Request E-Pass</Link>
+                  </Button>
                 </nav>
               </div>
             </SheetContent>

@@ -28,7 +28,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
                 <AlpanaIcon className="h-20 w-20 text-primary" />
                 <h1 className="mt-4 font-headline text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
-                    DSA '25 Pujo
+                    DSA '25: Where Tradition Ignites Tomorrow
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">
                     Experience the divine celebration of Durga Puja with Dubrajpur Sporting Association. A fusion of tradition, culture, and community spirit.
