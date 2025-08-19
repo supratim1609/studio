@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/schedule", label: "Schedule" },
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/team", label: "Our Team" },
 ];
 
 export function Header() {
@@ -25,7 +26,7 @@ export function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
           <AlpanaIcon className="h-6 w-6 text-primary" />
-          <span>DSA '24</span>
+          <span>DSA '25</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
@@ -64,7 +65,7 @@ export function Header() {
               <div className="flex flex-col gap-8 pt-8">
                 <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
                    <AlpanaIcon className="h-6 w-6 text-primary" />
-                   <span>DSA '24</span>
+                   <span>DSA '25</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (

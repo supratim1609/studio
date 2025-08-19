@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
             <AlpanaIcon className="h-6 w-6 text-primary" />
-            <span>DSA '24</span>
+            <span>DSA '25</span>
           </Link>
           <p className="text-sm text-foreground/60">
             &copy; {new Date().getFullYear()} Dubrajpur Sporting Association. All Rights Reserved.

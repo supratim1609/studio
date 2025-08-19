@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Calendar, GalleryHorizontal, History } from "lucide-react";
+import { ArrowRight, Calendar, GalleryHorizontal, History, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { AlpanaIcon } from "@/components/icons/alpana";
@@ -8,34 +8,56 @@ import { AlpanaIcon } from "@/components/icons/alpana";
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative h-[calc(100dvh-5rem)] w-full">
-        <Image
-          src="https://placehold.co/1800x1200.png"
-          alt="Durga Puja Celebration"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-20"
-          data-ai-hint="durga puja celebration"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      <section className="relative h-[calc(100dvh-5rem)] w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://placehold.co/1800x1200.png"
+            alt="Durga Puja Celebration"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-20"
+            data-ai-hint="durga puja celebration"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        </div>
+        
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <AlpanaIcon className="h-16 w-16 text-primary" />
-          <h1 className="mt-4 font-headline text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
-            DSA '24 Pujo
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">
-            Experience the divine celebration of Durga Puja with Dubrajpur Sporting Association. A fusion of tradition, culture, and community spirit.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg" className="font-bold">
-              <Link href="/schedule">
-                View Schedule <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary" className="font-bold">
-              <Link href="/gallery">Explore Gallery</Link>
-            </Button>
-          </div>
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+                <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                    <AlpanaIcon className="h-16 w-16 text-primary" />
+                    <h1 className="mt-4 font-headline text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
+                        DSA '25 Pujo
+                    </h1>
+                    <p className="mt-6 max-w-xl text-lg text-foreground/80 md:text-xl">
+                        Experience the divine celebration of Durga Puja with Dubrajpur Sporting Association. A fusion of tradition, culture, and community spirit.
+                    </p>
+                    <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
+                        <Button asChild size="lg" className="font-bold">
+                        <Link href="/schedule">
+                            View Schedule <ArrowRight className="ml-2" />
+                        </Link>
+                        </Button>
+                        <Button asChild size="lg" variant="secondary" className="font-bold">
+                        <Link href="/e-pass">Request E-Pass</Link>
+                        </Button>
+                    </div>
+                </div>
+                <div className="relative h-96 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105 group">
+                    <Image
+                        src="https://placehold.co/600x800.png"
+                        alt="Goddess Durga Idol"
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-xl"
+                        data-ai-hint="durga idol"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"></div>
+                    <div className="absolute bottom-0 left-0 p-6">
+                        <h3 className="text-white font-headline text-2xl font-bold">Pujo is coming</h3>
+                        <p className="text-white/80 mt-2">Join us for a spectacular celebration of devotion and artistry.</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </section>
 
@@ -72,10 +94,10 @@ export default function Home() {
           <h2 className="font-headline text-3xl font-bold md:text-4xl">
             Join the Festivities
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
-            Dive into the heart of our celebration. Explore events, relive memories, and learn about our rich past.
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-foreground/70">
+            Dive into the heart of our celebration. Explore events, meet our team, relive memories, and learn about our rich past.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                 <div className="flex items-center gap-4">
@@ -127,6 +149,24 @@ export default function Home() {
                 </CardDescription>
                  <Button asChild variant="link" className="px-0 mt-4 font-bold">
                   <Link href="/history">Explore Legacy <ArrowRight className="ml-2"/></Link>
+                </Button>
+              </CardContent>
+            </Card>
+             <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <CardHeader>
+                 <div className="flex items-center gap-4">
+                  <div className="rounded-full bg-primary/10 p-3 text-primary">
+                    <Users className="h-8 w-8" />
+                  </div>
+                  <CardTitle className="font-headline text-2xl">Our Team</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                    Meet the passionate individuals who work tirelessly to make the DSA Durga Puja a grand success every year.
+                </CardDescription>
+                 <Button asChild variant="link" className="px-0 mt-4 font-bold">
+                  <Link href="/team">Meet the Team <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
             </Card>
