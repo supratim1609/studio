@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Sprout } from "lucide-react";
+import { Menu } from "lucide-react";
 import React from "react";
 import { AlpanaIcon } from "../icons/alpana";
 
@@ -22,7 +22,7 @@ export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-sm">
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
           <AlpanaIcon className="h-6 w-6 text-primary" />
