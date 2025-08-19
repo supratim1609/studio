@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-       <section className="relative h-[calc(100dvh-5rem)] w-full">
+       <section className="relative h-[calc(100dvh)] w-full">
         <div className="absolute inset-0">
           <Image
             src="https://placehold.co/1800x1200.png"
@@ -41,9 +41,6 @@ export default function Home() {
                     <Link href="/schedule">
                         View Schedule <ArrowRight className="ml-2" />
                     </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="secondary" className="font-bold">
-                    <Link href="/e-pass">Request E-Pass</Link>
                     </Button>
                 </div>
             </div>

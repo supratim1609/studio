@@ -20,9 +20,34 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); 
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const headerClasses = cn(
+    "sticky top-0 z-50 w-full transition-all duration-300",
+    isMounted && isScrolled
+      ? "border-b border-border/40 bg-background/80 backdrop-blur-sm"
+      : "bg-transparent"
+  );
+
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-sm">
+    <header className={headerClasses}>
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
           <AlpanaIcon className="h-6 w-6 text-primary" />
@@ -45,8 +70,11 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild>
+           <Button asChild>
             <Link href="/join">Join Us</Link>
+          </Button>
+          <Button asChild variant="secondary">
+            <Link href="/e-pass">Request E-Pass</Link>
           </Button>
         </div>
 
@@ -82,6 +110,9 @@ export function Header() {
                 <div className="flex flex-col gap-4">
                     <Button asChild size="lg" onClick={() => setIsOpen(false)}>
                         <Link href="/join">Join Us</Link>
+                    </Button>
+                    <Button asChild size="lg" variant="secondary" onClick={() => setIsOpen(false)}>
+                        <Link href="/e-pass">Request E-Pass</Link>
                     </Button>
                 </div>
               </div>
