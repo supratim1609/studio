@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 const events = [
   {
     day: "Maha Panchami",
-    date: "October 26, 2025",
+    date: "September 28, 2025",
     time: "6:00 PM",
     title: "Pandal Inauguration",
     description: "Grand opening of the DSA '25 pandal, welcoming Maa Durga amidst chants and celebrations.",
@@ -12,7 +12,7 @@ const events = [
   },
   {
     day: "Maha Shashti",
-    date: "October 27, 2025",
+    date: "September 29, 2025",
     time: "8:00 AM",
     title: "Kalparambha & Bodhon",
     description: "The ritualistic beginning of the puja and the awakening of the Goddess.",
@@ -20,7 +20,7 @@ const events = [
   },
   {
     day: "Maha Saptami",
-    date: "October 28, 2025",
+    date: "September 30, 2025",
     time: "9:00 AM",
     title: "Nabapatrika Snan & Saptami Puja",
     description: "The holy bathing of Nabapatrika followed by the main Saptami puja and pushpanjali.",
@@ -28,7 +28,7 @@ const events = [
   },
   {
     day: "Maha Ashtami",
-    date: "October 29, 2025",
+    date: "October 1, 2025",
     time: "10:00 AM",
     title: "Ashtami Puja & Anjali",
     description: "One of the most significant days of Puja, with morning pushpanjali for all devotees.",
@@ -36,7 +36,7 @@ const events = [
   },
   {
     day: "Maha Ashtami",
-    date: "October 29, 2025",
+    date: "October 1, 2025",
     time: "4:01 PM",
     title: "Sandhi Puja",
     description: "The sacred worship at the juncture of Ashtami and Navami tithi.",
@@ -44,7 +44,7 @@ const events = [
   },
    {
     day: "Maha Navami",
-    date: "October 30, 2025",
+    date: "October 2, 2025",
     time: "9:30 AM",
     title: "Navami Puja & Homa",
     description: "The final day of worship, concluding with the sacred fire ritual (homa).",
@@ -52,7 +52,7 @@ const events = [
   },
   {
     day: "Maha Navami",
-    date: "October 30, 2025",
+    date: "October 2, 2025",
     time: "7:00 PM",
     title: "Grand Cultural Evening",
     description: "An evening of music, dance, and drama performed by local artists and club members.",
@@ -60,7 +60,7 @@ const events = [
   },
   {
     day: "Vijayadashami",
-    date: "October 31, 2025",
+    date: "October 3, 2025",
     time: "4:00 PM",
     title: "Sindur Khela & Bisarjan",
     description: "A joyous farewell to the Goddess, followed by the immersion procession.",

@@ -7,7 +7,7 @@ import { AlpanaIcon } from "@/components/icons/alpana";
 import { Countdown } from "@/components/countdown";
 
 export default function Home() {
-  const pujaStartDate = new Date("2025-10-26T18:00:00");
+  const pujaStartDate = new Date("2025-09-28T18:00:00");
 
   return (
     <div className="flex flex-col">
