@@ -5,39 +5,19 @@ import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const DhakPlayer = () => {
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // This effect will run once on the client after the component mounts.
   useEffect(() => {
-    if (audioRef.current) {
-        audioRef.current.volume = 0.5; // Set a subtle volume
+    setIsMounted(true);
+    // Initialize audioRef with the audio element from the DOM
+    if (document) {
+      audioRef.current = document.getElementById("dhak-audio") as HTMLAudioElement;
+       if (audioRef.current) {
+        audioRef.current.volume = 0.5;
+       }
     }
-
-    const playAudio = () => {
-      if (audioRef.current && audioRef.current.paused) {
-        audioRef.current.play().then(() => {
-            setIsPlaying(true);
-        }).catch(error => {
-            console.error("Audio playback failed:", error);
-            // Autoplay was prevented, user will have to click the button.
-            setIsPlaying(false);
-        });
-      }
-      // Clean up event listener after first interaction
-      window.removeEventListener("click", playAudio);
-      window.removeEventListener("keydown", playAudio);
-    };
-
-    // Add event listeners to trigger audio play on first user interaction
-    window.addEventListener("click", playAudio);
-    window.addEventListener("keydown", playAudio);
-    
-    // Cleanup on component unmount
-    return () => {
-      window.removeEventListener("click", playAudio);
-      window.removeEventListener("keydown", playAudio);
-    };
   }, []);
 
   const togglePlay = () => {
@@ -45,15 +25,23 @@ export const DhakPlayer = () => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        // We only try to play if the component is mounted on the client
+        audioRef.current.play().catch(error => {
+          console.error("Audio playback failed:", error);
+          setIsPlaying(false); // Ensure state is correct on failure
+        });
       }
       setIsPlaying(!isPlaying);
     }
   };
+  
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <>
-      <audio ref={audioRef} src="/audio/dhak-beats.mp3" loop />
+      <audio id="dhak-audio" src="/audio/dhak-beats.mp3" loop preload="auto" />
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           variant="outline"
