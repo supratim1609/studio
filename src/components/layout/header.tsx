@@ -26,9 +26,8 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); 
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -37,11 +36,8 @@ export function Header() {
 
   const headerClasses = cn(
     "sticky top-0 z-50 w-full transition-all duration-300",
-    isScrolled
-      ? "border-b border-border/40 bg-background/80 backdrop-blur-sm"
-      : "bg-transparent"
+    isScrolled ? "border-b border-border/40 bg-background/80 backdrop-blur-sm" : "bg-transparent"
   );
-
 
   return (
     <header className={headerClasses}>
@@ -67,10 +63,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-           <Button asChild>
-            <Link href="/join">Join Us</Link>
-          </Button>
-          <Button asChild variant="secondary">
+          <Button asChild>
             <Link href="/e-pass">Request E-Pass</Link>
           </Button>
         </div>
@@ -106,9 +99,6 @@ export function Header() {
                 </nav>
                 <div className="flex flex-col gap-4">
                     <Button asChild size="lg" onClick={() => setIsOpen(false)}>
-                        <Link href="/join">Join Us</Link>
-                    </Button>
-                    <Button asChild size="lg" variant="secondary" onClick={() => setIsOpen(false)}>
                         <Link href="/e-pass">Request E-Pass</Link>
                     </Button>
                 </div>
