@@ -22,7 +22,7 @@ export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full">
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
           <AlpanaIcon className="h-6 w-6 text-primary" />
@@ -45,9 +45,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="outline">
-            <Link href="/e-pass">Request E-Pass</Link>
-          </Button>
           <Button asChild>
             <Link href="/join">Join Us</Link>
           </Button>
@@ -83,9 +80,6 @@ export function Header() {
                   ))}
                 </nav>
                 <div className="flex flex-col gap-4">
-                    <Button asChild variant="outline" size="lg" onClick={() => setIsOpen(false)}>
-                        <Link href="/e-pass">Request E-Pass</Link>
-                    </Button>
                     <Button asChild size="lg" onClick={() => setIsOpen(false)}>
                         <Link href="/join">Join Us</Link>
                     </Button>
