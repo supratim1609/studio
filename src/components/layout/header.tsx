@@ -27,8 +27,8 @@ export function Header() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // Set initial state
     handleScroll();
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -63,9 +63,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild>
-            <Link href="/e-pass">Request E-Pass</Link>
-          </Button>
         </div>
 
         <div className="md:hidden">
@@ -97,11 +94,6 @@ export function Header() {
                     </Link>
                   ))}
                 </nav>
-                <div className="flex flex-col gap-4">
-                    <Button asChild size="lg" onClick={() => setIsOpen(false)}>
-                        <Link href="/e-pass">Request E-Pass</Link>
-                    </Button>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
