@@ -62,9 +62,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-           <Button asChild variant="outline">
-            <Link href="/e-pass">Request E-Pass</Link>
-          </Button>
         </div>
 
         <div className="md:hidden">
@@ -95,7 +92,7 @@ export function Header() {
                       {link.label}
                     </Link>
                   ))}
-                   <Link href="/e-pass" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary">Request E-Pass</Link>
+                   <Link href="/join" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary">Join Us</Link>
                 </nav>
               </div>
             </SheetContent>
