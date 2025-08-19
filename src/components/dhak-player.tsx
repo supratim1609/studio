@@ -41,7 +41,13 @@ export const DhakPlayer = () => {
 
   return (
     <>
-      <audio id="dhak-audio" src="/audio/dhak-beats.mp3" loop preload="auto" />
+      <audio
+        id="dhak-audio"
+        ref={audioRef}
+        src="/audio/dhak-beats.mp3"
+        loop
+        preload="auto"
+      />
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           variant="outline"
