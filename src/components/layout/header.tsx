@@ -40,7 +40,7 @@ export function Header() {
   return (
     <header className={headerClasses}>
       <div className="container mx-auto flex h-20 items-center justify-between">
-        <div className="flex-1">
+        <div className="flex-shrink-0">
            <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold w-fit">
               <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
             </Link>
@@ -62,7 +62,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex flex-1 justify-end items-center gap-4 md:hidden">
+        <div className="flex flex-shrink-0 justify-end items-center gap-4 md:hidden">
              <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                 <button aria-label="Open menu" className="p-2">
