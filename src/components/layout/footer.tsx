@@ -88,14 +88,8 @@ export function Footer() {
                     &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
                 </p>
                 <div className="flex items-center gap-4 pr-16">
-                    <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
+                    <Link href="https://www.facebook.com/people/DSA/100092242809918/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
                       <Facebook className="h-5 w-5" />
-                    </Link>
-                    <Link href="#" aria-label="Instagram" className="text-foreground/60 transition-colors hover:text-[#E4405F]">
-                      <Instagram className="h-5 w-5" />
-                    </Link>
-                    <Link href="#" aria-label="YouTube" className="text-foreground/60 transition-colors hover:text-[#FF0000]">
-                      <Youtube className="h-5 w-5" />
                     </Link>
                 </div>
             </div>
