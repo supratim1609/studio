@@ -14,8 +14,6 @@ const navLinks = [
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
-  { href: "/join", label: "Join" },
-  { href: "/e-pass", label: "E-Pass" },
 ];
 
 export function Header() {
@@ -45,7 +43,6 @@ export function Header() {
          <div className="flex items-center">
             <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold">
                 <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
-                <span className="hidden sm:inline-block">DSA '25</span>
             </Link>
         </div>
         <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
