@@ -39,8 +39,14 @@ export function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container mx-auto flex h-20 items-center justify-center">
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+      <div className="container mx-auto flex h-20 items-center justify-between">
+        <div className="flex-1">
+           <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold w-fit">
+              <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
+            </Link>
+        </div>
+       
+        <nav className="hidden items-center justify-center gap-6 lg:gap-8 md:flex flex-1">
           {navLinks.map((link) => (
              <Link
               key={link.href}
@@ -56,7 +62,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex flex-1 justify-end items-center gap-4 md:hidden">
              <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                 <button aria-label="Open menu" className="p-2">
@@ -68,7 +74,6 @@ export function Header() {
                 <div className="flex flex-col gap-8 pt-8">
                     <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
                         <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
-                        <span>DSA '25</span>
                     </Link>
                     <nav className="flex flex-col gap-4">
                     {navLinks.map((link) => (
