@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
+import Link from "next/link";
 
 const activities = [
   {
@@ -6,24 +9,28 @@ const activities = [
     description: "Fostering teamwork and sportsmanship on the cricket field, our club nurtures local talent.",
     imageSrc: "https://placehold.co/600x400.png",
     data_ai_hint: "cricket match",
+    phone: "08906479173",
   },
   {
     name: "Football",
     description: "From grassroots training to competitive matches, our football program is a hub for passion and skill.",
     imageSrc: "https://placehold.co/600x400.png",
     data_ai_hint: "football game",
+    phone: "08906479173",
   },
   {
     name: "Karate",
     description: "Building discipline, confidence, and self-defense skills through the art of karate.",
     imageSrc: "https://placehold.co/600x400.png",
     data_ai_hint: "karate class",
+    phone: "08906479173",
   },
   {
     name: "Dance",
     description: "Celebrating culture and creativity through various dance forms, from classical to contemporary.",
     imageSrc: "https://placehold.co/600x400.png",
     data_ai_hint: "dance performance",
+    phone: "08906479173",
   },
 ];
 
@@ -46,7 +53,7 @@ export default function ActivitiesPage() {
               <Image
                 src={activity.imageSrc}
                 alt={activity.name}
-                layout="fill"
+                fill
                 objectFit="cover"
                 className="transition-transform duration-500 ease-in-out group-hover:scale-110"
                 data-ai-hint={activity.data_ai_hint}
@@ -56,9 +63,17 @@ export default function ActivitiesPage() {
                 <h3 className="font-headline text-3xl font-bold text-white">
                   {activity.name}
                 </h3>
-                <p className="mt-2 max-h-0 text-white/80 opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-40 group-hover:opacity-100">
-                  {activity.description}
-                </p>
+                <div className="max-h-0 opacity-0 transition-all duration-500 ease-in-out group-hover:max-h-40 group-hover:opacity-100">
+                    <p className="mt-2 text-white/80">
+                    {activity.description}
+                    </p>
+                    <Button asChild size="sm" className="mt-4">
+                        <Link href={`tel:${activity.phone}`}>
+                            <Phone className="mr-2 h-4 w-4" />
+                            Call to Inquire
+                        </Link>
+                    </Button>
+                </div>
               </div>
             </div>
           ))}
