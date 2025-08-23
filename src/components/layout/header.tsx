@@ -41,9 +41,11 @@ export function Header() {
     <header className={headerClasses}>
       <div className="container mx-auto flex h-24 items-center justify-between">
         <div className="flex flex-shrink-0 items-center">
-           <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold w-fit">
-              <Image src="/logo.png" alt="DSA Logo" width={60} height={60} className="bg-primary-foreground p-1 rounded-full border-2 border-primary transition-all"/>
-            </Link>
+            <div className="rounded-full p-1 bg-background/80 backdrop-blur-sm border border-border/40">
+                <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold w-fit">
+                    <Image src="/logo.png" alt="DSA Logo" width={60} height={60} className="bg-primary-foreground p-1 rounded-full transition-all"/>
+                </Link>
+            </div>
         </div>
        
         <nav className="hidden items-center justify-center gap-6 lg:gap-8 md:flex flex-1">
