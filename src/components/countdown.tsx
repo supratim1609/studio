@@ -70,7 +70,7 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
   return (
     <div className="py-8 my-8 rounded-xl bg-background/30 backdrop-blur-sm border border-white/10 shadow-lg w-full max-w-4xl">
-      <p className="mb-6 text-center font-bengali text-2xl font-medium text-primary tracking-wider">শারদীয়ার শুভ সূচনা এ বাকি</p>
+      <p className="mb-6 text-center font-bengali text-2xl font-medium text-primary tracking-wider">শারদীয়ার শুভ সূচনায় বাকি</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <TimeUnit value={timeLeft.days} label="Days" />
         <TimeUnit value={timeLeft.hours} label="Hours" />
