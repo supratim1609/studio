@@ -46,7 +46,7 @@ export async function submitMembershipToGoogleForm(data: z.infer<typeof membersh
     } else {
         const responseText = await response.text();
         console.error("Google Forms submission failed with status:", response.status, responseText);
-        return { success: false, message: 'Submission failed. Please try again.' };
+        return { success: false, message: 'There was a problem sending your data to Google Forms. Please check the server logs.' };
     }
 
   } catch (error: any) {
