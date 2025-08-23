@@ -40,9 +40,9 @@ export function Header() {
   return (
     <header className={headerClasses}>
       <div className="container mx-auto flex h-24 items-center justify-between">
-        <div className="flex-shrink-0">
+        <div className="flex flex-shrink-0 items-center">
            <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold w-fit">
-              <Image src="/logo.png" alt="DSA Logo" width={60} height={60} className="bg-primary-foreground p-1 rounded-full transition-all hover:ring-4 hover:ring-primary/50"/>
+              <Image src="/logo.png" alt="DSA Logo" width={60} height={60} className="bg-primary-foreground p-1 rounded-full border-2 border-primary transition-all"/>
             </Link>
         </div>
        
@@ -62,37 +62,39 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex flex-shrink-0 justify-end items-center gap-4 md:hidden">
-             <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild>
-                <button aria-label="Open menu" className="p-2">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Open menu</span>
-                </button>
-                </SheetTrigger>
-                <SheetContent side="right" className="flex flex-col">
-                <div className="flex flex-col gap-8 pt-8">
-                    <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
-                        <Image src="/logo.png" alt="DSA Logo" width={60} height={60} className="bg-primary-foreground p-1 rounded-full"/>
-                    </Link>
-                    <nav className="flex flex-col gap-4">
-                    {navLinks.map((link) => (
-                        <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setIsOpen(false)}
-                        className={cn(
-                            "text-lg font-medium transition-colors hover:text-primary",
-                            pathname === link.href ? "text-primary font-bold" : "text-foreground/80"
-                        )}
-                        >
-                        {link.label}
+        <div className="flex flex-shrink-0 justify-end items-center gap-4">
+             <div className="md:hidden">
+                <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                    <SheetTrigger asChild>
+                    <button aria-label="Open menu" className="p-2">
+                        <Menu className="h-6 w-6" />
+                        <span className="sr-only">Open menu</span>
+                    </button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="flex flex-col">
+                    <div className="flex flex-col gap-8 pt-8">
+                        <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
+                            <Image src="/logo.png" alt="DSA Logo" width={60} height={60} className="bg-primary-foreground p-1 rounded-full border-2 border-primary"/>
                         </Link>
-                    ))}
-                    </nav>
-                </div>
-                </SheetContent>
-            </Sheet>
+                        <nav className="flex flex-col gap-4">
+                        {navLinks.map((link) => (
+                            <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                                "text-lg font-medium transition-colors hover:text-primary",
+                                pathname === link.href ? "text-primary font-bold" : "text-foreground/80"
+                            )}
+                            >
+                            {link.label}
+                            </Link>
+                        ))}
+                        </nav>
+                    </div>
+                    </SheetContent>
+                </Sheet>
+             </div>
         </div>
       </div>
     </header>
