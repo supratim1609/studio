@@ -1,30 +1,95 @@
 import Link from "next/link";
 import { AlpanaIcon } from "../icons/alpana";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
+
+const quickLinks = [
+  { href: "/schedule", label: "Schedule" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/team", label: "Our Team" },
+  { href: "/history", label: "History" },
+  { href: "/e-pass", label: "E-Pass" },
+  { href: "/join", label: "Join Us" },
+];
+
 
 export function Footer() {
   return (
-    <footer className="border-t bg-secondary/50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
-            <AlpanaIcon className="h-6 w-6 text-primary" />
-            <span>DSA '25</span>
-          </Link>
-          <p className="text-sm text-foreground/60">
-            &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-primary">
-              <Facebook className="h-5 w-5" />
+    <footer className="border-t bg-card/50">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+          
+          <div className="md:col-span-2">
+            <Link href="/" className="flex items-center gap-2 font-headline text-2xl font-bold">
+              <AlpanaIcon className="h-8 w-8 text-primary" />
+              <span>DSA '25</span>
             </Link>
-            <Link href="#" aria-label="Instagram" className="text-foreground/60 transition-colors hover:text-primary">
-              <Instagram className="h-5 w-5" />
-            </Link>
-            <Link href="#" aria-label="YouTube" className="text-foreground/60 transition-colors hover:text-primary">
-              <Youtube className="h-5 w-5" />
+            <p className="mt-4 max-w-md text-foreground/70">
+              A cornerstone of community spirit and vibrant celebrations in Dubrajpur. Fostering unity and cultural heritage for generations.
+            </p>
+             <Link href="/history" className="mt-4 inline-block font-bold text-primary transition-colors hover:text-primary/80">
+                Our Story!
             </Link>
           </div>
+
+          <div>
+            <h3 className="font-headline text-lg font-semibold uppercase tracking-wider text-foreground/80">
+              Contact
+            </h3>
+            <ul className="mt-4 space-y-4 text-foreground/70">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span>123 DSA Road, Dubrajpur, West Bengal 731123</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span>+91 98765 43210</span>
+              </li>
+               <li className="flex items-start gap-3">
+                <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <a href="mailto:contact@dsa.org" className="transition-colors hover:text-primary">
+                    contact@dsa.org
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-headline text-lg font-semibold uppercase tracking-wider text-foreground/80">
+              Quick Links
+            </h3>
+            <ul className="mt-4 space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-foreground/70 transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        <div className="mt-12 border-t border-border/50 pt-8">
+            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+                 <p className="text-sm text-foreground/60">
+                    &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
+                </p>
+                <div className="flex items-center gap-4">
+                    <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-primary">
+                    <Facebook className="h-5 w-5" />
+                    </Link>
+                    <Link href="#" aria-label="Instagram" className="text-foreground/60 transition-colors hover:text-primary">
+                    <Instagram className="h-5 w-5" />
+                    </Link>
+                    <Link href="#" aria-label="YouTube" className="text-foreground/60 transition-colors hover:text-primary">
+                    <Youtube className="h-5 w-5" />
+                    </Link>
+                </div>
+            </div>
         </div>
       </div>
     </footer>
