@@ -66,12 +66,12 @@ export default function Home() {
             </div>
             <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
                <Image
-                src="https://placehold.co/600x400.png"
+                src="/600x400.webp"
                 alt="DSA Club Members"
                 layout="fill"
-                objectFit="cover"
+                objectFit="fit"
                 className="rounded-xl"
-                data-ai-hint="indian community"
+                // data-ai-hint="indian community"
               />
             </div>
           </div>
