@@ -40,16 +40,23 @@ export function Footer() {
             <ul className="mt-4 space-y-4 text-foreground/70">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                <span>123 DSA Road, Dubrajpur, West Bengal 731123</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Ashram+More,+Station+Road,+Dubrajpur,+West+Bengal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  Ashram More, Station Road , Dubrajpur, India, West Bengal
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                <span>+91 98765 43210</span>
+                <span>089064 79173</span>
               </li>
                <li className="flex items-start gap-3">
                 <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                <a href="mailto:contact@dsa.org" className="transition-colors hover:text-primary">
-                    contact@dsa.org
+                <a href="mailto:mydsa1979@gmail.com" className="transition-colors hover:text-primary">
+                    mydsa1979@gmail.com
                 </a>
               </li>
             </ul>
