@@ -93,7 +93,7 @@ export function Footer() {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
                 <div className="flex flex-col items-center gap-4 md:flex-row">
                     <p className="text-center text-sm text-foreground/60 md:text-left">
-                        &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
+                        &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved. With ❤️ from Bhumika.
                     </p>
                 </div>
             </div>

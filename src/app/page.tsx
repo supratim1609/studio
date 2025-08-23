@@ -98,10 +98,10 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Explore our year-round calendar of events, from major tournaments to cultural festivals and community gatherings.
+                Explore our year-round calendar of events, from major tournaments to cultural festivals and community gatherings.
                 </CardDescription>
                  <Button asChild variant="link" className="px-0 mt-4 font-bold">
-                  <Link href="/schedule">Full Schedule <ArrowRight className="ml-2"/></Link>
+                  <Link href="/schedule">Explore events <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
             </Card>

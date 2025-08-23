@@ -89,7 +89,7 @@ export default function SchedulePage() {
             </div>
             <div className="relative order-1 h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105 lg:order-2">
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/15thaugust.webp"
                 alt="Independence Day Celebration"
                 layout="fill"
                 objectFit="cover"
@@ -103,7 +103,7 @@ export default function SchedulePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
               <Image
-                src="/cricket.webp"
+                src="/c_tournament.webp"
                 alt="Cricket Tournament"
                 layout="fill"
                 objectFit="cover"
@@ -131,7 +131,7 @@ export default function SchedulePage() {
             </div>
             <div className="relative order-1 h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105 lg:order-2">
               <Image
-                src="/football.webp"
+                src="/f_tournament.webp"
                 alt="Football Tournament"
                 layout="fill"
                 objectFit="cover"
