@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "DSA '25",
-  description: "Durga Puja Celebration by Dubrajpur Sporting Association",
+  description: "Durga Puja Celebration by Dubrajpur Sports Association",
   icons: {
     icon: "/favicon.ico",
   },

@@ -12,7 +12,7 @@ export function Footer() {
             <span>DSA '25</span>
           </Link>
           <p className="text-sm text-foreground/60">
-            &copy; {new Date().getFullYear()} Dubrajpur Sporting Association. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-primary">

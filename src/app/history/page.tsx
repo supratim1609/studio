@@ -5,7 +5,7 @@ const history_events = [
     year: "1950",
     title: "Foundation of DSA",
     description:
-      "A group of visionaries laid the foundation for the Dubrajpur Sporting Association, aiming to foster community spirit through sports and culture.",
+      "A group of visionaries laid the foundation for the Dubrajpur Sports Association, aiming to foster community spirit through sports and culture.",
     image: "https://placehold.co/600x400.png",
     data_ai_hint: "vintage group photo",
   },
@@ -52,7 +52,7 @@ export default function HistoryPage() {
             Our Legacy
           </h1>
           <p className="mt-4 text-lg text-foreground/70">
-            A journey through time, celebrating the milestones that have shaped the Dubrajpur Sporting Association.
+            A journey through time, celebrating the milestones that have shaped the Dubrajpur Sports Association.
           </p>
         </div>
 

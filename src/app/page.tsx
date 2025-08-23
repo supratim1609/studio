@@ -28,7 +28,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
                  <h1 className="font-headline font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl">
                   <span className="block text-2xl font-normal text-foreground/80 md:text-3xl">Welcome to</span>
-                  <HeadlineAnimation texts={["Dubrajpur Sporting Association", "DSA"]} />
+                  <HeadlineAnimation texts={["Dubrajpur Sports Association", "DSA"]} />
                 </h1>
                 <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
                   <TypingAnimation
@@ -58,7 +58,7 @@ export default function Home() {
                 A Legacy of Celebration
               </h2>
               <p className="mt-4 text-lg text-foreground/70">
-                Dubrajpur Sporting Association (DSA) has been at the heart of the community for generations, fostering unity and cultural heritage. Our Durga Puja is more than just a festival; it's a grand spectacle of art, devotion, and togetherness that brings smiles to thousands of faces every year.
+                Dubrajpur Sports Association (DSA) has been at the heart of the community for generations, fostering unity and cultural heritage. Our Durga Puja is more than just a festival; it's a grand spectacle of art, devotion, and togetherness that brings smiles to thousands of faces every year.
               </p>
               <Button asChild className="mt-8 font-bold">
                 <Link href="/history">Our History</Link>
