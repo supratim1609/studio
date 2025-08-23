@@ -19,7 +19,7 @@ export default function SchedulePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
              <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/durga_pujo.webp"
                 alt="Durga Puja Celebration"
                 layout="fill"
                 objectFit="cover"
@@ -47,7 +47,7 @@ export default function SchedulePage() {
             </div>
             <div className="relative order-1 h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105 lg:order-2">
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/holi.webp"
                 alt="Basanta Baithak Celebration"
                 layout="fill"
                 objectFit="cover"
@@ -61,7 +61,7 @@ export default function SchedulePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/kite.webp"
                 alt="Bho-Katta Kite Festival"
                 layout="fill"
                 objectFit="cover"

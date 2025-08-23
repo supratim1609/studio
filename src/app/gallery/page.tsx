@@ -1,15 +1,21 @@
 import Image from "next/image";
 
 const images = [
-  { src: "https://placehold.co/600x800.png", alt: "Goddess Durga Idol", data_ai_hint: "durga idol" },
-  { src: "https://placehold.co/600x400.png", alt: "Cultural Dance Performance", data_ai_hint: "indian dance" },
-  { src: "https://placehold.co/600x600.png", alt: "Aarti Ceremony", data_ai_hint: "hindu ritual" },
-  { src: "https://placehold.co/600x700.png", alt: "Crowd of Devotees", data_ai_hint: "festival crowd" },
-  { src: "https://placehold.co/600x450.png", alt: "Pandal Decoration", data_ai_hint: "festival decoration" },
-  { src: "https://placehold.co/600x900.png", alt: "Children in Traditional Attire", data_ai_hint: "indian children" },
-  { src: "https://placehold.co/600x500.png", alt: "Sindur Khela", data_ai_hint: "holi festival" },
-  { src: "https://placehold.co/600x600.png", alt: "Bhog Distribution", data_ai_hint: "food sharing" },
-  { src: "https://placehold.co/600x400.png", alt: "Evening Lights at Pandal", data_ai_hint: "festival lights" },
+  { src: "/slideshow1.webp", alt: "", data_ai_hint: "durga idol" },
+  { src: "/slideshow8.webp", alt: "", data_ai_hint: "indian dance" },
+  { src: "/slideshow7.webp",alt: "", data_ai_hint: "indian dance" },
+  { src: "/600x400.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/slideshow2.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/slideshow5.webp",alt: "", data_ai_hint: "indian dance" },
+  { src: "/slideshow4.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/slideshow3.webp",alt: "", data_ai_hint: "indian dance" },
+  { src: "/holi.webp",alt: "", data_ai_hint: "indian dance" },
+  { src: "/durga_pujo.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/kite.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/football.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/dance.webp",alt: "", data_ai_hint: "indian dance" },
+  { src: "/cricket.webp", alt: "",data_ai_hint: "indian dance" },
+  { src: "/karate.webp",alt: "", data_ai_hint: "indian dance" },
 ];
 
 export default function GalleryPage() {
@@ -30,7 +36,7 @@ export default function GalleryPage() {
             <div key={index} className="group relative mb-4 break-inside-avoid overflow-hidden rounded-xl shadow-lg">
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt=""
                 width={600}
                 height={800}
                 className="h-auto w-full transform transition-transform duration-500 group-hover:scale-110"
@@ -38,7 +44,7 @@ export default function GalleryPage() {
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 <div className="flex h-full items-end p-4">
-                  <p className="text-sm font-bold text-white">{image.alt}</p>
+                  {/* <p className="text-sm font-bold text-white">{image.alt}</p> */}
                 </div>
               </div>
             </div>
