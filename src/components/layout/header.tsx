@@ -47,14 +47,12 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "relative text-sm font-medium uppercase tracking-widest transition-colors hover:text-primary",
+                "relative text-sm font-medium uppercase tracking-widest transition-colors hover:text-foreground",
+                "after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-full after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100",
                 pathname === link.href ? "text-foreground" : "text-foreground/60"
               )}
             >
               {link.label}
-              {pathname === link.href && (
-                <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-primary" />
-              )}
             </Link>
           ))}
         </nav>
