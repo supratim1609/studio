@@ -51,7 +51,9 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                <span>089064 79173</span>
+                <a href="tel:08906479173" className="transition-colors hover:text-primary">
+                  089064 79173
+                </a>
               </li>
                <li className="flex items-start gap-3">
                 <Mail className="mt-1 h-5 w-5 shrink-0 text-primary" />
@@ -87,7 +89,7 @@ export function Footer() {
                  <p className="text-center text-sm text-foreground/60 md:text-left">
                     &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
                 </p>
-                <div className="flex items-center gap-4 pr-16">
+                <div className="flex items-center gap-4">
                     <Link href="https://www.facebook.com/people/DSA/100092242809918/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
                       <Facebook className="h-5 w-5" />
                     </Link>
