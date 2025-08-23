@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Calendar, GalleryHorizontal, History, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { AlpanaIcon } from "@/components/icons/alpana";
 import { Countdown } from "@/components/countdown";
 import { DhakPlayer } from "@/components/dhak-player";
 
@@ -12,14 +11,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-       <section className="relative h-[calc(100dvh)] w-full">
+       <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://placehold.co/1800x1200.png"
             alt="Durga Puja Celebration"
             fill
             objectFit="cover"
-            className="opacity-30"
+            className="opacity-20"
             data-ai-hint="durga puja celebration"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -27,8 +26,7 @@ export default function Home() {
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
             <div className="flex flex-col items-center">
-                <AlpanaIcon className="h-20 w-20 text-primary" />
-                <h1 className="mt-4 font-headline text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
+                <h1 className="font-bold tracking-tight text-5xl md:text-7xl lg:text-8xl">
                     Durga pujo 2025
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl">
@@ -38,7 +36,7 @@ export default function Home() {
                 <Countdown targetDate={pujaStartDate.toISOString()} />
                 
                 <div className="mt-10 flex flex-wrap gap-4 justify-center">
-                    <Button asChild size="lg" className="font-bold">
+                    <Button asChild size="lg" className="font-bold text-lg">
                     <Link href="/schedule">
                         View Schedule <ArrowRight className="ml-2" />
                     </Link>
@@ -52,7 +50,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="font-headline text-3xl font-bold md:text-4xl">
+              <h2 className="text-3xl font-bold md:text-4xl">
                 A Legacy of Celebration
               </h2>
               <p className="mt-4 text-lg text-foreground/70">
@@ -78,7 +76,7 @@ export default function Home() {
 
       <section className="bg-muted/50 py-20 lg:py-32">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-headline text-3xl font-bold md:text-4xl">
+          <h2 className="text-3xl font-bold md:text-4xl">
             Join the Festivities
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-foreground/70">
@@ -91,7 +89,7 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
                     <Calendar className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl">Events</CardTitle>
+                  <CardTitle className="text-2xl">Events</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -109,7 +107,7 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
                     <GalleryHorizontal className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl">Gallery</CardTitle>
+                  <CardTitle className="text-2xl">Gallery</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -127,7 +125,7 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
                     <History className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl">History</CardTitle>
+                  <CardTitle className="text-2xl">History</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -145,7 +143,7 @@ export default function Home() {
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
                     <Users className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl">Our Team</CardTitle>
+                  <CardTitle className="text-2xl">Our Team</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>

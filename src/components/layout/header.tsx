@@ -46,14 +46,14 @@ export function Header() {
           <span>DSA '25</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === link.href ? "text-primary" : "text-foreground/60"
+                "text-sm font-medium uppercase tracking-wider transition-colors hover:text-primary",
+                pathname === link.href ? "text-primary" : "text-foreground/70"
               )}
             >
               {link.label}
