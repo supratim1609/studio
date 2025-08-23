@@ -14,7 +14,7 @@ const quickLinks = [
 export function Footer() {
   return (
     <footer className="border-t bg-card/50">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           
           <div className="md:col-span-2">
@@ -89,7 +89,7 @@ export function Footer() {
 
         </div>
 
-        <div className="mt-12 border-t border-border/50 pt-8">
+        <div className="mt-8 border-t border-border/50 pt-6">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
                 <div className="flex flex-col items-center gap-4 md:flex-row">
                     <p className="text-center text-sm text-foreground/60 md:text-left">
