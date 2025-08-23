@@ -10,7 +10,7 @@ type TimeUnitProps = {
 const TimeUnit: React.FC<TimeUnitProps> = ({ value, label }) => {
     return (
         <div className="flex flex-col items-center">
-            <p className="font-headline text-4xl md:text-6xl font-semibold tracking-tighter text-foreground">
+            <p className="font-headline text-4xl md:text-6xl font-semibold tracking-tighter text-primary">
                 {String(value).padStart(2, '0')}
             </p>
             <p className="text-sm md:text-base font-light uppercase tracking-widest text-foreground/70">{label}</p>
