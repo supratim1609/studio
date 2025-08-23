@@ -18,11 +18,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold">
+            <Link href="/" className="flex items-center gap-3">
               <div className="flex items-center justify-center p-1 rounded-full bg-primary-foreground">
                 <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
               </div>
-              <span>DSA '25</span>
+              <div className="flex flex-col">
+                <span className="font-headline text-2xl font-bold">DSA</span>
+                <span className="text-xs text-foreground/70 -mt-1">(Dubrajpur Sports Association)</span>
+              </div>
             </Link>
             <p className="mt-4 max-w-md text-foreground/70">
               A cornerstone of community spirit and vibrant celebrations in Dubrajpur. Fostering unity and cultural heritage for generations.
