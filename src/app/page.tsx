@@ -8,20 +8,14 @@ import { DhakPlayer } from "@/components/dhak-player";
 import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
+import { HeroSlideshow } from "@/components/hero-slideshow";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://placehold.co/1800x1200.png"
-            alt="Durga Puja Celebration"
-            fill
-            objectFit="cover"
-            className="opacity-20"
-            data-ai-hint="durga puja celebration"
-          />
+          <HeroSlideshow />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
         

@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -86,10 +87,54 @@ export default {
             height: '0',
           },
         },
+        'ken-burns-top': {
+          '0%': {
+            transform: 'scale(1) translateY(0)',
+            'transform-origin': '50% 16%',
+          },
+          '100%': {
+            transform: 'scale(1.15) translateY(-10px)',
+            'transform-origin': 'top',
+          },
+        },
+        'ken-burns-bottom': {
+          '0%': {
+            transform: 'scale(1) translateY(0)',
+            'transform-origin': '50% 84%',
+          },
+          '100%': {
+            transform: 'scale(1.15) translateY(10px)',
+            'transform-origin': 'bottom',
+          },
+        },
+        'ken-burns-left': {
+          '0%': {
+            transform: 'scale(1) translate(0, 0)',
+            'transform-origin': '16% 50%',
+          },
+          '100%': {
+            transform: 'scale(1.15) translate(-10px, 0px)',
+            'transform-origin': 'left',
+          },
+        },
+        'ken-burns-right': {
+          '0%': {
+            transform: 'scale(1) translate(0,0)',
+            'transform-origin': '84% 50%',
+          },
+          '100%': {
+            transform: 'scale(1.15) translate(10px, 0px)',
+            'transform-origin': 'right',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'ken-burns-top': 'ken-burns-top 12s ease-out both',
+        'ken-burns-bottom': 'ken-burns-bottom 12s ease-out both',
+        'ken-burns-left': 'ken-burns-left 12s ease-out both',
+        'ken-burns-right': 'ken-burns-right 12s ease-out both',
       },
     },
   },
