@@ -7,7 +7,6 @@ const quickLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
   { href: "/history", label: "History" },
-  { href: "/e-pass", label: "E-Pass" },
   { href: "/join", label: "Join Us" },
 ];
 
@@ -75,8 +74,10 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/50 pt-8">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-                 <p className="text-sm text-foreground/60">
+                 <p className="text-center text-sm text-foreground/60 md:text-left">
                     &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
+                    <br />
+                    With love from Bhumika das.
                 </p>
                 <div className="flex items-center gap-4">
                     <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-primary">
