@@ -67,7 +67,7 @@ export function Header() {
         </nav>
 
         <div className="flex flex-1 justify-end items-center gap-4">
-             <Button asChild variant="ghost" className="hidden md:flex">
+             <Button asChild variant="ghost" className="hidden md:flex border border-primary hover:bg-primary/10">
                 <Link href="/join">Join Us</Link>
             </Button>
              <div className="md:hidden">
