@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import { AlpanaIcon } from "../icons/alpana";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -47,6 +48,7 @@ export function Header() {
         </div>
        
         <nav className="hidden items-center justify-center gap-6 lg:gap-8 md:flex flex-1">
+          <AlpanaIcon className="h-6 w-6 text-primary" />
           {navLinks.map((link) => (
              <Link
               key={link.href}
@@ -60,6 +62,7 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <AlpanaIcon className="h-6 w-6 text-primary" />
         </nav>
 
         <div className="flex flex-shrink-0 justify-end items-center gap-4">
