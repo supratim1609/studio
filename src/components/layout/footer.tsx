@@ -31,6 +31,11 @@ export function Footer() {
              <Link href="/history" className="mt-4 inline-block font-bold text-primary transition-colors hover:text-primary/80">
                 Our Story!
             </Link>
+            <div className="mt-4 flex items-center gap-4">
+                <Link href="https://www.facebook.com/people/DSA/100092242809918/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
+                    <Facebook className="h-6 w-6" />
+                </Link>
+            </div>
           </div>
 
           <div>
@@ -90,11 +95,6 @@ export function Footer() {
                     <p className="text-center text-sm text-foreground/60 md:text-left">
                         &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
                     </p>
-                </div>
-                <div className="flex items-center gap-4">
-                    <Link href="https://www.facebook.com/people/DSA/100092242809918/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
-                      <Facebook className="h-5 w-5" />
-                    </Link>
                 </div>
             </div>
         </div>
