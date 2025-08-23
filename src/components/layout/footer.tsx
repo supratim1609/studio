@@ -77,7 +77,7 @@ export function Footer() {
                  <p className="text-center text-sm text-foreground/60 md:text-left">
                     &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
                     <br />
-                    With love from Bhumika das.
+                    with ❤️ from bhumika
                 </p>
                 <div className="flex items-center gap-4">
                     <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-primary">
