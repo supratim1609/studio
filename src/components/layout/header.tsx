@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,6 +17,8 @@ const navLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/activities", label: "Activities" },
 ];
+
+const mobileNavLinks = [...navLinks, { href: "/join", label: "Join Us" }];
 
 export function Header() {
   const pathname = usePathname();
@@ -63,6 +67,9 @@ export function Header() {
         </nav>
 
         <div className="flex flex-1 justify-end items-center gap-4">
+             <Button asChild variant="ghost" className="hidden md:flex">
+                <Link href="/join">Join Us</Link>
+            </Button>
              <div className="md:hidden">
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
@@ -77,7 +84,7 @@ export function Header() {
                             <Image src="/logo.png" alt="DSA Logo" width={64} height={64} className="transition-all"/>
                         </Link>
                         <nav className="flex flex-col gap-4">
-                        {navLinks.map((link) => (
+                        {mobileNavLinks.map((link) => (
                             <Link
                             key={link.href}
                             href={link.href}
