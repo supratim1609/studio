@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         body: ['"Poppins"', 'sans-serif'],
         headline: ['"Poppins"', 'sans-serif'],
+        bengali: ['"Hind Siliguri"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

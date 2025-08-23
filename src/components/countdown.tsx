@@ -76,6 +76,7 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         <TimeUnit value={timeLeft.minutes} label="Minutes" />
         <TimeUnit value={timeLeft.seconds} label="Seconds" />
       </div>
+      <p className="mt-6 text-center font-bengali text-2xl font-medium text-accent tracking-wider">শারদীয়ার শুভ সূচনা</p>
     </div>
   );
 };
