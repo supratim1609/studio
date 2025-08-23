@@ -1,5 +1,4 @@
 
-
 const history_events = [
     {
       year: "2010-2024",
