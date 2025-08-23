@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { AlpanaIcon } from "../icons/alpana";
 import { Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 const quickLinks = [
   { href: "/schedule", label: "Schedule" },
@@ -19,7 +19,7 @@ export function Footer() {
           
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-headline text-2xl font-bold">
-              <AlpanaIcon className="h-8 w-8 text-primary" />
+              <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="invert"/>
               <span>DSA '25</span>
             </Link>
             <p className="mt-4 max-w-md text-foreground/70">

@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import React from "react";
-import { AlpanaIcon } from "../icons/alpana";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -40,7 +40,13 @@ export function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex h-20 items-center justify-center">
+      <div className="container flex h-20 items-center justify-between">
+         <div className="flex items-center">
+            <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
+                <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="invert"/>
+                <span className="hidden sm:inline-block">DSA '25</span>
+            </Link>
+        </div>
         <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((link) => (
              <Link
@@ -56,48 +62,41 @@ export function Header() {
             </Link>
           ))}
         </nav>
-
-        <div className="md:hidden">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2">
-                <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
-                    <AlpanaIcon className="h-6 w-6 text-primary" />
-                    <span>DSA '25</span>
-                </Link>
-            </div>
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Menu className="h-4 w-4" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col">
-              <div className="flex flex-col gap-8 pt-8">
-                <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
-                   <AlpanaIcon className="h-6 w-6 text-primary" />
-                   <span>DSA '25</span>
-                </Link>
-                <nav className="flex flex-col gap-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                        pathname === link.href ? "text-primary" : "text-foreground/80"
-                      )}
-                    >
-                      {link.label}
+        <div className="flex items-center gap-4">
+             <Button asChild>
+                <Link href="/join">Join Us</Link>
+            </Button>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild className="md:hidden">
+                <Button variant="outline" size="icon">
+                    <Menu className="h-4 w-4" />
+                    <span className="sr-only">Open menu</span>
+                </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="flex flex-col">
+                <div className="flex flex-col gap-8 pt-8">
+                    <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
+                        <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="invert"/>
+                        <span>DSA '25</span>
                     </Link>
-                  ))}
-                </nav>
-              </div>
-              <div className="mt-auto flex flex-col gap-4 py-4">
-                
-              </div>
-            </SheetContent>
-          </Sheet>
+                    <nav className="flex flex-col gap-4">
+                    {navLinks.map((link) => (
+                        <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                            "text-lg font-medium transition-colors hover:text-primary",
+                            pathname === link.href ? "text-primary" : "text-foreground/80"
+                        )}
+                        >
+                        {link.label}
+                        </Link>
+                    ))}
+                    </nav>
+                </div>
+                </SheetContent>
+            </Sheet>
         </div>
       </div>
     </header>
