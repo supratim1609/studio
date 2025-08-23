@@ -98,10 +98,10 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  From the grand inauguration to the heartfelt send-off, discover our full schedule of pujas, cultural programs, and more.
+                Explore our year-round calendar of events, from major tournaments to cultural festivals and community gatherings.
                 </CardDescription>
                  <Button asChild variant="link" className="px-0 mt-4 font-bold">
-                  <Link href="/schedule">Full Schedule <ArrowRight className="ml-2"/></Link>
+                  <Link href="/schedule">Explore events <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
             </Card>
