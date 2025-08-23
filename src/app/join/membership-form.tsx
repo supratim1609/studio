@@ -34,6 +34,17 @@ const formSchema = z.object({
   membershipType: z.enum(["annual", "lifetime"], { required_error: "Please select a membership type."}),
 });
 
+// These are the real entry IDs from the provided Google Form
+const GOOGLE_FORM_ENTRIES = {
+  fullName: "entry.1297920330",
+  email: "entry.1887332742",
+  phone: "entry.1818228303",
+  address: "entry.1691283253",
+  membershipType: "entry.1880424564",
+};
+
+const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScSaSyDljzLrVBBw1z8ugSeawnUaPuoy6S9dCGCZEuZ7H6Rag/formResponse";
+
 export function MembershipForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -50,11 +61,20 @@ export function MembershipForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    
+    const formData = new FormData();
+    formData.append(GOOGLE_FORM_ENTRIES.fullName, values.fullName);
+    formData.append(GOOGLE_FORM_ENTRIES.email, values.email);
+    formData.append(GOOGLE_FORM_ENTRIES.phone, values.phone);
+    formData.append(GOOGLE_FORM_ENTRIES.address, values.address);
+    formData.append(GOOGLE_FORM_ENTRIES.membershipType, values.membershipType);
+
     try {
-      // Placeholder for Google Form submission logic
-      console.log("Form values:", values);
-      
-      await new Promise(resolve => setTimeout(resolve, 1000));
+       await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors", // Important: 'no-cors' mode is required for Google Forms
+      });
 
       toast({
         title: "Application Submitted!",
@@ -82,93 +102,95 @@ export function MembershipForm() {
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormField
-              control={form.control}
-              name="fullName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Full Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., Sourav Ganguly" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-             <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email Address</FormLabel>
-                  <FormControl>
-                    <Input placeholder="sourav.g@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-             <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Phone Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder="9876543210" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Full Address</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your street, city, pin code" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <div className="space-y-6">
+                <FormField
                 control={form.control}
-                name="membershipType"
+                name="fullName"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Membership Type</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select a membership plan" />
-                        </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                            <SelectItem value="annual">Annual Membership</SelectItem>
-                            <SelectItem value="lifetime">Lifetime Membership</SelectItem>
-                        </SelectContent>
-                    </Select>
+                    <FormLabel>Full Name</FormLabel>
+                    <FormControl>
+                        <Input placeholder="e.g., Sourav Ganguly" {...field} />
+                    </FormControl>
                     <FormMessage />
                     </FormItem>
                 )}
-            />
-            <Button type="submit" className="w-full font-bold" size="lg" disabled={isSubmitting}>
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
-                </>
-              ) : (
-                <>
-                  Submit Application
-                  <ArrowRight className="ml-2"/>
-                </>
-              )}
-            </Button>
+                />
+                <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Email Address</FormLabel>
+                    <FormControl>
+                        <Input placeholder="sourav.g@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Phone Number</FormLabel>
+                    <FormControl>
+                        <Input placeholder="9876543210" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="address"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Full Address</FormLabel>
+                    <FormControl>
+                        <Input placeholder="Your street, city, pin code" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                    control={form.control}
+                    name="membershipType"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Membership Type</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Select a membership plan" />
+                            </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                                <SelectItem value="annual">Annual Membership</SelectItem>
+                                <SelectItem value="lifetime">Lifetime Membership</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <Button type="submit" className="w-full font-bold" size="lg" disabled={isSubmitting}>
+                {isSubmitting ? (
+                    <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Submitting...
+                    </>
+                ) : (
+                    <>
+                    Submit Application
+                    <ArrowRight className="ml-2"/>
+                    </>
+                )}
+                </Button>
+            </div>
           </form>
         </Form>
       </CardContent>
