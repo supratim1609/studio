@@ -62,6 +62,12 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <Button asChild variant="outline">
+            <Link href="/e-pass">Request E-Pass</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/join">Join Us</Link>
+          </Button>
         </div>
 
         <div className="md:hidden">
@@ -93,6 +99,14 @@ export function Header() {
                     </Link>
                   ))}
                 </nav>
+                 <div className="flex flex-col gap-4">
+                    <Button asChild variant="outline" onClick={() => setIsOpen(false)}>
+                        <Link href="/e-pass">Request E-Pass</Link>
+                    </Button>
+                    <Button asChild onClick={() => setIsOpen(false)}>
+                        <Link href="/join">Join Us</Link>
+                    </Button>
+                 </div>
               </div>
             </SheetContent>
           </Sheet>

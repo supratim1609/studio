@@ -2,7 +2,7 @@ import { EPassForm } from "./e-pass-form";
 
 export default function EPassPage() {
   return (
-    <div className="bg-secondary/30">
+    <div className="bg-muted/30">
       <div className="container mx-auto flex min-h-[calc(100dvh-10rem)] items-center justify-center px-4 py-16 sm:py-24">
         <div className="w-full max-w-2xl">
             <div className="mx-auto max-w-2xl text-center mb-12">

@@ -76,7 +76,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-20 lg:py-32">
+      <section className="bg-muted/50 py-20 lg:py-32">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-headline text-3xl font-bold md:text-4xl">
             Join the Festivities

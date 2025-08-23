@@ -45,7 +45,7 @@ const history_events = [
 
 export default function HistoryPage() {
   return (
-    <div className="bg-secondary/30">
+    <div className="bg-muted/30">
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
