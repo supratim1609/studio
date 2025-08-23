@@ -19,9 +19,7 @@ export function Footer() {
           
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3">
-              <div className="flex items-center justify-center p-1 rounded-full bg-primary-foreground">
-                <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
-              </div>
+              <Image src="/logo.png" alt="DSA Logo" width={64} height={64} className="transition-all"/>
               <div className="flex flex-col">
                 <span className="font-headline text-2xl font-bold">DSA</span>
                 <span className="text-xs text-foreground/70 -mt-1">(Dubrajpur Sports Association)</span>

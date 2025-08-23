@@ -41,8 +41,8 @@ export function Header() {
     <header className={headerClasses}>
       <div className="container mx-auto flex h-24 items-center justify-between">
         <div className="flex flex-1 justify-start">
-            <Link href="/" className="flex items-center justify-center p-1 rounded-full bg-primary-foreground">
-                 <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
+            <Link href="/">
+                 <Image src="/logo.png" alt="DSA Logo" width={64} height={64} className="transition-all"/>
             </Link>
         </div>
        
@@ -74,9 +74,7 @@ export function Header() {
                     <SheetContent side="right" className="flex flex-col">
                     <div className="flex flex-col gap-8 pt-8">
                          <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
-                            <div className="flex items-center justify-center p-1 rounded-full bg-primary-foreground">
-                                <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
-                            </div>
+                            <Image src="/logo.png" alt="DSA Logo" width={64} height={64} className="transition-all"/>
                         </Link>
                         <nav className="flex flex-col gap-4">
                         {navLinks.map((link) => (
