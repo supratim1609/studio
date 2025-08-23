@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ArrowRight, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import React from "react";
 import { AlpanaIcon } from "../icons/alpana";
 
@@ -62,12 +62,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-            <Button asChild variant="outline">
-                <Link href="/e-pass">Request E-Pass</Link>
-            </Button>
-            <Button asChild variant="default" className="animate-pulse">
-                <Link href="/join">Join Us <ArrowRight /></Link>
-            </Button>
+           
         </div>
 
         <div className="md:hidden">
@@ -101,12 +96,7 @@ export function Header() {
                 </nav>
               </div>
               <div className="mt-auto flex flex-col gap-4 py-4">
-                 <Button asChild variant="outline" size="lg" onClick={() => setIsOpen(false)}>
-                    <Link href="/e-pass">Request E-Pass</Link>
-                </Button>
-                <Button asChild variant="default" size="lg" onClick={() => setIsOpen(false)}>
-                    <Link href="/join">Join Us <ArrowRight /></Link>
-                </Button>
+                
               </div>
             </SheetContent>
           </Sheet>
