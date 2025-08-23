@@ -1,6 +1,7 @@
 
 
 
+
 const history_events = [
     {
       year: "২০১০-২০২৪",
@@ -32,7 +33,7 @@ export default function HistoryPage() {
             History
           </h1>
            <p className="mt-6 text-lg text-foreground/80">
-            Since its founding in <span className="font-bold text-xl">1979</span>, <span className="text-primary font-semibold">Dubrajpur Sports Association (DSA)</span> has been a cornerstone of community spirit in Dubrajpur. From a humble sports club, it has evolved into a vibrant hub for tradition and unity. Our signature Durga Puja is one of the region’s most anticipated events, drawing thousands to celebrate our creative excellence and deep-rooted devotion. At DSA, we build connections that last—through sport, service, and celebration.
+            Since its founding in <span className="font-bold text-xl text-primary">1979</span>, <span className="text-primary font-semibold">Dubrajpur Sports Association (DSA)</span> has been a cornerstone of community spirit in Dubrajpur. From a humble sports club, it has evolved into a vibrant hub for tradition and unity. Our signature Durga Puja is one of the region’s most anticipated events, drawing thousands to celebrate our creative excellence and deep-rooted devotion. At DSA, we build connections that last—through sport, service, and celebration.
           </p>
         </div>
 
