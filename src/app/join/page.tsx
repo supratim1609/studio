@@ -1,7 +1,6 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { MembershipForm } from "./membership-form";
-import { DonationForm } from "./donation-form";
-import { Handshake, Heart } from "lucide-react";
+import { Handshake } from "lucide-react";
 
 export default function JoinPage() {
   return (
@@ -13,26 +12,11 @@ export default function JoinPage() {
                         Become a Part of Our Family
                     </h1>
                     <p className="mt-4 text-lg text-foreground/70">
-                        Your support helps us continue our tradition of grand celebrations and community service. Choose how you'd like to contribute.
+                        Your support helps us continue our tradition of grand celebrations and community service. Apply for membership below.
                     </p>
                 </div>
                 
-                <Tabs defaultValue="membership" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="membership" className="gap-2">
-                           <Handshake className="h-4 w-4"/> Membership
-                        </TabsTrigger>
-                        <TabsTrigger value="donation" className="gap-2">
-                            <Heart className="h-4 w-4"/> Donate
-                        </TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="membership">
-                       <MembershipForm />
-                    </TabsContent>
-                    <TabsContent value="donation">
-                        <DonationForm />
-                    </TabsContent>
-                </Tabs>
+                <MembershipForm />
             </div>
         </div>
     </div>
