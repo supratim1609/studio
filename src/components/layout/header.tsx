@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -8,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import React from "react";
 import { AlpanaIcon } from "../icons/alpana";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -40,32 +40,32 @@ export function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
-          <AlpanaIcon className="h-6 w-6 text-primary" />
-          <span>DSA '25</span>
-        </Link>
-
+      <div className="container flex h-20 items-center justify-center">
         <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((link) => (
-            <Link
+             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium uppercase tracking-wider transition-colors hover:text-primary",
-                pathname === link.href ? "text-primary" : "text-foreground/70"
+                "relative text-sm font-medium uppercase tracking-widest transition-colors hover:text-primary",
+                pathname === link.href ? "text-foreground" : "text-foreground/60"
               )}
             >
               {link.label}
+              {pathname === link.href && (
+                <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-primary" />
+              )}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
-           
-        </div>
-
         <div className="md:hidden">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold">
+                    <AlpanaIcon className="h-6 w-6 text-primary" />
+                    <span>DSA '25</span>
+                </Link>
+            </div>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon">
