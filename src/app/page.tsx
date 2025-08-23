@@ -6,6 +6,7 @@ import Link from "next/link";
 import { DhakPlayer } from "@/components/dhak-player";
 import { TypingAnimation } from "@/components/typing-animation";
 import { Countdown } from "@/components/countdown";
+import { HeadlineAnimation } from "@/components/headline-animation";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
                  <h1 className="font-headline font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl">
                   <span className="block text-2xl font-normal text-foreground/80 md:text-3xl">Welcome to</span>
-                  Dubrajpur Sporting Association
+                  <HeadlineAnimation texts={["Dubrajpur Sporting Association", "DSA"]} />
                 </h1>
                 <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
                   <TypingAnimation
