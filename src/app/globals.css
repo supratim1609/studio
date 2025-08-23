@@ -8,46 +8,46 @@ body {
 
 @layer base {
   :root {
-    --background: 20 14% 4%;
+    --background: 0 0% 7%; /* Near Black */
     --foreground: 20 5% 95%;
-    --card: 20 14% 7%;
+    --card: 0 0% 11%; /* Darker Gray */
     --card-foreground: 20 5% 95%;
-    --popover: 20 14% 4%;
+    --popover: 0 0% 7%;
     --popover-foreground: 20 5% 95%;
     --primary: 25 95% 53%; /* Vibrant Orange */
     --primary-foreground: 20 5% 98%;
     --secondary: 0 72% 51%; /* Maroon/Red */
     --secondary-foreground: 0 0% 100%;
-    --muted: 20 14% 12%;
+    --muted: 0 0% 15%;
     --muted-foreground: 20 5% 65%;
     --accent: 35 91% 55%; /* Saffron/Gold */
     --accent-foreground: 20 14% 4%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
-    --border: 20 14% 15%;
-    --input: 20 14% 15%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 25 95% 53%;
     --radius: 0.5rem;
   }
   .dark {
-    --background: 20 14% 4%;
+    --background: 0 0% 7%; /* Near Black */
     --foreground: 20 5% 95%;
-    --card: 20 14% 7%;
+    --card: 0 0% 11%; /* Darker Gray */
     --card-foreground: 20 5% 95%;
-    --popover: 20 14% 4%;
+    --popover: 0 0% 7%;
     --popover-foreground: 20 5% 95%;
     --primary: 25 95% 53%; /* Vibrant Orange */
     --primary-foreground: 20 5% 98%;
     --secondary: 0 72% 51%; /* Maroon/Red */
     --secondary-foreground: 0 0% 100%;
-    --muted: 20 14% 12%;
+    --muted: 0 0% 15%;
     --muted-foreground: 20 5% 65%;
     --accent: 35 91% 55%; /* Saffron/Gold */
     --accent-foreground: 20 14% 4%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 100%;
-    --border: 20 14% 15%;
-    --input: 20 14% 15%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 25 95% 53%;
   }
 }
