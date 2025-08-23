@@ -1,7 +1,5 @@
 
-import { DonationForm } from "./donation-form";
 import { MembershipForm } from "./membership-form";
-import { Separator } from "@/components/ui/separator";
 
 export default function JoinPage() {
   return (
@@ -13,19 +11,11 @@ export default function JoinPage() {
                         Become a Part of Our Family
                     </h1>
                     <p className="mt-4 text-lg text-foreground/70">
-                        Your support helps us continue our tradition of grand celebrations and community service. Apply for membership or contribute with a donation below.
+                        Your support helps us continue our tradition of grand celebrations and community service. Apply for membership below.
                     </p>
                 </div>
                 
                 <MembershipForm />
-                
-                <div className="my-12 flex items-center">
-                    <Separator className="flex-1" />
-                    <span className="mx-4 text-sm font-medium text-muted-foreground">OR</span>
-                    <Separator className="flex-1" />
-                </div>
-
-                <DonationForm />
             </div>
         </div>
     </div>
