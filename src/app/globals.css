@@ -8,28 +8,6 @@ body {
 
 @layer base {
   :root {
-    --background: 48 100% 98%; /* Creamy Off-White */
-    --foreground: 24 9.8% 10%;
-    --card: 48 100% 98%;
-    --card-foreground: 24 9.8% 10%;
-    --popover: 48 100% 98%;
-    --popover-foreground: 24 9.8% 10%;
-    --primary: 0 72% 51%; /* Auspicious Red */
-    --primary-foreground: 355 100% 97%;
-    --secondary: 35 92% 55%; /* Saffron/Orange */
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 35 92% 55%;
-    --accent-foreground: 24 9.8% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 0 72% 51%;
-    --radius: 0.5rem;
-  }
-  .dark {
     --background: 24 9.8% 10%;
     --foreground: 210 40% 98%;
     --card: 24 9.8% 10%;
@@ -49,6 +27,7 @@ body {
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 0 72% 51%;
+    --radius: 0.5rem;
   }
 }
 
