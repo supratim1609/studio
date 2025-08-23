@@ -10,10 +10,10 @@ type TimeUnitProps = {
 const TimeUnit: React.FC<TimeUnitProps> = ({ value, label }) => {
     return (
         <div className="flex flex-col items-center">
-            <p className="font-headline text-4xl md:text-6xl font-semibold tracking-tighter text-primary">
+            <p className="font-headline text-3xl md:text-5xl font-semibold tracking-tighter text-primary">
                 {String(value).padStart(2, '0')}
             </p>
-            <p className="text-sm md:text-base font-light uppercase tracking-widest text-foreground/70">{label}</p>
+            <p className="text-xs md:text-sm font-light uppercase tracking-widest text-foreground/70">{label}</p>
         </div>
     );
 };
@@ -69,8 +69,8 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
 
   return (
-    <div className="py-8 my-8 rounded-xl bg-background/30 backdrop-blur-sm border border-white/10 shadow-lg w-full max-w-4xl">
-      <p className="mb-6 text-center font-bengali text-2xl font-medium text-primary tracking-wider">শারদীয়ার শুভ সূচনায় বাকি</p>
+    <div className="py-6 my-8 rounded-xl bg-background/20 border border-white/10 shadow-lg w-full max-w-2xl">
+      <p className="mb-4 text-center font-bengali text-xl font-medium text-primary tracking-wider">শারদীয়ার শুভ সূচনায় বাকি</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <TimeUnit value={timeLeft.days} label="Days" />
         <TimeUnit value={timeLeft.hours} label="Hours" />
