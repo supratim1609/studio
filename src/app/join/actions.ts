@@ -15,11 +15,11 @@ const membershipFormSchema = z.object({
 const GOOGLE_MEMBERSHIP_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScSaSyDljzLrVBBw1z8ugSeawnUaPuoy6S9dCGCZEuZ7H6Rag/formResponse";
 
 const GOOGLE_MEMBERSHIP_FORM_ENTRIES = {
-  fullName: "entry.1297920330",
-  email: "entry.1887332742",
-  phone: "entry.1818228303",
-  address: "entry.1691283253",
-  membershipType: "entry.1880424564",
+  fullName: "entry.1118152060",
+  email: "entry.1852737642",
+  phone: "entry.1105527312",
+  address: "entry.59453461",
+  membershipType: "entry.1602853380",
 };
 
 export async function submitMembershipToGoogleForm(data: z.infer<typeof membershipFormSchema>) {
