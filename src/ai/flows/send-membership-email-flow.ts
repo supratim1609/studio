@@ -9,6 +9,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
+import nodemailer from 'nodemailer';
 
 const MembershipApplicationSchema = z.object({
   fullName: z.string().describe('The full name of the applicant.'),
@@ -28,28 +29,41 @@ const sendMembershipEmailFlow = ai.defineFlow(
     outputSchema: z.void(),
   },
   async (input) => {
-    // In a real application, you would integrate an email service here.
-    // For example, using Nodemailer with a service like SendGrid, or calling a cloud function.
-    // For now, we will just log the details to the console.
     
-    const emailBody = `
-      New Membership Application:
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_SERVER_HOST,
+      port: Number(process.env.EMAIL_SERVER_PORT),
+      secure: Number(process.env.EMAIL_SERVER_PORT) === 465, // true for 465, false for other ports
+      auth: {
+        user: process.env.EMAIL_SERVER_USER,
+        pass: process.env.EMAIL_SERVER_PASS,
+      },
+    });
 
-      Full Name: ${input.fullName}
-      Email: ${input.email}
-      Phone: ${input.phone}
-      Address: ${input.address}
-      Membership Type: ${input.membershipType}
+    const emailBody = `
+      <h1>New Membership Application</h1>
+      <p><strong>Full Name:</strong> ${input.fullName}</p>
+      <p><strong>Email:</strong> ${input.email}</p>
+      <p><strong>Phone:</strong> ${input.phone}</p>
+      <p><strong>Address:</strong> ${input.address}</p>
+      <p><strong>Membership Type:</strong> ${input.membershipType}</p>
     `;
 
-    console.log("---- New Membership Application ----");
-    console.log(`Sending email to supratimdhara0@gmail.com`);
-    console.log(emailBody);
-    console.log("------------------------------------");
+    const mailOptions = {
+      from: `DSA Membership <${process.env.EMAIL_FROM}>`,
+      to: 'supratimdhara0@gmail.com',
+      subject: 'New Membership Application Received',
+      html: emailBody,
+    };
 
-    // This is where you would add your email sending logic.
-    // For example:
-    // await sendEmail({ to: 'supratimdhara0@gmail.com', subject: 'New Membership Application', body: emailBody });
+    try {
+        await transporter.sendMail(mailOptions);
+        console.log("Membership application email sent successfully.");
+    } catch (error) {
+        console.error("Error sending email:", error);
+        // We re-throw the error so the client knows something went wrong.
+        throw new Error("Failed to send membership application email.");
+    }
   }
 );
 
