@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
-  { href: "/join", label: "Join Us" },
 ];
 
 export function Header() {
@@ -39,13 +38,12 @@ export function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container flex h-auto flex-col items-center justify-center py-4">
-         <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold">
-                <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
-            </Link>
-        </div>
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex mt-4">
+      <div className="container mx-auto flex h-20 items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold">
+            <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
+        </Link>
+        
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((link) => (
              <Link
               key={link.href}
@@ -60,9 +58,10 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="absolute top-4 right-4 flex items-center gap-4">
+
+        <div className="flex items-center gap-4 md:hidden">
              <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild className="md:hidden">
+                <SheetTrigger asChild>
                 <button aria-label="Open menu" className="p-2">
                     <Menu className="h-6 w-6" />
                     <span className="sr-only">Open menu</span>
