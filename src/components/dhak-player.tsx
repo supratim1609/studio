@@ -52,7 +52,7 @@ export const DhakPlayer = () => {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full border-2 bg-background/50 backdrop-blur-sm"
+          className="h-12 w-12 rounded-full border-2 border-primary/20 bg-background/80 shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:bg-background"
           onClick={togglePlay}
           aria-label={isPlaying ? "Pause music" : "Play music"}
         >
