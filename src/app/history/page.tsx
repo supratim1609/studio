@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 const history_events = [
   {
@@ -6,40 +5,30 @@ const history_events = [
     title: "Foundation of DSA",
     description:
       "A group of visionaries laid the foundation for the Dubrajpur Sports Association, aiming to foster community spirit through sports and culture.",
-    image: "https://placehold.co/600x400.png",
-    data_ai_hint: "vintage group photo",
   },
   {
     year: "1955",
     title: "The First Durga Puja",
     description:
       "DSA organized its first Durga Puja, a small but heartfelt celebration that marked the beginning of a cherished annual tradition.",
-    image: "https://placehold.co/600x400.png",
-    data_ai_hint: "old festival black-white",
   },
   {
     year: "1980",
     title: "Inauguration of Community Hall",
     description:
       "With overwhelming support from the community, the club inaugurated its own community hall, providing a permanent venue for events.",
-    image: "https://placehold.co/600x400.png",
-    data_ai_hint: "building inauguration old",
   },
   {
     year: "2000",
     title: "Silver Jubilee Celebration",
     description:
       "The club celebrated 50 years of community service and cultural festivities with a grand Silver Jubilee event, attended by thousands.",
-    image: "https://placehold.co/600x400.png",
-    data_ai_hint: "modern celebration event",
   },
   {
     year: "2023",
     title: "Record Footfall & Recognition",
     description:
       "DSA's Durga Puja received widespread acclaim and saw a record number of visitors, cementing its status as a premier celebration in the region.",
-    image: "https://placehold.co/600x400.png",
-    data_ai_hint: "crowd festival night",
   },
 ];
 
@@ -74,16 +63,6 @@ export default function HistoryPage() {
                 <div className="w-full md:w-1/2">
                   <div className={`p-4 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                     <div className="rounded-xl bg-card p-6 shadow-lg transition-shadow duration-300 group-hover:shadow-2xl">
-                       <div className="relative mb-4 h-48 w-full">
-                        <Image
-                          src={event.image}
-                          alt={event.title}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-lg"
-                          data-ai-hint={event.data_ai_hint}
-                        />
-                       </div>
                        <p className="text-sm font-semibold text-primary">{event.year}</p>
                        <h3 className="font-headline text-2xl font-bold">{event.title}</h3>
                        <p className="mt-2 text-foreground/70">{event.description}</p>
