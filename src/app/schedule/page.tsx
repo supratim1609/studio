@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 
 export default function SchedulePage() {
@@ -14,6 +15,27 @@ export default function SchedulePage() {
         </div>
 
         <div className="mt-20 space-y-20">
+          {/* Durga Puja Section */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+             <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
+              <Image
+                src="https://placehold.co/600x400.png"
+                alt="Durga Puja Celebration"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+                data-ai-hint="durga puja"
+              />
+            </div>
+            <div>
+              <h2 className="font-headline text-3xl font-bold md:text-4xl font-bengali">দুর্গা পূজা</h2>
+              <h3 className="font-headline text-2xl font-bold md:text-3xl text-primary -mt-2">Durga Puja</h3>
+              <p className="mt-4 text-foreground/70">
+                Durga Puja is not just a festival—it’s the soul of Dubrajpur. At DSA, it symbolizes unity, tradition, and spiritual celebration that resonates deeply with every heart in the region. For over a decade, our Puja has brought together people from all walks of life—children to seniors, artists to devotees. It's a shared emotion, where devotion meets creativity, and communities reconnect through culture, light, and joy. This celebration fosters inclusiveness, revives local traditions, and nurtures a sense of belonging. DSA’s Durga Puja is where heritage lives on, and every visitor becomes part of a larger family.
+              </p>
+            </div>
+          </div>
+
           {/* Basanta Baithak Section */}
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="order-2 lg:order-1">
