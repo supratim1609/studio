@@ -15,8 +15,6 @@ const navLinks = [
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
-  { href: "/e-pass", label: "E-Pass" },
-  { href: "/join", label: "Join Us" },
 ];
 
 export function Header() {
@@ -48,7 +46,7 @@ export function Header() {
           <span>DSA '25</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -63,6 +61,15 @@ export function Header() {
           ))}
         </nav>
 
+        <div className="hidden md:flex items-center gap-2">
+            <Button asChild variant="outline">
+                <Link href="/e-pass">Request E-Pass</Link>
+            </Button>
+            <Button asChild variant="default" className="animate-pulse">
+                <Link href="/join">Join Us <ArrowRight /></Link>
+            </Button>
+        </div>
+
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -71,7 +78,7 @@ export function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="flex flex-col">
               <div className="flex flex-col gap-8 pt-8">
                 <Link href="/" className="flex items-center gap-2 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
                    <AlpanaIcon className="h-6 w-6 text-primary" />
@@ -92,6 +99,14 @@ export function Header() {
                     </Link>
                   ))}
                 </nav>
+              </div>
+              <div className="mt-auto flex flex-col gap-4 py-4">
+                 <Button asChild variant="outline" size="lg" onClick={() => setIsOpen(false)}>
+                    <Link href="/e-pass">Request E-Pass</Link>
+                </Button>
+                <Button asChild variant="default" size="lg" onClick={() => setIsOpen(false)}>
+                    <Link href="/join">Join Us <ArrowRight /></Link>
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
