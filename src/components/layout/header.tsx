@@ -52,7 +52,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                "relative text-sm font-medium uppercase tracking-widest transition-colors hover:text-foreground",
+                "relative text-sm font-medium uppercase tracking-widest transition-colors hover:text-foreground whitespace-nowrap",
                 "after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-full after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100",
                 pathname === link.href ? "text-foreground font-bold" : "text-foreground/60"
               )}
