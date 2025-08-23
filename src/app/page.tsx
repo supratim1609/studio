@@ -36,6 +36,7 @@ export default function Home() {
                             "Where tradition meets tomorrow.",
                             "A hub of culture and joy.",
                             "Celebrating community spirit.",
+                            "Beyond Celebrations – A Home for Culture, Sports & Togetherness.",
                         ]}
                         className="text-primary font-bold"
                     />
