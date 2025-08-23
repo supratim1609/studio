@@ -24,12 +24,12 @@ export default function Home() {
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
             <div className="flex flex-col items-center">
-                <h1 className="font-headline font-bold tracking-tight text-5xl md:text-7xl lg:text-8xl">
-                  WELCOME TO DUBRAJPUR SPORTING ASSOCIATION
+                <h1 className="font-headline font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl">
+                  Welcome to Dubrajpur Sporting Association
                 </h1>
-                <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-2xl">
+                <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
                   <TypingAnimation
-                    texts={["WHERE TRADITION MEETS TOMORROW.", "A HUB OF CULTURE AND JOY.", "CELEBRATING COMMUNITY SPIRIT."]}
+                    texts={["Where tradition meets tomorrow.", "A hub of culture and joy.", "Celebrating community spirit."]}
                     className="text-primary font-bold"
                   />
                 </div>
