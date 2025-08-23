@@ -9,7 +9,7 @@ const membershipFormSchema = z.object({
   email: z.string().email(),
   phone: z.string(),
   address: z.string(),
-  membershipType: z.enum(["annual", "lifetime"]),
+  membershipType: z.enum(["Annual Membership", "Lifetime Membership"]),
 });
 
 const GOOGLE_MEMBERSHIP_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScSaSyDljzLrVBBw1z8ugSeawnUaPuoy6S9dCGCZEuZ7H6Rag/formResponse";

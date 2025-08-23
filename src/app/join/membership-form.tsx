@@ -32,7 +32,7 @@ const formSchema = z.object({
   email: z.string().email("Please enter a valid email address."),
   phone: z.string().regex(/^\d{10}$/, "Please enter a valid 10-digit phone number."),
   address: z.string().min(10, "Address must be at least 10 characters."),
-  membershipType: z.enum(["annual", "lifetime"], { required_error: "Please select a membership type."}),
+  membershipType: z.enum(["Annual Membership", "Lifetime Membership"], { required_error: "Please select a membership type."}),
 });
 
 export function MembershipForm() {
@@ -152,8 +152,8 @@ export function MembershipForm() {
                             </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                                <SelectItem value="annual">Annual Membership</SelectItem>
-                                <SelectItem value="lifetime">Lifetime Membership</SelectItem>
+                                <SelectItem value="Annual Membership">Annual Membership</SelectItem>
+                                <SelectItem value="Lifetime Membership">Lifetime Membership</SelectItem>
                             </SelectContent>
                         </Select>
                         <FormMessage />
