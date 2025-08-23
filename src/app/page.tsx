@@ -3,16 +3,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Calendar, GalleryHorizontal, History, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Countdown } from "@/components/countdown";
 import { DhakPlayer } from "@/components/dhak-player";
 import { TypingAnimation } from "@/components/typing-animation";
 
 export default function Home() {
-  const pujaStartDate = new Date("2025-09-28T18:00:00");
-
   return (
     <div className="flex flex-col">
-       <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
+      <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://placehold.co/1800x1200.png"
@@ -28,7 +25,7 @@ export default function Home() {
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
             <div className="flex flex-col items-center">
                 <h1 className="font-headline font-bold tracking-tight text-5xl md:text-7xl lg:text-8xl">
-                  WELCOME TO DUARAJPUR SPORTING ASSOCIATION
+                  WELCOME TO DUBRAJPUR SPORTING ASSOCIATION
                 </h1>
                 <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-2xl">
                   <TypingAnimation
@@ -138,7 +135,7 @@ export default function Home() {
                   <Link href="/history">Explore Legacy <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
-            </card>
+            </Card>
              <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
