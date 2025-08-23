@@ -5,18 +5,51 @@ import React, { useState, useEffect } from 'react';
 type TimeUnitProps = {
   value: number;
   label: string;
+  maxValue: number;
 };
 
-const TimeUnit: React.FC<TimeUnitProps> = ({ value, label }) => (
-  <div className="flex flex-col items-center">
-    <div className="text-4xl md:text-6xl font-bold text-accent">
-      {String(value).padStart(2, '0')}
-    </div>
-    <div className="text-sm md:text-base uppercase tracking-widest text-foreground/70">
-      {label}
-    </div>
-  </div>
-);
+const TimeUnit: React.FC<TimeUnitProps> = ({ value, label, maxValue }) => {
+    const radius = 40;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (value / maxValue) * circumference;
+
+    return (
+        <div className="flex flex-col items-center justify-center text-center">
+            <div className="relative h-28 w-28 md:h-32 md:w-32">
+                <svg className="h-full w-full" viewBox="0 0 100 100">
+                    <circle
+                        className="stroke-current text-foreground/10"
+                        strokeWidth="5"
+                        cx="50"
+                        cy="50"
+                        r={radius}
+                        fill="transparent"
+                    />
+                    <circle
+                        className="stroke-current text-accent"
+                        strokeWidth="5"
+                        cx="50"
+                        cy="50"
+                        r={radius}
+                        fill="transparent"
+                        strokeDasharray={circumference}
+                        strokeDashoffset={offset}
+                        strokeLinecap="round"
+                        transform="rotate(-90 50 50)"
+                    />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="text-3xl font-bold text-accent md:text-4xl">
+                        {String(value).padStart(2, '0')}
+                    </span>
+                </div>
+            </div>
+            <div className="mt-2 text-sm uppercase tracking-widest text-foreground/70 md:text-base">
+                {label}
+            </div>
+        </div>
+    );
+};
 
 type CountdownProps = {
   targetDate: string;
@@ -69,12 +102,12 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
 
   return (
-    <div className="py-8 my-8 rounded-xl bg-background/50 backdrop-blur-sm w-full max-w-2xl">
-      <div className="grid grid-cols-4 gap-4 text-center">
-        <TimeUnit value={timeLeft.days} label="Days" />
-        <TimeUnit value={timeLeft.hours} label="Hours" />
-        <TimeUnit value={timeLeft.minutes} label="Minutes" />
-        <TimeUnit value={timeLeft.seconds} label="Seconds" />
+    <div className="py-8 my-8 rounded-xl bg-background/50 backdrop-blur-sm w-full max-w-4xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <TimeUnit value={timeLeft.days} label="Days" maxValue={365}/>
+        <TimeUnit value={timeLeft.hours} label="Hours" maxValue={24}/>
+        <TimeUnit value={timeLeft.minutes} label="Minutes" maxValue={60}/>
+        <TimeUnit value={timeLeft.seconds} label="Seconds" maxValue={60}/>
       </div>
     </div>
   );
