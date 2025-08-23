@@ -86,9 +86,11 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/50 pt-8">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-                 <p className="text-center text-sm text-foreground/60 md:text-left">
-                    &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
-                </p>
+                <div className="flex flex-col items-center gap-4 md:flex-row">
+                    <p className="text-center text-sm text-foreground/60 md:text-left">
+                        &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
+                    </p>
+                </div>
                 <div className="flex items-center gap-4">
                     <Link href="https://www.facebook.com/people/DSA/100092242809918/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
                       <Facebook className="h-5 w-5" />
