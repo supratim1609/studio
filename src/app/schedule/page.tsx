@@ -77,6 +77,70 @@ export default function SchedulePage() {
               </p>
             </div>
           </div>
+
+           {/* Independence Day Section */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div className="order-2 lg:order-1">
+              <h2 className="font-headline text-3xl font-bold md:text-4xl font-bengali">স্বাধীনতা দিবস</h2>
+              <h3 className="font-headline text-2xl font-bold md:text-3xl text-primary">Independence Day</h3>
+              <p className="mt-4 text-foreground/70">
+                Every year, DSA proudly commemorates India's Independence Day with patriotic fervor and community spirit. The day begins with a flag-hoisting ceremony, followed by cultural programs that include patriotic songs, dances, and speeches. It's a day to honor our nation's heroes and instill a sense of pride and unity among all members of the community, especially the younger generation.
+              </p>
+            </div>
+            <div className="relative order-1 h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105 lg:order-2">
+              <Image
+                src="https://placehold.co/600x400.png"
+                alt="Independence Day Celebration"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+                data-ai-hint="Indian flag"
+              />
+            </div>
+          </div>
+
+          {/* Cricket Tournament Section */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
+              <Image
+                src="/cricket.webp"
+                alt="Cricket Tournament"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+                data-ai-hint="cricket match"
+              />
+            </div>
+            <div>
+              <h2 className="font-headline text-3xl font-bold md:text-4xl font-bengali">ক্রিকেট টুর্নামেন্ট</h2>
+                <h3 className="font-headline text-2xl font-bold md:text-3xl text-primary">Cricket Tournament</h3>
+              <p className="mt-4 text-foreground/70">
+                Our annual cricket tournament is one of the most awaited sporting events in Dubrajpur. Teams from across the region compete for the prestigious DSA trophy, showcasing exceptional talent and sportsmanship. The tournament fosters a spirit of healthy competition and brings the community together to cheer for their favorite teams, making it a thrilling spectacle for all.
+              </p>
+            </div>
+          </div>
+
+           {/* Football Tournament Section */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div className="order-2 lg:order-1">
+              <h2 className="font-headline text-3xl font-bold md:text-4xl font-bengali">ফুটবল টুর্নামেন্ট</h2>
+              <h3 className="font-headline text-2xl font-bold md:text-3xl text-primary">Football Tournament</h3>
+              <p className="mt-4 text-foreground/70">
+                Fueling the local passion for the beautiful game, the DSA Football Tournament is a major highlight of our sports calendar. It provides a platform for local clubs and young athletes to display their skills and compete at a high level. The event draws large crowds, creating an electric atmosphere of excitement and unity, celebrating the love for football that runs deep in our community.
+              </p>
+            </div>
+            <div className="relative order-1 h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105 lg:order-2">
+              <Image
+                src="/football.webp"
+                alt="Football Tournament"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+                data-ai-hint="football game"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
