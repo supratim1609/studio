@@ -29,7 +29,7 @@ export const HeroSlideshow = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 h-full w-full opacity-95">
+    <div className="absolute inset-0 h-full w-full opacity-80">
       {images.map((image, index) => (
         <Image
           key={index}
