@@ -9,6 +9,7 @@ import React from "react";
 import Image from "next/image";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/schedule", label: "Schedule" },
   { href: "/history", label: "History" },
   { href: "/gallery", label: "Gallery" },
@@ -38,11 +39,7 @@ export function Header() {
 
   return (
     <header className={headerClasses}>
-      <div className="container mx-auto flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold">
-            <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
-        </Link>
-        
+      <div className="container mx-auto flex h-20 items-center justify-center">
         <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((link) => (
              <Link
