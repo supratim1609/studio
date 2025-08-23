@@ -25,7 +25,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Loader2 } from "lucide-react";
 import React from "react";
-import { submitToGoogleForm } from "./actions";
+import { submitMembershipToGoogleForm } from "./actions";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -53,7 +53,7 @@ export function MembershipForm() {
     setIsSubmitting(true);
     
     try {
-      const result = await submitToGoogleForm(values);
+      const result = await submitMembershipToGoogleForm(values);
 
       if (!result.success) {
         throw new Error(result.message);
