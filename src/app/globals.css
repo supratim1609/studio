@@ -14,7 +14,7 @@ body {
     --card-foreground: 240 10% 3.9%;
     --popover: 240 60% 99%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 30 100% 60%; /* Saffron */
+    --primary: 217 91% 60%; /* Vibrant Blue */
     --primary-foreground: 210 40% 98%;
     --secondary: 0 100% 25%; /* Deep Maroon */
     --secondary-foreground: 210 40% 98%;
@@ -26,7 +26,7 @@ body {
     --destructive-foreground: 210 40% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 30 100% 60%;
+    --ring: 217 91% 60%;
     --radius: 0.5rem;
   }
   .dark {
@@ -36,7 +36,7 @@ body {
     --card-foreground: 210 40% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 30 100% 60%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 0 100% 25%;
     --secondary-foreground: 210 40% 98%;
@@ -48,7 +48,7 @@ body {
     --destructive-foreground: 210 40% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 30 100% 60%;
+    --ring: 217 91% 60%;
   }
 }
 
