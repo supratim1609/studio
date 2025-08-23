@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity } from "lucide-react";
@@ -76,7 +77,7 @@ export default function Home() {
                 layout="fill"
                 objectFit="cover"
                 className="rounded-xl"
-                data-ai-hint="indian community event"
+                data-ai-hint="indian community"
               />
             </div>
           </div>
