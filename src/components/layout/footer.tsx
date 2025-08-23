@@ -19,7 +19,7 @@ export function Footer() {
           
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold">
-              <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="bg-primary-foreground p-1 rounded-full"/>
+              <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
               <span>DSA '25</span>
             </Link>
             <p className="mt-4 max-w-md text-foreground/70">

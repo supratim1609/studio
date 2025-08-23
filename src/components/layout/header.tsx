@@ -44,7 +44,7 @@ export function Header() {
       <div className="container flex h-20 items-center justify-between">
          <div className="flex items-center">
             <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold">
-                <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="bg-primary-foreground p-1 rounded-full"/>
+                <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
                 <span className="hidden sm:inline-block">DSA '25</span>
             </Link>
         </div>
@@ -74,7 +74,7 @@ export function Header() {
                 <SheetContent side="right" className="flex flex-col">
                 <div className="flex flex-col gap-8 pt-8">
                     <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
-                        <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="bg-primary-foreground p-1 rounded-full"/>
+                        <Image src="/logo.png" alt="DSA Logo" width={50} height={50} className="bg-primary-foreground p-1 rounded-full"/>
                         <span>DSA '25</span>
                     </Link>
                     <nav className="flex flex-col gap-4">
