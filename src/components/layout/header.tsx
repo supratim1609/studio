@@ -63,10 +63,7 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-             <Button asChild>
-                <Link href="/join">Join Us</Link>
-            </Button>
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild className="md:hidden">
                 <Button variant="outline" size="icon">
                     <Menu className="h-4 w-4" />
