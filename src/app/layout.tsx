@@ -31,7 +31,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body bg-background text-foreground antialiased">
+      <body className="font-body bg-background text-foreground antialiased pb-24">
           <div className="relative flex min-h-dvh flex-col">
             <Header />
             <main className="flex-1">{children}</main>
