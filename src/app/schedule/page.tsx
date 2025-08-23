@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-export default function ActivitiesPage() {
+export default function SchedulePage() {
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-            Our Activities
+            Events
           </h1>
           <p className="mt-4 text-lg text-foreground/70">
             Beyond our signature Durga Puja, DSA is a hub of year-round cultural and community engagement. Explore our other vibrant initiatives.
