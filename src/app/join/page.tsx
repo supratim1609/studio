@@ -1,6 +1,5 @@
 
 import { MembershipForm } from "./membership-form";
-import { Handshake } from "lucide-react";
 
 export default function JoinPage() {
   return (
