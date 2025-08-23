@@ -9,7 +9,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 const MembershipApplicationSchema = z.object({
   fullName: z.string().describe('The full name of the applicant.'),
@@ -30,15 +30,7 @@ const sendMembershipEmailFlow = ai.defineFlow(
   },
   async (input) => {
     
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_SERVER_HOST,
-      port: Number(process.env.EMAIL_SERVER_PORT),
-      secure: Number(process.env.EMAIL_SERVER_PORT) === 465, // true for 465, false for other ports
-      auth: {
-        user: process.env.EMAIL_SERVER_USER,
-        pass: process.env.EMAIL_SERVER_PASS,
-      },
-    });
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const emailBody = `
       <h1>New Membership Application</h1>
@@ -49,15 +41,13 @@ const sendMembershipEmailFlow = ai.defineFlow(
       <p><strong>Membership Type:</strong> ${input.membershipType}</p>
     `;
 
-    const mailOptions = {
-      from: `DSA Membership <${process.env.EMAIL_FROM}>`,
-      to: 'supratimdhara0@gmail.com',
-      subject: 'New Membership Application Received',
-      html: emailBody,
-    };
-
     try {
-        await transporter.sendMail(mailOptions);
+        await resend.emails.send({
+            from: 'DSA Membership <noreply@resend.dev>',
+            to: 'supratimdhara0@gmail.com',
+            subject: 'New Membership Application Received',
+            html: emailBody,
+        });
         console.log("Membership application email sent successfully.");
     } catch (error) {
         console.error("Error sending email:", error);
