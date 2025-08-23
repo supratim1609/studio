@@ -18,8 +18,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 font-headline text-2xl font-bold">
-              <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="invert"/>
+            <Link href="/" className="flex items-center gap-3 font-headline text-2xl font-bold">
+              <Image src="/logo.png" alt="DSA Logo" width={40} height={40} className="bg-primary-foreground p-1 rounded-full"/>
               <span>DSA '25</span>
             </Link>
             <p className="mt-4 max-w-md text-foreground/70">
