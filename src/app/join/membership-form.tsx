@@ -155,7 +155,8 @@ export function MembershipForm() {
                 )}
             />
             <Button type="submit" className="w-full font-bold" size="lg" disabled={isSubmitting}>
-              {isSubmitting ? <Loader2 className="animate-spin" /> : "Submit Application"}
+              {isSubmitting && <Loader2 className="animate-spin" />}
+              Submit Application
               {!isSubmitting && <ArrowRight className="ml-2"/>}
             </Button>
           </form>
