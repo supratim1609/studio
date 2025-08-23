@@ -10,7 +10,7 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 
-export const MembershipApplicationSchema = z.object({
+const MembershipApplicationSchema = z.object({
   fullName: z.string().describe('The full name of the applicant.'),
   email: z.string().email().describe('The email address of the applicant.'),
   phone: z.string().describe('The phone number of the applicant.'),
@@ -20,9 +20,6 @@ export const MembershipApplicationSchema = z.object({
 
 export type MembershipApplicationInput = z.infer<typeof MembershipApplicationSchema>;
 
-export async function sendMembershipEmail(input: MembershipApplicationInput): Promise<void> {
-  return sendMembershipEmailFlow(input);
-}
 
 const sendMembershipEmailFlow = ai.defineFlow(
   {
@@ -55,3 +52,7 @@ const sendMembershipEmailFlow = ai.defineFlow(
     // await sendEmail({ to: 'supratimdhara0@gmail.com', subject: 'New Membership Application', body: emailBody });
   }
 );
+
+export async function sendMembershipEmail(input: MembershipApplicationInput): Promise<void> {
+  return await sendMembershipEmailFlow(input);
+}
