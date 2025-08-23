@@ -27,13 +27,10 @@ export default function HistoryPage() {
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-            About Us
+            History
           </h1>
            <p className="mt-6 text-lg text-foreground/80">
-            Since its founding in 1979, Dubrajpur Sports Association (DSA) has stood as a cornerstone of community spirit and cultural celebration in Dubrajpur. Strategically located at Ashram More, just off Station Road, our club offers a serene and welcoming environment away from the city’s noise.
-          </p>
-          <p className="mt-4 text-lg text-foreground/70">
-            What began as a humble sports club has evolved into a vibrant hub of tradition, art, and unity. For over four decades, DSA has championed social engagement, youth empowerment, and spiritual expression through dynamic programs and festivities. Our signature Durga Puja has become one of the most anticipated events in the region. Drawing thousands of visitors annually, it showcases creative excellence, thematic installations, and the deep-rooted devotion of our community. At DSA, we believe in building connections that last—through sport, service, and celebration.
+            <span className="text-primary font-semibold">Since its founding in 1979, Dubrajpur Sports Association (DSA)</span> has been a cornerstone of community spirit in Dubrajpur. From a humble sports club, it has evolved into a vibrant hub for tradition and unity. Our signature Durga Puja is one of the region’s most anticipated events, drawing thousands to celebrate our creative excellence and deep-rooted devotion. At DSA, we build connections that last—through sport, service, and celebration.
           </p>
         </div>
 
