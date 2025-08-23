@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,9 +17,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { submitDonationToGoogleForm } from "./actions";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -30,6 +32,7 @@ const donationOptions = ["501", "1001", "2501", "5001"];
 
 export function DonationForm() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [customAmount, setCustomAmount] = React.useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -50,15 +53,31 @@ export function DonationForm() {
     }
   };
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Thank You for Your Donation!",
-      description: `${values.fullName}, your generous contribution of ₹${values.donationAmount} is deeply appreciated.`,
-      variant: "default",
-    });
-    form.reset();
-    setCustomAmount("");
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    try {
+      const result = await submitDonationToGoogleForm(values);
+
+      if (!result.success) {
+        throw new Error(result.message);
+      }
+
+      toast({
+        title: "Thank You for Your Generous Intent!",
+        description: `${values.fullName}, your contribution of ₹${values.donationAmount} is deeply appreciated. Please proceed with payment.`,
+        variant: "default",
+      });
+      form.reset();
+      setCustomAmount("");
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "There was an error processing your donation. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -144,8 +163,17 @@ export function DonationForm() {
                 )}
                 />
             
-            <Button type="submit" className="w-full font-bold" size="lg">
-              Proceed to Donate <ArrowRight className="ml-2"/>
+            <Button type="submit" className="w-full font-bold" size="lg" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  Proceed to Donate <ArrowRight className="ml-2"/>
+                </>
+              )}
             </Button>
           </form>
         </Form>
