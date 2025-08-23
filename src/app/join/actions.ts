@@ -24,25 +24,29 @@ const GOOGLE_FORM_ENTRIES = {
 export async function submitToGoogleForm(data: z.infer<typeof formSchema>) {
   try {
     const validatedData = formSchema.parse(data);
-    const formData = new FormData();
     
-    formData.append(GOOGLE_FORM_ENTRIES.fullName, validatedData.fullName);
-    formData.append(GOOGLE_FORM_ENTRIES.email, validatedData.email);
-    formData.append(GOOGLE_FORM_ENTRIES.phone, validatedData.phone);
-    formData.append(GOOGLE_FORM_ENTRIES.address, validatedData.address);
-    formData.append(GOOGLE_FORM_ENTRIES.membershipType, validatedData.membershipType);
+    const params = new URLSearchParams();
+    params.append(GOOGLE_FORM_ENTRIES.fullName, validatedData.fullName);
+    params.append(GOOGLE_FORM_ENTRIES.email, validatedData.email);
+    params.append(GOOGLE_FORM_ENTRIES.phone, validatedData.phone);
+    params.append(GOOGLE_FORM_ENTRIES.address, validatedData.address);
+    params.append(GOOGLE_FORM_ENTRIES.membershipType, validatedData.membershipType);
 
     const response = await fetch(GOOGLE_FORM_ACTION_URL, {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params.toString(),
     });
     
-    // Google Forms submission redirects with a 302 status on success.
-    // We check if the response status is in the success range (2xx) or a redirect (3xx).
-    if (response.ok || (response.status >= 300 && response.status < 400)) {
+    // Google Forms submission usually results in a 200 OK status, even on the server.
+    // The redirect (302) is what browsers follow. We'll consider any 2xx status a success.
+    if (response.ok) {
         return { success: true, message: 'Form submitted successfully.' };
     } else {
-        console.error("Google Forms submission failed with status:", response.status, response.statusText);
+        const responseText = await response.text();
+        console.error("Google Forms submission failed with status:", response.status, responseText);
         return { success: false, message: 'Submission failed. Please try again.' };
     }
 
