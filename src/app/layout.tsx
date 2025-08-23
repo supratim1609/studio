@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "DSA '25",
+  title: "DSA - Dubrajpur Sports Association",
   description: "Durga Puja Celebration by Dubrajpur Sports Association",
   icons: {
     icon: "/favicon.ico",
