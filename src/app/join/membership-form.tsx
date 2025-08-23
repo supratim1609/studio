@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,7 +24,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { sendMembershipEmail } from "@/ai/flows/send-membership-email-flow";
+import React from "react";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -35,6 +38,7 @@ const formSchema = z.object({
 
 export function MembershipForm() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,14 +50,26 @@ export function MembershipForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Membership Application Received!",
-      description: `Thank you, ${values.fullName}. We will contact you shortly with payment details.`,
-      variant: "default",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    try {
+      await sendMembershipEmail(values);
+      toast({
+        title: "Membership Application Received!",
+        description: `Thank you, ${values.fullName}. We will contact you shortly with payment details.`,
+        variant: "default",
+      });
+      form.reset();
+    } catch (error) {
+       toast({
+        title: "Error",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
+      console.error("Error submitting membership form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -138,8 +154,9 @@ export function MembershipForm() {
                     </FormItem>
                 )}
             />
-            <Button type="submit" className="w-full font-bold" size="lg">
-              Submit Application <ArrowRight className="ml-2"/>
+            <Button type="submit" className="w-full font-bold" size="lg" disabled={isSubmitting}>
+              {isSubmitting ? <Loader2 className="animate-spin" /> : "Submit Application"}
+              {!isSubmitting && <ArrowRight className="ml-2"/>}
             </Button>
           </form>
         </Form>
