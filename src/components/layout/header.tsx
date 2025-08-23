@@ -7,7 +7,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import React from "react";
 import Image from "next/image";
-import { AlpanaIcon } from "../icons/alpana";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -16,6 +15,24 @@ const navLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/team", label: "Our Team" },
 ];
+
+const PujaIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        {...props}
+    >
+        <path d="M12.77,2.3,12,2,11.23,2.3a1.2,1.2,0,0,0-.46.33L4.23,9.15a1.2,1.2,0,0,0-.32.74,4.53,4.53,0,0,0,9.06,0,1.2,1.2,0,0,0-.32-.74L6.11,2.63A1.2,1.2,0,0,0,5.65,2.3Z" transform="translate(4 3)" className="text-primary" fill="currentColor"/>
+    </svg>
+);
+
 
 export function Header() {
   const pathname = usePathname();
@@ -41,14 +58,14 @@ export function Header() {
   return (
     <header className={headerClasses}>
       <div className="container mx-auto flex h-24 items-center justify-between">
-        <div className="flex flex-shrink-0 items-center">
-            <Link href="/" className="flex items-center justify-center p-1 rounded-full bg-primary-foreground">
-                <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
+        <div className="flex flex-1 justify-start">
+            <Link href="/" className="flex items-center justify-center p-1 rounded-full">
+                 <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
             </Link>
         </div>
        
         <nav className="hidden items-center justify-center gap-6 lg:gap-8 md:flex flex-1">
-          <AlpanaIcon className="h-6 w-6 text-primary" />
+          <PujaIcon className="h-6 w-6 text-primary" />
           {navLinks.map((link) => (
              <Link
               key={link.href}
@@ -62,10 +79,10 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <AlpanaIcon className="h-6 w-6 text-primary" />
+          <PujaIcon className="h-6 w-6 text-primary" />
         </nav>
 
-        <div className="flex flex-shrink-0 justify-end items-center gap-4">
+        <div className="flex flex-1 justify-end items-center gap-4">
              <div className="md:hidden">
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
@@ -76,8 +93,8 @@ export function Header() {
                     </SheetTrigger>
                     <SheetContent side="right" className="flex flex-col">
                     <div className="flex flex-col gap-8 pt-8">
-                        <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
-                            <div className="flex items-center justify-center p-1 rounded-full bg-primary-foreground">
+                         <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
+                            <div className="flex items-center justify-center p-1 rounded-full">
                                 <Image src="/logo.png" alt="DSA Logo" width={54} height={54} className="transition-all"/>
                             </div>
                         </Link>
