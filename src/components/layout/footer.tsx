@@ -76,18 +76,16 @@ export function Footer() {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
                  <p className="text-center text-sm text-foreground/60 md:text-left">
                     &copy; {new Date().getFullYear()} Dubrajpur Sports Association. All Rights Reserved.
-                    <br />
-                    with ❤️ from bhumika
                 </p>
                 <div className="flex items-center gap-4">
-                    <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-primary">
-                    <Facebook className="h-5 w-5" />
+                    <Link href="#" aria-label="Facebook" className="text-foreground/60 transition-colors hover:text-[#1877F2]">
+                      <Facebook className="h-5 w-5" />
                     </Link>
-                    <Link href="#" aria-label="Instagram" className="text-foreground/60 transition-colors hover:text-primary">
-                    <Instagram className="h-5 w-5" />
+                    <Link href="#" aria-label="Instagram" className="text-foreground/60 transition-colors hover:text-[#E4405F]">
+                      <Instagram className="h-5 w-5" />
                     </Link>
-                    <Link href="#" aria-label="YouTube" className="text-foreground/60 transition-colors hover:text-primary">
-                    <Youtube className="h-5 w-5" />
+                    <Link href="#" aria-label="YouTube" className="text-foreground/60 transition-colors hover:text-[#FF0000]">
+                      <Youtube className="h-5 w-5" />
                     </Link>
                 </div>
             </div>
