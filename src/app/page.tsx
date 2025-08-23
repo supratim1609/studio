@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Calendar, GalleryHorizontal, History, Users } from "lucide-react";
+import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DhakPlayer } from "@/components/dhak-player";
@@ -47,7 +47,7 @@ export default function Home() {
                 <div className="mt-10 flex flex-wrap gap-4 justify-center">
                     <Button asChild size="lg" className="font-headline font-bold text-lg">
                     <Link href="/schedule">
-                        View Schedule <ArrowRight className="ml-2" />
+                        View Events <ArrowRight className="ml-2" />
                     </Link>
                     </Button>
                 </div>
@@ -150,17 +150,17 @@ export default function Home() {
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
-                    <Users className="h-8 w-8" />
+                    <Activity className="h-8 w-8" />
                   </div>
-                  <CardTitle className="font-headline text-2xl">Our Team</CardTitle>
+                  <CardTitle className="font-headline text-2xl">Activities</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                    Meet the passionate individuals who work tirelessly to make the DSA Durga Puja a grand success every year.
+                    Discover the various activities and community initiatives organized by the DSA throughout the year.
                 </CardDescription>
                  <Button asChild variant="link" className="px-0 mt-4 font-bold">
-                  <Link href="/team">Meet the Team <ArrowRight className="ml-2"/></Link>
+                  <Link href="/activities">See Activities <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
             </Card>

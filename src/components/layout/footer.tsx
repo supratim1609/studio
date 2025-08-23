@@ -3,9 +3,9 @@ import { Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react"
 import Image from "next/image";
 
 const quickLinks = [
-  { href: "/schedule", label: "Schedule" },
+  { href: "/schedule", label: "Events" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/team", label: "Our Team" },
+  { href: "/activities", label: "Activities" },
   { href: "/history", label: "History" },
   { href: "/join", label: "Join Us" },
 ];
