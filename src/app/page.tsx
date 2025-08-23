@@ -26,7 +26,7 @@ export default function Home() {
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
             <div className="flex flex-col items-center">
                 <h1 className="font-headline font-bold tracking-tight text-4xl md:text-6xl lg:text-7xl">
-                  Welcome to Dubrajpur Sporting Association
+                  Dubrajpur Sporting Association
                 </h1>
                 <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
                   <TypingAnimation
