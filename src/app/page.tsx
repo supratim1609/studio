@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DhakPlayer } from "@/components/dhak-player";
 import { TypingAnimation } from "@/components/typing-animation";
+import { Countdown } from "@/components/countdown";
 
 export default function Home() {
   return (
@@ -33,6 +34,8 @@ export default function Home() {
                     className="text-primary font-bold"
                   />
                 </div>
+
+                <Countdown targetDate="2025-09-28T18:00:00" />
                 
                 <div className="mt-10 flex flex-wrap gap-4 justify-center">
                     <Button asChild size="lg" className="font-headline font-bold text-lg">
