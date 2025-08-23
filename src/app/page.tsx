@@ -28,17 +28,14 @@ export default function Home() {
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
             <div className="flex flex-col items-center">
                 <h1 className="font-headline font-bold tracking-tight text-5xl md:text-7xl lg:text-8xl">
-                    Durga Pujo 2025
+                  WELCOME TO DUARAJPUR SPORTING ASSOCIATION
                 </h1>
                 <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-2xl">
-                  Experience the divine celebration{" "}
                   <TypingAnimation
-                    texts={["where tradition meets tomorrow.", "of art, culture, and joy.", "with our family."]}
+                    texts={["WHERE TRADITION MEETS TOMORROW.", "A HUB OF CULTURE AND JOY.", "CELEBRATING COMMUNITY SPIRIT."]}
                     className="text-primary font-bold"
                   />
                 </div>
-                
-                <Countdown targetDate={pujaStartDate.toISOString()} />
                 
                 <div className="mt-10 flex flex-wrap gap-4 justify-center">
                     <Button asChild size="lg" className="font-headline font-bold text-lg">
@@ -141,7 +138,7 @@ export default function Home() {
                   <Link href="/history">Explore Legacy <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
-            </Card>
+            </card>
              <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
