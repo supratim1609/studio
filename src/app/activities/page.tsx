@@ -5,8 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 const activities = [
   {
@@ -39,64 +38,6 @@ const activities = [
   },
 ];
 
-function ActivitySection({ activity }: { activity: (typeof activities)[0] }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
-  return (
-    <section ref={ref} className="relative h-[80vh] w-full overflow-hidden">
-      <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        <Image
-          src={activity.imageSrc}
-          alt={activity.name}
-          fill
-          className="object-cover"
-          data-ai-hint={activity.data_ai_hint}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-      </motion.div>
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-4">
-        <motion.h2 
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, amount: 0.5 }}
-           transition={{ duration: 0.5 }}
-           className="font-headline text-5xl md:text-7xl font-bold"
-        >
-          {activity.name}
-        </motion.h2>
-        <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 max-w-xl text-lg md:text-xl text-white/80"
-        >
-          {activity.description}
-        </motion.p>
-        <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true, amount: 0.5 }}
-             transition={{ duration: 0.5, delay: 0.4 }}
-        >
-            <Button asChild size="lg" className="mt-8 font-bold">
-                <Link href={`tel:${activity.phone}`}>
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call to Inquire
-                </Link>
-            </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-
 export default function ActivitiesPage() {
   return (
     <div className="bg-background">
@@ -108,10 +49,39 @@ export default function ActivitiesPage() {
                 Beyond our signature Puja, DSA is a hub of year-round cultural, sports, and community engagement. Explore our vibrant initiatives.
              </p>
         </div>
-        <div className="flex flex-col">
-            {activities.map((activity) => (
-                <ActivitySection key={activity.name} activity={activity} />
-            ))}
+        <div className="container mx-auto px-4 pb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {activities.map((activity) => (
+                <motion.div
+                    key={activity.name}
+                    className="group relative h-[450px] w-full overflow-hidden rounded-xl shadow-2xl"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <Image
+                        src={activity.imageSrc}
+                        alt={activity.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={activity.data_ai_hint}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col items-start justify-end p-6 text-white">
+                        <h2 className="font-headline text-4xl font-bold">{activity.name}</h2>
+                        <div className="h-0.5 w-16 bg-primary my-3" />
+                         <div className="opacity-0 transition-all duration-500 group-hover:opacity-100 max-h-0 group-hover:max-h-40 overflow-hidden">
+                            <p className="text-white/90 mb-4">{activity.description}</p>
+                            <Button asChild size="sm" className="font-bold">
+                                <Link href={`tel:${activity.phone}`}>
+                                    <Phone className="mr-2 h-4 w-4" />
+                                    Call to Inquire
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                </motion.div>
+                ))}
+            </div>
         </div>
     </div>
   );
