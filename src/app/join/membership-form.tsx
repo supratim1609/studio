@@ -25,6 +25,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Loader2 } from "lucide-react";
 import React from "react";
+import { submitToGoogleForm } from "./actions";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters."),
@@ -33,17 +34,6 @@ const formSchema = z.object({
   address: z.string().min(10, "Address must be at least 10 characters."),
   membershipType: z.enum(["annual", "lifetime"], { required_error: "Please select a membership type."}),
 });
-
-// These are the real entry IDs from the provided Google Form
-const GOOGLE_FORM_ENTRIES = {
-  fullName: "entry.1297920330",
-  email: "entry.1887332742",
-  phone: "entry.1818228303",
-  address: "entry.1691283253",
-  membershipType: "entry.1880424564",
-};
-
-const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScSaSyDljzLrVBBw1z8ugSeawnUaPuoy6S9dCGCZEuZ7H6Rag/formResponse";
 
 export function MembershipForm() {
   const { toast } = useToast();
@@ -62,19 +52,12 @@ export function MembershipForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    const formData = new FormData();
-    formData.append(GOOGLE_FORM_ENTRIES.fullName, values.fullName);
-    formData.append(GOOGLE_FORM_ENTRIES.email, values.email);
-    formData.append(GOOGLE_FORM_ENTRIES.phone, values.phone);
-    formData.append(GOOGLE_FORM_ENTRIES.address, values.address);
-    formData.append(GOOGLE_FORM_ENTRIES.membershipType, values.membershipType);
-
     try {
-       await fetch(GOOGLE_FORM_ACTION_URL, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors", // Important: 'no-cors' mode is required for Google Forms
-      });
+      const result = await submitToGoogleForm(values);
+
+      if (!result.success) {
+        throw new Error(result.message);
+      }
 
       toast({
         title: "Application Submitted!",
@@ -82,10 +65,10 @@ export function MembershipForm() {
         variant: "default",
       });
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
        toast({
         title: "Error",
-        description: "There was an error submitting your application. Please try again.",
+        description: error.message || "There was an error submitting your application. Please try again.",
         variant: "destructive",
       });
       console.error("Error submitting form:", error);
