@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -25,7 +24,6 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Loader2 } from "lucide-react";
-import { sendMembershipEmail } from "@/ai/flows/send-membership-email-flow";
 import React from "react";
 
 const formSchema = z.object({
@@ -53,10 +51,14 @@ export function MembershipForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      await sendMembershipEmail(values);
+      // Placeholder for Google Form submission logic
+      console.log("Form values:", values);
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       toast({
-        title: "Membership Application Received!",
-        description: `Thank you, ${values.fullName}. We will contact you shortly with payment details.`,
+        title: "Application Submitted!",
+        description: `Thank you, ${values.fullName}. Your application has been received.`,
         variant: "default",
       });
       form.reset();
@@ -66,7 +68,7 @@ export function MembershipForm() {
         description: "There was an error submitting your application. Please try again.",
         variant: "destructive",
       });
-      console.error("Error submitting membership form:", error);
+      console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -157,8 +159,8 @@ export function MembershipForm() {
             <Button type="submit" className="w-full font-bold" size="lg" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin" />
-                  Submit Application
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Submitting...
                 </>
               ) : (
                 <>
