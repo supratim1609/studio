@@ -6,6 +6,7 @@ import Link from "next/link";
 import { DhakPlayer } from "@/components/dhak-player";
 import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
+import { TypingAnimation } from "@/components/typing-animation";
 
 export default function Home() {
   return (
@@ -29,9 +30,16 @@ export default function Home() {
                   <span className="block text-2xl font-normal text-foreground/80 md:text-3xl">Welcome to</span>
                   <HeadlineAnimation texts={["Dubrajpur Sports Association", "DSA"]} />
                 </h1>
-                <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
-                  Where tradition meets tomorrow. A hub of culture, sports, and community spirit.
-                </p>
+                <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
+                    <TypingAnimation
+                        texts={[
+                            "Where tradition meets tomorrow.",
+                            "A hub of culture and joy.",
+                            "Celebrating community spirit.",
+                        ]}
+                        className="text-primary font-bold"
+                    />
+                </div>
 
                 <Countdown targetDate="2025-09-28T18:00:00" />
                 
