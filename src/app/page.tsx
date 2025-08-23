@@ -4,7 +4,6 @@ import { ArrowRight, Calendar, GalleryHorizontal, History, Users } from "lucide-
 import Image from "next/image";
 import Link from "next/link";
 import { DhakPlayer } from "@/components/dhak-player";
-import { TypingAnimation } from "@/components/typing-animation";
 import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 
@@ -30,12 +29,9 @@ export default function Home() {
                   <span className="block text-2xl font-normal text-foreground/80 md:text-3xl">Welcome to</span>
                   <HeadlineAnimation texts={["Dubrajpur Sports Association", "DSA"]} />
                 </h1>
-                <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
-                  <TypingAnimation
-                    texts={["Where tradition meets tomorrow.", "A hub of culture and joy.", "Celebrating community spirit."]}
-                    className="text-primary font-bold"
-                  />
-                </div>
+                <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
+                  Where tradition meets tomorrow. A hub of culture, sports, and community spirit.
+                </p>
 
                 <Countdown targetDate="2025-09-28T18:00:00" />
                 
