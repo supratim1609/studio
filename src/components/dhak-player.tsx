@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
@@ -6,22 +7,15 @@ import { Button } from "@/components/ui/button";
 
 export const DhakPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
     audioRef.current = new Audio("/audio/dhak-beats.mp3");
     audioRef.current.loop = true;
     audioRef.current.volume = 0.5;
-
-    const playPromise = audioRef.current.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.error("Audio playback failed:", error);
-        setIsPlaying(false);
-      });
-    }
 
     return () => {
       audioRef.current?.pause();
@@ -30,11 +24,22 @@ export const DhakPlayer = () => {
 
   const togglePlay = () => {
     if (audioRef.current) {
+      if (!hasInteracted) {
+        setHasInteracted(true);
+        audioRef.current.play().then(() => {
+            setIsPlaying(true);
+        }).catch(error => {
+            console.error("Audio playback failed:", error);
+            setIsPlaying(false);
+        });
+        return;
+      }
+
       if (isPlaying) {
         audioRef.current.pause();
       } else {
         audioRef.current.play().catch(error => {
-          console.error("Audio playback failed:", error);
+          console.error("Audio playback failed on toggle:", error);
           setIsPlaying(false); 
         });
       }
