@@ -1,9 +1,9 @@
 
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React from "react";
 
 const history_events = [
     {
@@ -139,37 +139,27 @@ const history_events = [
 ];
 
 function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
-
-  return (
-    <div ref={ref} className="relative h-[150vh]">
-        <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
-             <motion.div className="absolute inset-0 will-change-transform" style={{ y }}>
-                 <Image
-                    src={event.image.src}
-                    alt={event.image.alt}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={event.image.data_ai_hint}
-                />
-            </motion.div>
-             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-            <div className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
+    return (
+        <div
+            className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden bg-cover bg-fixed bg-center"
+            style={{ backgroundImage: `url(${event.image.src})` }}
+            data-ai-hint={event.image.data_ai_hint}
+        >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <motion.div 
+                className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
                 <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
                 <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
                 {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
-            </div>
+            </motion.div>
         </div>
-    </div>
-  );
+    );
 }
-
 
 export default function HistoryPage() {
   return (
@@ -185,7 +175,7 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 w-full space-y-8">
         {history_events.map((event, index) => (
           <HistoryEvent 
             key={index} 
