@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const history_events = [
     {
-      year: "২০১২",
+      year: "2012",
       title: "আফ্রিকান জুলু কালচার",
       description: "An exploration of the vibrant and rich culture of the African Zulu people.",
        image: {
@@ -16,7 +16,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৩",
+      year: "2013",
       title: "বর্ণপরিচয়",
       description: "Celebrating the foundations of Bengali literature and language.",
        image: {
@@ -26,7 +26,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৪",
+      year: "2014",
       title: "শহর থেকে দূরে",
       description: "A theme celebrating the tranquility and beauty of life away from the city.",
        image: {
@@ -36,7 +36,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৫",
+      year: "2015",
       title: "মাশরুম কিংডম",
       description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
        image: {
@@ -46,7 +46,7 @@ const history_events = [
       }
     },
      {
-      year: "২০১৬",
+      year: "2016",
       title: "প্লাস্টিকনাশীনি",
       description: "An innovative theme highlighting the destruction of plastic pollution.",
        image: {
@@ -56,7 +56,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৭",
+      year: "2017",
       title: "মামা ভাগ্নে পাহাড়",
       description: "Thematically centered around the famous local hills of Birbhum.",
        image: {
@@ -66,7 +66,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৮",
+      year: "2018",
       title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
       description: "A powerful theme addressing the evolution and impact of global warming.",
        image: {
@@ -76,7 +76,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৯",
+      year: "2019",
       title: "ধারাপাত",
       description: "A theme based on the Bengali primer, evoking nostalgia for early education.",
        image: {
@@ -86,7 +86,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২০",
+      year: "2020",
       title: "কোভিড বিধি মেনে পূজা",
       description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
        image: {
@@ -96,7 +96,7 @@ const history_events = [
       }
     },
      {
-      year: "২০২১",
+      year: "2021",
       title: "কেকামহল",
       description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
        image: {
@@ -106,7 +106,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২২",
+      year: "2022",
       title: "বাংলা ও বাঙালীয়ানা",
       description: "A tribute to the rich culture and essence of Bengal and its heritage.",
        image: {
@@ -116,7 +116,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২৩",
+      year: "2023",
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
@@ -126,7 +126,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২৪",
+      year: "2024",
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
