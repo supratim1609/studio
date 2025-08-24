@@ -1,4 +1,6 @@
 
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity } from "lucide-react";
@@ -8,11 +10,28 @@ import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
 import { HeroSlideshow } from "@/components/hero-slideshow";
+import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
 
 export default function Home() {
+  const targetRef = React.useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+  const position = useTransform(scrollYProgress, (pos) =>
+    pos === 1 ? "relative" : "sticky"
+  );
+
   return (
-    <div className="flex flex-col">
-      <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
+    <div ref={targetRef} className="flex flex-col">
+      <motion.section
+        style={{ scale, opacity, position }}
+        className="relative h-dvh w-full overflow-hidden top-0"
+      >
         <div className="absolute inset-0">
           <HeroSlideshow />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -44,9 +63,9 @@ export default function Home() {
                 </div>
             </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="about" className="py-20 lg:py-32">
+      <section id="about" className="py-20 lg:py-32 bg-background relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
@@ -65,7 +84,7 @@ export default function Home() {
                 src="/slideshow8.webp"
                 alt="DSA Club Members"
                 layout="fill"
-                objectFit="fit"
+                objectFit="cover"
                 className="rounded-xl"
                 data-ai-hint="indian community"
               />
@@ -74,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-muted/50 py-20 lg:py-32">
+      <section className="bg-muted/50 py-20 lg:py-32 relative z-10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-headline text-3xl font-bold md:text-4xl">
             Join the Festivities
@@ -159,7 +178,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="support" className="py-20 lg:py-32">
+      <section id="support" className="py-20 lg:py-32 relative z-10 bg-background">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl rounded-xl bg-primary/10 p-10 text-center">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">
