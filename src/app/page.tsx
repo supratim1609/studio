@@ -8,6 +8,7 @@ import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
 import { HeroSlideshow } from "@/components/hero-slideshow";
+import { FloatingPetals } from "@/components/floating-petals";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
         <div className="absolute inset-0">
           <HeroSlideshow />
+          <FloatingPetals />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
         
