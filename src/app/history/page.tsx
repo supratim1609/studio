@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -107,7 +106,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২২",
+      year: "۲۰২২",
       title: "বাংলা ও বাঙালীয়ানা",
       description: "A tribute to the rich culture and essence of Bengal and its heritage.",
        image: {
@@ -117,7 +116,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২৩",
+      year: "۲۰২৩",
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
@@ -145,8 +144,8 @@ function HistoryEvent({ event, index, totalEvents }: { event: (typeof history_ev
     offset: ['start end', 'end start']
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [0.8, 1, 1, 0.5]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [0.5, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.4, 0.8, 1], [0.8, 1, 1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0.1, 0.4, 0.8, 1], [0, 1, 1, 0]);
   const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
 
 
