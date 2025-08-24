@@ -1,7 +1,7 @@
 
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
@@ -138,37 +138,43 @@ const history_events = [
     },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.8,
+      delay: 0.3,
+      ease: "easeOut" 
+    } 
+  },
+};
+
 function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
-
   return (
     <motion.div
-      ref={ref}
-      style={{ opacity }}
-      className="relative grid h-[50vh] w-full place-items-center overflow-hidden rounded-2xl shadow-2xl md:h-[70vh]"
+      className="relative grid h-dvh w-full place-items-center overflow-hidden scroll-smooth snap-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }}
     >
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <Image
-            src={event.image.src}
-            alt={event.image.alt}
-            fill
-            className="object-cover"
-            data-ai-hint={event.image.data_ai_hint}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-      </motion.div>
-      <div className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
+      <Image
+          src={event.image.src}
+          alt={event.image.alt}
+          fill
+          className="object-cover"
+          data-ai-hint={event.image.data_ai_hint}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+      <motion.div 
+        className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md"
+        variants={cardVariants}
+      >
           <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
           <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
           {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -188,7 +194,7 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="container mx-auto space-y-16 px-4 pb-24 md:space-y-24">
+      <div className="w-full snap-y snap-mandatory">
         {history_events.map((event, index) => (
           <HistoryEvent 
             key={index} 
