@@ -12,6 +12,12 @@ const textVariants = {
     transition: {
       duration: 0.8,
       ease: "easeOut",
+      boxShadow: {
+        duration: 1.5,
+        repeat: Infinity,
+        repeatType: "mirror",
+        ease: "easeInOut",
+      },
     },
   },
   exit: {
@@ -31,6 +37,7 @@ const leftDoorVariant = {
         transition: {
             duration: 1.2,
             ease: [0.87, 0, 0.13, 1],
+            delay: 0.3
         }
     }
 };
@@ -42,77 +49,69 @@ const rightDoorVariant = {
         transition: {
             duration: 1.2,
             ease: [0.87, 0, 0.13, 1],
+            delay: 0.3
         }
     }
 };
 
+interface LoaderProps {
+  onLoadingComplete: () => void;
+}
 
-export const Loader = () => {
-  const [loadingStep, setLoadingStep] = useState(0); // 0: initial, 1: text shown, 2: doors opening, 3: done
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+export const Loader: React.FC<LoaderProps> = ({ onLoadingComplete }) => {
+  const [loadingStep, setLoadingStep] = useState(0);
 
   useEffect(() => {
-    if (!isClient) return;
-
     const sequence = [
       () => setLoadingStep(1), // Show text
       () => setLoadingStep(2), // Hide text, start opening doors
-      () => setLoadingStep(3), // Animation finished
+      () => onLoadingComplete(), // Animation finished, notify parent
     ];
 
     const timers = [
-      setTimeout(sequence[0], 500), // Start after 500ms
-      setTimeout(sequence[1], 2500), // Show text for 2s
-      setTimeout(sequence[2], 3800), // Doors take 1.3s
+      setTimeout(sequence[0], 500),   // Start after 500ms
+      setTimeout(sequence[1], 2500),  // Show text for 2s
+      setTimeout(sequence[2], 3800),  // Doors take 1.3s
     ];
 
     return () => {
       timers.forEach(clearTimeout);
     };
-  }, [isClient]);
+  }, [onLoadingComplete]);
   
-  if (!isClient || loadingStep === 3) {
-    return null;
-  }
-
   return (
-    <AnimatePresence>
-      {loadingStep < 3 && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden">
-          {/* Doors */}
-          <motion.div
-            className="fixed top-0 left-0 h-full w-1/2 bg-primary z-20"
-            variants={leftDoorVariant}
-            initial="initial"
-            animate={loadingStep >= 2 ? "animate" : "initial"}
-          />
-           <motion.div
-            className="fixed top-0 right-0 h-full w-1/2 bg-primary z-20"
-            variants={rightDoorVariant}
-            initial="initial"
-            animate={loadingStep >= 2 ? "animate" : "initial"}
-          />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden">
+        {/* Doors */}
+        <motion.div
+        className="fixed top-0 left-0 h-full w-1/2 bg-primary z-20"
+        variants={leftDoorVariant}
+        initial="initial"
+        animate={loadingStep >= 2 ? "animate" : "initial"}
+        />
+        <motion.div
+        className="fixed top-0 right-0 h-full w-1/2 bg-primary z-20"
+        variants={rightDoorVariant}
+        initial="initial"
+        animate={loadingStep >= 2 ? "animate" : "initial"}
+        />
 
-          {/* Text */}
-          <AnimatePresence>
-            {loadingStep === 1 && (
-              <motion.h1
-                className="relative z-30 font-headline text-6xl font-bold text-primary-foreground md:text-8xl"
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              >
-                DSA
-              </motion.h1>
-            )}
-          </AnimatePresence>
-        </div>
-      )}
-    </AnimatePresence>
+        {/* Text */}
+        <AnimatePresence>
+        {loadingStep === 1 && (
+            <motion.h1
+            className="relative z-30 font-headline text-6xl font-bold text-primary-foreground md:text-8xl"
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            style={{
+                textShadow: "0 0 15px hsla(var(--primary-foreground), 0.5)",
+            }}
+            >
+            DSA
+            </motion.h1>
+        )}
+        </AnimatePresence>
+    </div>
   );
 };
