@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -56,13 +56,13 @@ export default function GalleryPage() {
                    <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-2xl p-0">
+              <DialogContent className="max-w-4xl w-auto h-auto max-h-[90dvh] p-2 flex items-center justify-center">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width={1200}
                   height={800}
-                  className="h-auto w-full rounded-lg object-contain"
+                  className="max-h-full max-w-full h-auto w-auto rounded-lg object-contain"
                    data-ai-hint={image.data_ai_hint}
                 />
               </DialogContent>
