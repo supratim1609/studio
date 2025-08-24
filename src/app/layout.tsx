@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { DhakPlayer } from "@/components/dhak-player";
+import { Loader } from "@/components/loader";
 
 export const metadata: Metadata = {
   title: "DSA - Dubrajpur Sports Association",
@@ -33,6 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-background text-foreground antialiased pb-24">
+          <Loader />
           <div className="relative flex min-h-dvh flex-col">
             <Header />
             <main className="flex-1">{children}</main>
