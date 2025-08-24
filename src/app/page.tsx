@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             <div className="relative h-80 w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
                <Image
-                src="/slideshow3.webp"
+                src="/slideshow8.webp"
                 alt="DSA Club Members celebrating"
                 layout="fill"
                 objectFit="fill"
