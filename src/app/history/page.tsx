@@ -87,7 +87,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২০",
+      year: "۲۰২০",
       title: "কোভিড বিধি মেনে পূজা",
       description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
        image: {
@@ -97,7 +97,7 @@ const history_events = [
       }
     },
      {
-      year: "২০২১",
+      year: "۲۰২১",
       title: "কেকামহল",
       description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
        image: {
