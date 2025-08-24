@@ -28,9 +28,6 @@ export default function Home() {
                     <TypingAnimation
                         texts={[
                             "Beyond Celebrations – A Home for Culture, Sports & Togetherness.",
-                            "Where tradition meets tomorrow.",
-                            "A hub of culture and joy.",
-                            "Celebrating community spirit.",
                         ]}
                         className="text-primary font-bold"
                     />
