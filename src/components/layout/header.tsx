@@ -37,9 +37,13 @@ export function Header() {
   }, []);
 
   const headerClasses = cn(
-    "sticky top-0 z-50 w-full transition-all duration-300",
-    isScrolled ? "border-b border-border/40 bg-background/95 backdrop-blur-lg" : "bg-transparent"
+    "sticky top-0 z-50 w-full transition-all duration-300 bg-transparent backdrop-blur-md"
   );
+  // const headerClasses = cn(
+  //   "sticky top-0 z-50 w-full transition-all duration-300",
+  //   "bg-background/30 backdrop-blur-md border-b border-border/40"
+  // );
+  
 
   return (
     <header className={headerClasses}>

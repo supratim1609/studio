@@ -65,7 +65,7 @@ export default function Home() {
                 src="/slideshow8.webp"
                 alt="DSA Club Members"
                 layout="fill"
-                objectFit="fit"
+                objectFit="fill"
                 className="rounded-xl"
                 data-ai-hint="indian community"
               />
