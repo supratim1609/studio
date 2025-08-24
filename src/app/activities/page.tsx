@@ -38,6 +38,28 @@ const activities = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  },
+};
+
 export default function ActivitiesPage() {
   return (
     <div className="bg-background">
@@ -49,7 +71,13 @@ export default function ActivitiesPage() {
                 Beyond our signature Puja, DSA is a hub of year-round cultural, sports, and community engagement. Explore our vibrant initiatives.
              </p>
         </div>
-        <div className="container mx-auto px-4 pb-24">
+        <motion.div 
+            className="container mx-auto px-4 pb-24"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+        >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {activities.map((activity) => (
                 <motion.div
@@ -57,6 +85,7 @@ export default function ActivitiesPage() {
                     className="group relative h-[450px] w-full overflow-hidden rounded-xl shadow-2xl"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
+                    variants={itemVariants}
                 >
                     <Image
                         src={activity.imageSrc}
@@ -82,7 +111,7 @@ export default function ActivitiesPage() {
                 </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     </div>
   );
 }

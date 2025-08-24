@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const images = [
   { src: "/slideshow1.webp", alt: "Durga Puja Pandal", data_ai_hint: "durga idol", orientation: "landscape" },
@@ -30,6 +31,28 @@ const images = [
   { src: "/cricket.webp", alt: "Cricket Match", data_ai_hint: "cricket match", orientation: "landscape" },
   { src: "/karate.webp", alt: "Karate Demonstration", data_ai_hint: "karate class", orientation: "landscape" },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    }
+  },
+};
 
 export default function GalleryPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -62,10 +85,16 @@ export default function GalleryPage() {
           </p>
         </div>
 
-        <div className="columns-2 gap-4 pt-16 md:columns-3 lg:columns-4">
+        <motion.div 
+          className="columns-2 gap-4 pt-16 md:columns-3 lg:columns-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {images.map((image, index) => (
-            <div 
+            <motion.div 
               key={index}
+              variants={imageVariants}
               onClick={() => setSelectedIndex(index)}
               className="group relative mb-4 block cursor-pointer break-inside-avoid overflow-hidden rounded-xl shadow-lg"
             >
@@ -78,9 +107,9 @@ export default function GalleryPage() {
                 data-ai-hint={image.data_ai_hint}
               />
               <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {selectedImage && (
