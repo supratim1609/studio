@@ -71,7 +71,7 @@ export default function GalleryPage() {
     const touchEnd = e.changedTouches[0].clientX;
     if (touchStart - touchEnd > 75) { // Min swipe distance
       handleNext();
-    } else if (touchEnd - touchStart > 75) {
+    } else if (touchEnd - start > 75) {
       handlePrev();
     }
   };
@@ -114,7 +114,7 @@ export default function GalleryPage() {
       {selectedImage && (
         <Dialog open={selectedImageIndex !== null} onOpenChange={(open) => !open && setSelectedImageIndex(null)}>
           <DialogContent 
-            className="max-w-5xl w-full p-0 overflow-hidden" 
+            className="w-screen h-screen max-w-full max-h-full sm:max-w-7xl sm:max-h-[90vh] sm:w-auto sm:h-auto p-0 overflow-hidden" 
             data-orientation={selectedImage.orientation}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -123,7 +123,7 @@ export default function GalleryPage() {
             <DialogDescription className="sr-only">
               A larger view of the {selectedImage.alt} image. Use arrow keys to navigate.
             </DialogDescription>
-            <div className="relative w-full aspect-video">
+            <div className="relative w-full h-full">
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
@@ -135,7 +135,7 @@ export default function GalleryPage() {
              <Button
               variant="outline"
               size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
+              className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
               onClick={(e) => { e.stopPropagation(); handlePrev(); }}
             >
               <ChevronLeft className="h-6 w-6" />
@@ -143,7 +143,7 @@ export default function GalleryPage() {
             <Button
               variant="outline"
               size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
+              className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
               onClick={(e) => { e.stopPropagation(); handleNext(); }}
             >
               <ChevronRight className="h-6 w-6" />
