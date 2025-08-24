@@ -1,7 +1,7 @@
 
+"use client";
 
-
-
+import { motion } from "framer-motion";
 
 const history_events = [
     {
@@ -44,9 +44,17 @@ export default function HistoryPage() {
             aria-hidden="true"
           />
           {history_events.map((event, index) => (
-            <div
+            <motion.div
               key={index}
               className="group relative mb-8 flex items-center md:mb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              variants={{
+                hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
             >
               <div
                 className={`flex w-full items-center ${
@@ -65,7 +73,7 @@ export default function HistoryPage() {
               </div>
               <div className="absolute left-1/2 -ml-4 hidden h-8 w-8 items-center justify-center rounded-full border-4 border-background bg-accent text-lg font-bold text-accent-foreground shadow-md md:flex">
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
