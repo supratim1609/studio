@@ -117,7 +117,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰২৩",
+      year: "২০২৩",
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
@@ -138,47 +138,48 @@ const history_events = [
     },
 ];
 
-function HistoryEvent({ event, index, totalEvents }: { event: (typeof history_events)[0], index: number, totalEvents: number }) {
+function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start']
+    offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0.1, 0.4, 0.8, 1], [0.8, 1, 1, 0.5]);
-  const opacity = useTransform(scrollYProgress, [0.1, 0.4, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
-
-
+  const scale = useTransform(scrollYProgress, [0.2, 0.6], [0.8, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.8, 1],
+    [0, 1, 1, 0]
+  );
+  
   return (
-    <motion.div 
-      ref={ref}
-      style={{
-        zIndex: totalEvents - index,
-        y: y,
-        scale: scale,
-        opacity: opacity,
-      }}
-      className="sticky top-0 flex h-dvh items-start justify-center pt-24"
-    >
-      <div className="relative h-[80vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl shadow-2xl">
-          <Image
-              src={event.image.src}
-              alt={event.image.alt}
-              fill
-              className="object-cover"
-              data-ai-hint={event.image.data_ai_hint}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <div className="absolute inset-0 flex items-end justify-center p-8 md:p-12">
-              <div className="max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
-                  <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
-                  <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
-                  {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
-              </div>
-          </div>
-      </div>
-    </motion.div>
+    <div ref={ref} className="relative h-[150vh]">
+        <motion.div
+            style={{
+                scale,
+                opacity,
+            }}
+            className="sticky top-0 flex h-dvh items-center justify-center"
+            >
+            <div className="relative h-[80vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl shadow-2xl">
+                <Image
+                    src={event.image.src}
+                    alt={event.image.alt}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={event.image.data_ai_hint}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 flex items-end justify-center p-8 md:p-12">
+                    <div className="max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
+                        <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
+                        <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
+                        {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
+                    </div>
+                </div>
+            </div>
+        </motion.div>
+    </div>
   );
 }
 
@@ -197,13 +198,11 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="relative -mt-16">
+      <div className="relative">
         {history_events.map((event, index) => (
           <HistoryEvent 
             key={index} 
             event={event} 
-            index={index} 
-            totalEvents={history_events.length} 
           />
         ))}
       </div>
