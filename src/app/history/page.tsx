@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -66,7 +67,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰১৮",
+      year: "۲۰۱۸",
       title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
       description: "A powerful theme addressing the evolution and impact of global warming.",
        image: {
@@ -116,7 +117,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২৩",
+      year: "۲۰২৩",
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
@@ -126,7 +127,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২৪",
+      year: "۲۰২৪",
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
