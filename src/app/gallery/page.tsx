@@ -2,14 +2,15 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogTitle,
-  DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const images = [
   { src: "/slideshow1.webp", alt: "Durga Puja Pandal", data_ai_hint: "durga idol", orientation: "landscape" },
@@ -30,6 +31,53 @@ const images = [
 ];
 
 export default function GalleryPage() {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState(0);
+
+  const handleNext = useCallback(() => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % images.length);
+    }
+  }, [selectedImageIndex]);
+
+  const handlePrev = useCallback(() => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex(
+        (selectedImageIndex - 1 + images.length) % images.length
+      );
+    }
+  }, [selectedImageIndex]);
+  
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+      if (event.key === "ArrowRight") {
+        handleNext();
+      } else if (event.key === "ArrowLeft") {
+        handlePrev();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImageIndex, handleNext, handlePrev]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEnd = e.changedTouches[0].clientX;
+    if (touchStart - touchEnd > 75) { // Min swipe distance
+      handleNext();
+    } else if (touchEnd - touchStart > 75) {
+      handlePrev();
+    }
+  };
+
+  const selectedImage = selectedImageIndex !== null ? images[selectedImageIndex] : null;
+
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -44,39 +92,65 @@ export default function GalleryPage() {
 
         <div className="columns-2 gap-4 pt-16 md:columns-3 lg:columns-4">
           {images.map((image, index) => (
-             <Dialog key={index}>
-              <DialogTrigger asChild>
-                <div className="group relative mb-4 block cursor-pointer break-inside-avoid overflow-hidden rounded-xl shadow-lg">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={600}
-                    height={800}
-                    className="h-auto w-full transform transition-transform duration-500 group-hover:scale-110"
-                    data-ai-hint={image.data_ai_hint}
-                  />
-                   <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-              </DialogTrigger>
-              <DialogContent className="max-w-5xl w-full p-0 overflow-hidden">
-                <div className="relative w-full aspect-video">
-                  <DialogTitle className="sr-only">{image.alt}</DialogTitle>
-                  <DialogDescription className="sr-only">
-                    A larger view of the {image.alt} image.
-                  </DialogDescription>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-contain"
-                    data-ai-hint={image.data_ai_hint}
-                  />
-                </div>
-              </DialogContent>
-            </Dialog>
+            <div 
+              key={index}
+              onClick={() => setSelectedImageIndex(index)}
+              className="group relative mb-4 block cursor-pointer break-inside-avoid overflow-hidden rounded-xl shadow-lg"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={600}
+                height={800}
+                className="h-auto w-full transform transition-transform duration-500 group-hover:scale-110"
+                data-ai-hint={image.data_ai_hint}
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </div>
           ))}
         </div>
       </div>
+
+      {selectedImage && (
+        <Dialog open={selectedImageIndex !== null} onOpenChange={(open) => !open && setSelectedImageIndex(null)}>
+          <DialogContent 
+            className="max-w-5xl w-full p-0 overflow-hidden" 
+            data-orientation={selectedImage.orientation}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <DialogTitle className="sr-only">{selectedImage.alt}</DialogTitle>
+            <DialogDescription className="sr-only">
+              A larger view of the {selectedImage.alt} image. Use arrow keys to navigate.
+            </DialogDescription>
+            <div className="relative w-full aspect-video">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain"
+                data-ai-hint={selectedImage.data_ai_hint}
+              />
+            </div>
+             <Button
+              variant="outline"
+              size="icon"
+              className="absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
+              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }
