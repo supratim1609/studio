@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -141,7 +140,7 @@ const history_events = [
 function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
     return (
         <div
-            className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden bg-cover bg-fixed bg-center"
+            className="relative flex h-[85vh] w-full items-center justify-center overflow-hidden bg-cover bg-fixed bg-center"
             style={{ backgroundImage: `url(${event.image.src})` }}
             data-ai-hint={event.image.data_ai_hint}
         >
