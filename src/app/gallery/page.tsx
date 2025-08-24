@@ -58,18 +58,17 @@ export default function GalleryPage() {
                    <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
               </DialogTrigger>
-              <DialogContent className="relative max-w-4xl w-full h-auto max-h-[90dvh] p-0 flex items-center justify-center bg-transparent border-0">
+              <DialogContent className="max-w-4xl">
                  <DialogTitle className="sr-only">{image.alt}</DialogTitle>
                  <DialogDescription className="sr-only">A larger view of the {image.alt} image.</DialogDescription>
-                 <div className="relative w-full h-[85vh]">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="rounded-lg object-contain"
-                      data-ai-hint={image.data_ai_hint}
-                    />
-                 </div>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={1200}
+                  height={800}
+                  className="h-auto w-full rounded-lg object-contain"
+                  data-ai-hint={image.data_ai_hint}
+                />
               </DialogContent>
             </Dialog>
           ))}
