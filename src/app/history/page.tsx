@@ -153,7 +153,7 @@ function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
   );
   
   return (
-    <div ref={ref} className="relative h-[150vh]">
+    <div ref={ref} className="h-[150vh]">
         <motion.div
             style={{
                 scale,
@@ -185,6 +185,18 @@ function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
 
 
 export default function HistoryPage() {
+  const containerRef = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.9, 1],
+    [1.5, 1, 1, 1.5]
+  );
+  
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -198,13 +210,15 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="relative">
-        {history_events.map((event, index) => (
-          <HistoryEvent 
-            key={index} 
-            event={event} 
-          />
-        ))}
+      <div ref={containerRef} className="relative">
+        <motion.div style={{ scale }}>
+            {history_events.map((event, index) => (
+            <HistoryEvent 
+                key={index} 
+                event={event} 
+            />
+            ))}
+        </motion.div>
       </div>
     </div>
   );
