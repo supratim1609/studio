@@ -67,7 +67,7 @@ export default function Home() {
                 src="/slideshow8.webp"
                 alt="DSA Club Members celebrating"
                 layout="fill"
-                objectFit="fill"
+                objectFit="cover"
                 className="rounded-xl"
                 data-ai-hint="indian festival crowd"
               />
@@ -85,7 +85,7 @@ export default function Home() {
             Dive into the heart of our celebration. Explore events, meet our team, relive memories, and learn about our rich past.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                 <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -103,7 +103,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -121,7 +121,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -139,7 +139,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-             <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+             <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
