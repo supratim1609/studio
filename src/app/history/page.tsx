@@ -145,41 +145,31 @@ function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0.2, 0.6], [0.8, 1]);
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.8, 1],
-    [0, 1, 1, 0]
-  );
-  
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+
   return (
-    <div ref={ref} className="h-[150vh]">
-        <motion.div
-            style={{
-                scale,
-                opacity,
-            }}
-            className="sticky top-0 flex h-dvh items-center justify-center"
-            >
-            <div className="relative h-[80vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl shadow-2xl">
-                <Image
-                    src={event.image.src}
-                    alt={event.image.alt}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={event.image.data_ai_hint}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute inset-0 flex items-end justify-center p-8 md:p-12">
-                    <div className="max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
-                        <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
-                        <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
-                        {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
-                    </div>
-                </div>
-            </div>
-        </motion.div>
-    </div>
+    <motion.div
+      ref={ref}
+      style={{ opacity }}
+      className="relative grid h-[50vh] w-full place-items-center overflow-hidden rounded-2xl shadow-2xl md:h-[70vh]"
+    >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
+        <Image
+            src={event.image.src}
+            alt={event.image.alt}
+            fill
+            className="object-cover"
+            data-ai-hint={event.image.data_ai_hint}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      </motion.div>
+      <div className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
+          <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
+          <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
+          {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
+      </div>
+    </motion.div>
   );
 }
 
@@ -198,7 +188,7 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="container mx-auto space-y-16 px-4 pb-24 md:space-y-24">
         {history_events.map((event, index) => (
           <HistoryEvent 
             key={index} 
