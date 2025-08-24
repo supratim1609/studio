@@ -1,15 +1,11 @@
 
-"use client";
-
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { DhakPlayer } from "@/components/dhak-player";
-import { Loader } from "@/components/loader";
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 
 // Metadata can't be in a client component, but we can export it separately.
 export const metadata: Metadata = {
@@ -25,7 +21,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
@@ -42,20 +37,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-background text-foreground antialiased pb-24">
-          <AnimatePresence>
-            {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />}
-          </AnimatePresence>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isLoading ? 0 : 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="relative flex min-h-dvh flex-col"
           >
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
-          </motion.div>
+          </div>
           
           <Toaster />
           <DhakPlayer />
