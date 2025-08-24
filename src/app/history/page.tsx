@@ -17,7 +17,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৩",
+      year: "۲۰۱۳",
       title: "বর্ণপরিচয়",
       description: "Celebrating the foundations of Bengali literature and language.",
        image: {
@@ -37,7 +37,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৫",
+      year: "۲۰১৫",
       title: "মাশরুম কিংডম",
       description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
        image: {
@@ -47,7 +47,7 @@ const history_events = [
       }
     },
      {
-      year: "২০১৬",
+      year: "۲۰১৬",
       title: "প্লাস্টিকনাশীনি",
       description: "An innovative theme highlighting the destruction of plastic pollution.",
        image: {
@@ -138,16 +138,30 @@ const history_events = [
     },
 ];
 
-function HistoryEvent({ event, progress, range }: { event: (typeof history_events)[0], progress: any, range: [number, number] }) {
-  const scale = useTransform(progress, range, [1, 0.8]);
-  const opacity = useTransform(progress, [range[0], (range[0] + range[1])/2], [1, 0]);
+function HistoryEvent({ event, index, totalEvents }: { event: (typeof history_events)[0], index: number, totalEvents: number }) {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start']
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [0.8, 1, 1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [0.5, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+
 
   return (
     <motion.div 
-      style={{ scale, opacity, zIndex: range[2] }}
-      className="sticky top-0 flex h-dvh items-center justify-center"
+      ref={ref}
+      style={{
+        zIndex: totalEvents - index,
+        y: y,
+        scale: scale,
+        opacity: opacity,
+      }}
+      className="sticky top-0 flex h-dvh items-start justify-center pt-24"
     >
-      <div className="relative h-[85vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl shadow-2xl">
+      <div className="relative h-[80vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl shadow-2xl">
           <Image
               src={event.image.src}
               alt={event.image.alt}
@@ -170,12 +184,6 @@ function HistoryEvent({ event, progress, range }: { event: (typeof history_event
 
 
 export default function HistoryPage() {
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -189,15 +197,15 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div ref={ref} className="relative" style={{ height: `${history_events.length * 100}vh` }}>
-        {history_events.map((event, index) => {
-            const totalEvents = history_events.length;
-            const start = index / totalEvents;
-            const end = (index + 0.75) / totalEvents;
-            const range: [number, number, number] = [start, end, totalEvents - index];
-
-            return <HistoryEvent key={index} event={event} progress={scrollYProgress} range={range} />
-        })}
+      <div className="relative -mt-16">
+        {history_events.map((event, index) => (
+          <HistoryEvent 
+            key={index} 
+            event={event} 
+            index={index} 
+            totalEvents={history_events.length} 
+          />
+        ))}
       </div>
     </div>
   );
