@@ -2,15 +2,13 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const images = [
   { src: "/slideshow1.webp", alt: "Durga Puja Pandal", data_ai_hint: "durga idol", orientation: "landscape" },
@@ -31,52 +29,7 @@ const images = [
 ];
 
 export default function GalleryPage() {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [touchStart, setTouchStart] = useState(0);
-
-  const handleNext = useCallback(() => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex + 1) % images.length);
-    }
-  }, [selectedImageIndex]);
-
-  const handlePrev = useCallback(() => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex(
-        (selectedImageIndex - 1 + images.length) % images.length
-      );
-    }
-  }, [selectedImageIndex]);
-  
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (selectedImageIndex === null) return;
-      if (event.key === "ArrowRight") {
-        handleNext();
-      } else if (event.key === "ArrowLeft") {
-        handlePrev();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedImageIndex, handleNext, handlePrev]);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEnd = e.changedTouches[0].clientX;
-    if (touchStart - touchEnd > 75) { // Min swipe distance
-      handleNext();
-    } else if (touchEnd - start > 75) {
-      handlePrev();
-    }
-  };
-
-  const selectedImage = selectedImageIndex !== null ? images[selectedImageIndex] : null;
+  const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null);
 
   return (
     <div className="bg-background">
@@ -94,7 +47,7 @@ export default function GalleryPage() {
           {images.map((image, index) => (
             <div 
               key={index}
-              onClick={() => setSelectedImageIndex(index)}
+              onClick={() => setSelectedImage(image)}
               className="group relative mb-4 block cursor-pointer break-inside-avoid overflow-hidden rounded-xl shadow-lg"
             >
               <Image
@@ -112,42 +65,24 @@ export default function GalleryPage() {
       </div>
 
       {selectedImage && (
-        <Dialog open={selectedImageIndex !== null} onOpenChange={(open) => !open && setSelectedImageIndex(null)}>
+        <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
           <DialogContent 
-            className="w-screen h-screen max-w-full max-h-full sm:max-w-7xl sm:max-h-[90vh] sm:w-auto sm:h-auto p-0 overflow-hidden" 
+            className="max-w-5xl w-full p-0 overflow-hidden" 
             data-orientation={selectedImage.orientation}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
           >
-            <DialogTitle className="sr-only">{selectedImage.alt}</DialogTitle>
+             <DialogTitle className="sr-only">{selectedImage.alt}</DialogTitle>
             <DialogDescription className="sr-only">
-              A larger view of the {selectedImage.alt} image. Use arrow keys to navigate.
+                A larger view of the {selectedImage.alt} image.
             </DialogDescription>
-            <div className="relative w-full h-full">
-              <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                fill
-                className="object-contain"
-                data-ai-hint={selectedImage.data_ai_hint}
-              />
+            <div className="relative w-full aspect-video">
+                <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    fill
+                    className="object-contain"
+                    data-ai-hint={selectedImage.data_ai_hint}
+                />
             </div>
-             <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
-              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80"
-              onClick={(e) => { e.stopPropagation(); handleNext(); }}
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
           </DialogContent>
         </Dialog>
       )}
