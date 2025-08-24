@@ -101,7 +101,7 @@ const history_events = [
       title: "কেকামহল",
       description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
        image: {
-          src: "/2121.webp",
+          src: "/2021.webp",
           alt: "Peacock palace theme",
           data_ai_hint: "peacock feathers"
       }
