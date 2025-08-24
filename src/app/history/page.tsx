@@ -7,7 +7,7 @@ import React from "react";
 
 const history_events = [
     {
-      year: "۲۰১২",
+      year: "۲۰۱۲",
       title: "আফ্রিকান জুলু কালচার",
       description: "An exploration of the vibrant and rich culture of the African Zulu people.",
        image: {
@@ -27,7 +27,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৪",
+      year: "۲۰১৪",
       title: "শহর থেকে দূরে",
       description: "A theme celebrating the tranquility and beauty of life away from the city.",
        image: {
@@ -139,13 +139,13 @@ const history_events = [
 ];
 
 function HistoryEvent({ event, progress, range }: { event: (typeof history_events)[0], progress: any, range: [number, number] }) {
-  const scale = useTransform(progress, range, [1, 0.7]);
-  const opacity = useTransform(progress, range, [1, 0]);
+  const scale = useTransform(progress, range, [1, 0.8]);
+  const opacity = useTransform(progress, [range[0], (range[0] + range[1])/2], [1, 0]);
 
   return (
     <motion.div 
+      style={{ scale, opacity, zIndex: range[2] }}
       className="sticky top-0 flex h-dvh items-center justify-center"
-      style={{ scale, opacity }}
     >
       <div className="relative h-[85vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl shadow-2xl">
           <Image
@@ -193,8 +193,8 @@ export default function HistoryPage() {
         {history_events.map((event, index) => {
             const totalEvents = history_events.length;
             const start = index / totalEvents;
-            const end = (index + 1) / totalEvents;
-            const range: [number, number] = [start, end];
+            const end = (index + 0.75) / totalEvents;
+            const range: [number, number, number] = [start, end, totalEvents - index];
 
             return <HistoryEvent key={index} event={event} progress={scrollYProgress} range={range} />
         })}
