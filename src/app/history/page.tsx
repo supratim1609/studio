@@ -20,7 +20,7 @@ const history_events = [
     { year: "২০২০", title: "কোভিড বিধি মেনে পূজা" },
     { year: "২০২১", title: "কোকামহল" },
     { year: "২০২২", title: "বাংলা ও বাঙালীয়ানা" },
-    { year: "২০২৩", title: "ইডোনা" },
+    { year: "২০২৩", title: "ইচ্ছেডানা" },
     { year: "২০২৪", title: "শৈশব" },
 ];
 
