@@ -8,7 +8,6 @@ import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
 import { HeroSlideshow } from "@/components/hero-slideshow";
-import { FloatingPetals } from "@/components/floating-petals";
 
 export default function Home() {
   return (
@@ -16,7 +15,6 @@ export default function Home() {
       <section className="relative h-[calc(100dvh)] w-full overflow-hidden">
         <div className="absolute inset-0">
           <HeroSlideshow />
-          <FloatingPetals />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
         
@@ -69,7 +67,7 @@ export default function Home() {
                 layout="fill"
                 objectFit="fit"
                 className="rounded-xl"
-                // data-ai-hint="indian community"
+                data-ai-hint="indian community"
               />
             </div>
           </div>
@@ -150,13 +148,31 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                    Discover the various activities and community initiatives organized by the DSA throughout the year.
+                 Discover the various sports and cultural activities that DSA proudly organizes throughout the year.
                 </CardDescription>
                  <Button asChild variant="link" className="px-0 mt-4 font-bold">
-                  <Link href="/activities">See Activities <ArrowRight className="ml-2"/></Link>
+                  <Link href="/activities">Discover Activities <ArrowRight className="ml-2"/></Link>
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" className="py-20 lg:py-32">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl rounded-xl bg-primary/10 p-10 text-center">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">
+              Become a Part of Our Family
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground/70">
+             Your support helps us continue our tradition of grand celebrations and community service. Join us as a member or contribute with a donation.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="font-bold">
+                <Link href="/join">Become a Member</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
