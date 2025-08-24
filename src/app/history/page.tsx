@@ -145,17 +145,20 @@ function HistoryEvent({ event, index }: { event: (typeof history_events)[0], ind
     offset: ["start end", "end start"],
   });
 
+  const { scrollYProgress: scrollYProgressForOpacity } = useScroll({
+    target: ref,
+    offset: ["center", "end start"],
+  });
+  
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
-  const isOdd = index % 2 !== 0;
-  const variants = {
-    hidden: { opacity: 0, x: isOdd ? 100 : -100 },
-    visible: { opacity: 1, x: 0 },
-  };
-  const transition = { duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] };
+  const opacity = useTransform(scrollYProgressForOpacity, [0.1, 0.4], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
+    <motion.section 
+      ref={ref} 
+      className="relative h-[80vh] min-h-[600px] w-full overflow-hidden"
+      style={{ opacity }}
+    >
         <motion.div style={{ y }} className="absolute inset-0 h-full w-full">
             <Image
                 src={event.image.src}
@@ -167,21 +170,13 @@ function HistoryEvent({ event, index }: { event: (typeof history_events)[0], ind
         </motion.div>
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex h-full items-center justify-center">
-        <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-            variants={variants}
-            transition={transition}
-        >
             <div className="max-w-xl rounded-xl bg-background/80 p-8 text-center text-foreground shadow-2xl backdrop-blur-md">
                 <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
                 <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
                 {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
             </div>
-        </motion.div>
         </div>
-    </section>
+    </motion.section>
   );
 }
 
