@@ -141,10 +141,19 @@ const history_events = [
 function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
     return (
         <div
-            className="relative flex h-[90vh] w-full items-center justify-center overflow-hidden bg-cover bg-fixed bg-center"
+            className="relative flex h-[90vh] w-full items-center justify-center overflow-hidden bg-cover md:bg-fixed bg-center"
             style={{ backgroundImage: `url(${event.image.src})` }}
             data-ai-hint={event.image.data_ai_hint}
         >
+             {/* Mobile-only Image with regular scroll */}
+            <Image
+                src={event.image.src}
+                alt={event.image.alt}
+                layout="fill"
+                objectFit="cover"
+                className="absolute inset-0 md:hidden"
+                data-ai-hint={event.image.data_ai_hint}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <motion.div 
                 className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md"
@@ -160,6 +169,7 @@ function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
         </div>
     );
 }
+
 
 export default function HistoryPage() {
   return (
