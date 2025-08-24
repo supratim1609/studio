@@ -135,7 +135,7 @@ const history_events = [
           data_ai_hint: "childhood joy"
       }
     },
-].reverse();
+];
 
 export default function HistoryPage() {
   return (
