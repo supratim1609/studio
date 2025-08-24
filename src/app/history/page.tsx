@@ -56,7 +56,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰১৭",
+      year: "۲۰۱۷",
       title: "মামা ভাগ্নে পাহাড়",
       description: "Thematically centered around the famous local hills of Birbhum.",
        image: {
@@ -86,7 +86,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰২০",
+      year: "۲۰۲۰",
       title: "কোভিড বিধি মেনে পূজা",
       description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
        image: {
@@ -106,7 +106,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰২২",
+      year: "২০২২",
       title: "বাংলা ও বাঙালীয়ানা",
       description: "A tribute to the rich culture and essence of Bengal and its heritage.",
        image: {
@@ -116,7 +116,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰২৩",
+      year: "২০২৩",
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
@@ -126,7 +126,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰২৪",
+      year: "২০২৪",
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
