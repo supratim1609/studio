@@ -17,7 +17,7 @@ export default function Home() {
       <section className="relative h-dvh w-full overflow-hidden">
         <div className="absolute inset-0">
           <HeroSlideshow />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
         
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
