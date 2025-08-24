@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -5,6 +6,8 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -56,6 +59,8 @@ export default function GalleryPage() {
                 </div>
               </DialogTrigger>
               <DialogContent className="relative max-w-4xl w-full h-auto max-h-[90dvh] p-0 flex items-center justify-center bg-transparent border-0">
+                 <DialogTitle className="sr-only">{image.alt}</DialogTitle>
+                 <DialogDescription className="sr-only">A larger view of the {image.alt} image.</DialogDescription>
                  <div className="relative w-full h-[85vh]">
                     <Image
                       src={image.src}
