@@ -56,7 +56,7 @@ export default function GalleryPage() {
                    <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl p-0">
+              <DialogContent className="max-w-2xl p-0">
                 <Image
                   src={image.src}
                   alt={image.alt}
