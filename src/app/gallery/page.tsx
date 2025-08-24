@@ -58,7 +58,7 @@ export default function GalleryPage() {
                    <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl">
+              <DialogContent className="max-w-2xl">
                  <DialogTitle className="sr-only">{image.alt}</DialogTitle>
                  <DialogDescription className="sr-only">A larger view of the {image.alt} image.</DialogDescription>
                 <Image
