@@ -27,7 +27,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰১৪",
+      year: "۲۰۱۴",
       title: "শহর থেকে দূরে",
       description: "A theme celebrating the tranquility and beauty of life away from the city.",
        image: {
@@ -37,7 +37,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰১৫",
+      year: "۲۰۱۵",
       title: "মাশরুম কিংডম",
       description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
        image: {
@@ -47,7 +47,7 @@ const history_events = [
       }
     },
      {
-      year: "۲۰১৬",
+      year: "۲۰۱۶",
       title: "প্লাস্টিকনাশীনি",
       description: "An innovative theme highlighting the destruction of plastic pollution.",
        image: {
@@ -57,7 +57,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৭",
+      year: "۲۰১৭",
       title: "মামা ভাগ্নে পাহাড়",
       description: "Thematically centered around the famous local hills of Birbhum.",
        image: {
@@ -67,7 +67,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৮",
+      year: "۲۰১৮",
       title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
       description: "A powerful theme addressing the evolution and impact of global warming.",
        image: {
@@ -77,7 +77,7 @@ const history_events = [
       }
     },
     {
-      year: "২০১৯",
+      year: "۲۰۱۹",
       title: "ধারাপাত",
       description: "A theme based on the Bengali primer, evoking nostalgia for early education.",
        image: {
@@ -127,7 +127,7 @@ const history_events = [
       }
     },
     {
-      year: "২০২৪",
+      year: "۲۰২৪",
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
