@@ -1,9 +1,9 @@
 
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 
 const history_events = [
     {
@@ -138,46 +138,35 @@ const history_events = [
     },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
-      duration: 0.8,
-      ease: "easeOut" 
-    } 
-  },
-};
-
 function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
+
   return (
-    <motion.div
-      className="relative grid h-[70vh] w-full place-items-center overflow-hidden"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={cardVariants}
-    >
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: "-10%" }} // Simplified parallax effect
-      >
-        <Image
-            src={event.image.src}
-            alt={event.image.alt}
-            fill
-            className="object-cover"
-            data-ai-hint={event.image.data_ai_hint}
-        />
-      </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-      <div className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
-          <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
-          <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
-          {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
-      </div>
-    </motion.div>
+    <div ref={ref} className="relative h-[150vh]">
+        <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
+             <motion.div className="absolute inset-0" style={{ y }}>
+                 <Image
+                    src={event.image.src}
+                    alt={event.image.alt}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={event.image.data_ai_hint}
+                />
+            </motion.div>
+             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="relative z-10 max-w-xl rounded-xl bg-background/80 p-6 text-center text-foreground shadow-2xl backdrop-blur-md">
+                <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
+                <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
+                {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
+            </div>
+        </div>
+    </div>
   );
 }
 
@@ -196,7 +185,7 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div className="flex w-full flex-col items-center space-y-20 py-10">
+      <div className="relative z-10 w-full">
         {history_events.map((event, index) => (
           <HistoryEvent 
             key={index} 
