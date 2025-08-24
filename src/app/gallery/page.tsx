@@ -60,6 +60,7 @@ export default function GalleryPage() {
               </DialogTrigger>
               <DialogContent 
                 className="max-w-4xl max-h-[90vh] flex items-center justify-center"
+                data-orientation={image.orientation}
               >
                  <DialogTitle className="sr-only">{image.alt}</DialogTitle>
                  <DialogDescription className="sr-only">A larger view of the {image.alt} image.</DialogDescription>
