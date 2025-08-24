@@ -7,7 +7,7 @@ import React from "react";
 
 const history_events = [
     {
-      year: "۲۰۱۲",
+      year: "২০১২",
       title: "আফ্রিকান জুলু কালচার",
       description: "An exploration of the vibrant and rich culture of the African Zulu people.",
        image: {
@@ -185,18 +185,6 @@ function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
 
 
 export default function HistoryPage() {
-  const containerRef = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.9, 1],
-    [1.5, 1, 1, 1.5]
-  );
-  
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -210,15 +198,13 @@ export default function HistoryPage() {
         </div>
       </div>
 
-      <div ref={containerRef} className="relative">
-        <motion.div style={{ scale }}>
-            {history_events.map((event, index) => (
-            <HistoryEvent 
-                key={index} 
-                event={event} 
-            />
-            ))}
-        </motion.div>
+      <div className="relative">
+        {history_events.map((event, index) => (
+          <HistoryEvent 
+            key={index} 
+            event={event} 
+          />
+        ))}
       </div>
     </div>
   );
