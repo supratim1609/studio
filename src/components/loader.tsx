@@ -1,8 +1,8 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -24,16 +24,28 @@ const textVariants = {
   },
 };
 
-const doorVariants = {
-  initial: { height: "100%" },
-  animate: {
-    height: 0,
-    transition: {
-      duration: 1.2,
-      ease: [0.87, 0, 0.13, 1],
-    },
-  },
+const leftDoorVariant = {
+    initial: { x: 0 },
+    animate: { 
+        x: "-100%",
+        transition: {
+            duration: 1.2,
+            ease: [0.87, 0, 0.13, 1],
+        }
+    }
 };
+
+const rightDoorVariant = {
+    initial: { x: 0 },
+    animate: { 
+        x: "100%",
+        transition: {
+            duration: 1.2,
+            ease: [0.87, 0, 0.13, 1],
+        }
+    }
+};
+
 
 export const Loader = () => {
   const [loadingStep, setLoadingStep] = useState(0); // 0: initial, 1: text shown, 2: doors opening, 3: done
@@ -70,28 +82,26 @@ export const Loader = () => {
   return (
     <AnimatePresence>
       {loadingStep < 3 && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden">
           {/* Doors */}
           <motion.div
-            className="fixed top-0 left-0 w-full bg-primary"
-            variants={doorVariants}
+            className="fixed top-0 left-0 h-full w-1/2 bg-primary z-20"
+            variants={leftDoorVariant}
             initial="initial"
             animate={loadingStep >= 2 ? "animate" : "initial"}
-            style={{ originY: 'top' }}
           />
            <motion.div
-            className="fixed bottom-0 left-0 w-full bg-primary"
-            variants={doorVariants}
+            className="fixed top-0 right-0 h-full w-1/2 bg-primary z-20"
+            variants={rightDoorVariant}
             initial="initial"
             animate={loadingStep >= 2 ? "animate" : "initial"}
-            style={{ originY: 'bottom' }}
           />
 
           {/* Text */}
           <AnimatePresence>
             {loadingStep === 1 && (
               <motion.h1
-                className="relative z-10 font-headline text-6xl font-bold text-primary-foreground md:text-8xl"
+                className="relative z-30 font-headline text-6xl font-bold text-primary-foreground md:text-8xl"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
