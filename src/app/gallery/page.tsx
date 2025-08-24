@@ -9,6 +9,9 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const images = [
   { src: "/slideshow1.webp", alt: "Durga Puja Pandal", data_ai_hint: "durga idol", orientation: "landscape" },
@@ -29,7 +32,23 @@ const images = [
 ];
 
 export default function GalleryPage() {
-  const [selectedImage, setSelectedImage] = useState<typeof images[0] | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
+    }
+  };
+  
+  const selectedImage = selectedIndex !== null ? images[selectedIndex] : null;
 
   return (
     <div className="bg-background">
@@ -47,7 +66,7 @@ export default function GalleryPage() {
           {images.map((image, index) => (
             <div 
               key={index}
-              onClick={() => setSelectedImage(image)}
+              onClick={() => setSelectedIndex(index)}
               className="group relative mb-4 block cursor-pointer break-inside-avoid overflow-hidden rounded-xl shadow-lg"
             >
               <Image
@@ -65,15 +84,16 @@ export default function GalleryPage() {
       </div>
 
       {selectedImage && (
-        <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
+        <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
           <DialogContent 
             className="max-w-5xl w-full p-0 overflow-hidden" 
             data-orientation={selectedImage.orientation}
           >
-             <DialogTitle className="sr-only">{selectedImage.alt}</DialogTitle>
+            <DialogTitle className="sr-only">{selectedImage.alt}</DialogTitle>
             <DialogDescription className="sr-only">
                 A larger view of the {selectedImage.alt} image.
             </DialogDescription>
+            
             <div className="relative w-full aspect-video">
                 <Image
                     src={selectedImage.src}
@@ -83,6 +103,25 @@ export default function GalleryPage() {
                     data-ai-hint={selectedImage.data_ai_hint}
                 />
             </div>
+
+            <Button 
+                variant="outline" 
+                size="icon" 
+                onClick={handlePrev} 
+                className="absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 border-none text-white hover:text-white"
+            >
+                <ChevronLeft className="h-6 w-6" />
+                <span className="sr-only">Previous Image</span>
+            </Button>
+            <Button 
+                variant="outline" 
+                size="icon" 
+                onClick={handleNext} 
+                className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 border-none text-white hover:text-white"
+            >
+                <ChevronRight className="h-6 w-6" />
+                <span className="sr-only">Next Image</span>
+            </Button>
           </DialogContent>
         </Dialog>
       )}
