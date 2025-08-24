@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { DhakPlayer } from "@/components/dhak-player";
 import React from "react";
+import { LayoutProvider } from "@/components/layout-provider";
 
 // Metadata can't be in a client component, but we can export it separately.
 export const metadata: Metadata = {
@@ -37,16 +38,18 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-background text-foreground antialiased pb-24">
-          <div
-            className="relative flex min-h-dvh flex-col"
-          >
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          
-          <Toaster />
-          <DhakPlayer />
+          <LayoutProvider>
+            <div
+              className="relative flex min-h-dvh flex-col"
+            >
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            
+            <Toaster />
+            <DhakPlayer />
+          </LayoutProvider>
       </body>
     </html>
   );
