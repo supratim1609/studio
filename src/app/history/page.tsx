@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const history_events = [
     {
-      year: "2012",
+      year: "২০১২",
       title: "আফ্রিকান জুলু কালচার",
       description: "An exploration of the vibrant and rich culture of the African Zulu people.",
        image: {
@@ -16,7 +16,7 @@ const history_events = [
       }
     },
     {
-      year: "2013",
+      year: "২০১৩",
       title: "বর্ণপরিচয়",
       description: "Celebrating the foundations of Bengali literature and language.",
        image: {
@@ -26,7 +26,7 @@ const history_events = [
       }
     },
     {
-      year: "2014",
+      year: "২০১৪",
       title: "শহর থেকে দূরে",
       description: "A theme celebrating the tranquility and beauty of life away from the city.",
        image: {
@@ -36,7 +36,7 @@ const history_events = [
       }
     },
     {
-      year: "2015",
+      year: "২০১৫",
       title: "মাশরুম কিংডম",
       description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
        image: {
@@ -46,7 +46,7 @@ const history_events = [
       }
     },
      {
-      year: "2016",
+      year: "২০১৬",
       title: "প্লাস্টিকনাশীনি",
       description: "An innovative theme highlighting the destruction of plastic pollution.",
        image: {
@@ -56,7 +56,7 @@ const history_events = [
       }
     },
     {
-      year: "2017",
+      year: "২০১৭",
       title: "মামা ভাগ্নে পাহাড়",
       description: "Thematically centered around the famous local hills of Birbhum.",
        image: {
@@ -66,7 +66,7 @@ const history_events = [
       }
     },
     {
-      year: "2018",
+      year: "২০১৮",
       title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
       description: "A powerful theme addressing the evolution and impact of global warming.",
        image: {
@@ -76,7 +76,7 @@ const history_events = [
       }
     },
     {
-      year: "2019",
+      year: "২০১৯",
       title: "ধারাপাত",
       description: "A theme based on the Bengali primer, evoking nostalgia for early education.",
        image: {
@@ -86,7 +86,7 @@ const history_events = [
       }
     },
     {
-      year: "2020",
+      year: "২০২০",
       title: "কোভিড বিধি মেনে পূজা",
       description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
        image: {
@@ -96,7 +96,7 @@ const history_events = [
       }
     },
      {
-      year: "2021",
+      year: "২০২১",
       title: "কেকামহল",
       description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
        image: {
@@ -106,7 +106,7 @@ const history_events = [
       }
     },
     {
-      year: "2022",
+      year: "২০২২",
       title: "বাংলা ও বাঙালীয়ানা",
       description: "A tribute to the rich culture and essence of Bengal and its heritage.",
        image: {
@@ -116,7 +116,7 @@ const history_events = [
       }
     },
     {
-      year: "2023",
+      year: "২০২৩",
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
@@ -126,7 +126,7 @@ const history_events = [
       }
     },
     {
-      year: "2024",
+      year: "২০২৪",
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
@@ -135,7 +135,7 @@ const history_events = [
           data_ai_hint: "childhood joy"
       }
     },
-];
+].reverse();
 
 export default function HistoryPage() {
   return (
@@ -145,43 +145,50 @@ export default function HistoryPage() {
           <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
             History
           </h1>
-           <p className="mt-6 text-lg text-foreground/80">
+          <p className="mt-6 text-lg text-foreground/80">
             Since its founding in 1979, Dubrajpur Sports Association (DSA) has evolved from a humble sports club into a vibrant hub of tradition, art, and unity. For over four decades, we have championed social engagement and cultural expression, with our signature Durga Puja becoming one of the most anticipated events in the region, drawing thousands of visitors annually.
           </p>
         </div>
       </div>
 
-        <div className="relative">
-            {history_events.map((event, index) => (
-                <section key={index} className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
-                    <Image 
-                        src={event.image.src}
-                        alt={event.image.alt}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={event.image.data_ai_hint}
-                    />
-                    <div className="absolute inset-0 bg-black/50" />
-                    <motion.div
-                        className="relative z-10 flex h-full items-center justify-center"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: 0.8 }}
-                         variants={{
-                            hidden: { opacity: 0, y: 50 },
-                            visible: { opacity: 1, y: 0 },
-                        }}
-                    >
-                         <div className="max-w-xl rounded-xl bg-background/80 p-8 text-center text-foreground shadow-2xl backdrop-blur-md">
-                            <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
-                            <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
-                            {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
-                        </div>
-                    </motion.div>
-                </section>
-            ))}
-        </div>
+      <div className="relative">
+        {history_events.map((event, index) => {
+          const isOdd = index % 2 !== 0;
+          const variants = {
+            hidden: { opacity: 0, x: isOdd ? 100 : -100 },
+            visible: { opacity: 1, x: 0 },
+          };
+          const transition = { duration: 0.8 };
+
+          return (
+            <section key={index} className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
+              <Image
+                src={event.image.src}
+                alt={event.image.alt}
+                fill
+                className="object-cover"
+                data-ai-hint={event.image.data_ai_hint}
+              />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="relative z-10 flex h-full items-center justify-center">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.4 }}
+                  variants={variants}
+                  transition={transition}
+                >
+                  <div className="max-w-xl rounded-xl bg-background/80 p-8 text-center text-foreground shadow-2xl backdrop-blur-md">
+                    <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
+                    <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
+                    {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 }
