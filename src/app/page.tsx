@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { DhakPlayer } from "@/components/dhak-player";
 import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
@@ -162,7 +161,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <DhakPlayer />
     </div>
   );
 }
