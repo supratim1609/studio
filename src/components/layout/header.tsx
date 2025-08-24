@@ -82,7 +82,10 @@ export function Header() {
                         <span className="sr-only">Open menu</span>
                     </button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="flex flex-col">
+                    <SheetContent
+  side="right"
+  className="flex flex-col bg-white/30 dark:bg-black/30 backdrop-blur-md"
+>
                     <div className="flex flex-col gap-8 pt-8">
                          <Link href="/" className="flex items-center gap-3 font-headline text-xl font-bold" onClick={() => setIsOpen(false)}>
                             <Image src="/logo.png" alt="DSA Logo" width={64} height={64} className="transition-all"/>
