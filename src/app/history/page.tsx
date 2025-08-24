@@ -11,7 +11,7 @@ const history_events = [
       title: "আফ্রিকান জুলু কালচার",
       description: "An exploration of the vibrant and rich culture of the African Zulu people.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2012.webp",
           alt: "Zulu culture theme",
           data_ai_hint: "african tribe"
       }
@@ -21,7 +21,7 @@ const history_events = [
       title: "বর্ণপরিচয়",
       description: "Celebrating the foundations of Bengali literature and language.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2013.webp",
           alt: "Bengali alphabet theme",
           data_ai_hint: "bengali script"
       }
@@ -31,7 +31,7 @@ const history_events = [
       title: "শহর থেকে দূরে",
       description: "A theme celebrating the tranquility and beauty of life away from the city.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2014.webp",
           alt: "Rural life theme",
           data_ai_hint: "village landscape"
       }
@@ -41,7 +41,7 @@ const history_events = [
       title: "মাশরুম কিংডম",
       description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2015.webp",
           alt: "Mushroom Kingdom theme",
           data_ai_hint: "fantasy mushroom"
       }
@@ -51,7 +51,7 @@ const history_events = [
       title: "প্লাস্টিকনাশীনি",
       description: "An innovative theme highlighting the destruction of plastic pollution.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2016.webp",
           alt: "Anti-plastic theme",
           data_ai_hint: "plastic waste"
       }
@@ -61,7 +61,7 @@ const history_events = [
       title: "মামা ভাগ্নে পাহাড়",
       description: "Thematically centered around the famous local hills of Birbhum.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2017.webp",
           alt: "Mama Bhagne Pahar theme",
           data_ai_hint: "rock formation"
       }
@@ -71,7 +71,7 @@ const history_events = [
       title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
       description: "A powerful theme addressing the evolution and impact of global warming.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2018.webp",
           alt: "Global warming theme",
           data_ai_hint: "melting glacier"
       }
@@ -81,7 +81,7 @@ const history_events = [
       title: "ধারাপাত",
       description: "A theme based on the Bengali primer, evoking nostalgia for early education.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2019.webp",
           alt: "Bengali alphabet theme",
           data_ai_hint: "vintage textbook"
       }
@@ -91,7 +91,7 @@ const history_events = [
       title: "কোভিড বিধি মেনে পূজা",
       description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2020.webp",
           alt: "Celebration with masks",
           data_ai_hint: "social distancing"
       }
@@ -101,7 +101,7 @@ const history_events = [
       title: "কেকামহল",
       description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2021.webp",
           alt: "Peacock palace theme",
           data_ai_hint: "peacock feathers"
       }
@@ -111,7 +111,7 @@ const history_events = [
       title: "বাংলা ও বাঙালীয়ানা",
       description: "A tribute to the rich culture and essence of Bengal and its heritage.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2022.webp",
           alt: "Bengal culture theme",
           data_ai_hint: "bengali culture"
       }
@@ -121,7 +121,7 @@ const history_events = [
       title: "ইচ্ছেডানা",
       description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
        image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2023.webp",
           alt: "Wings of Desire theme",
           data_ai_hint: "abstract desire"
       }
@@ -131,7 +131,7 @@ const history_events = [
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
-          src: "https://placehold.co/1200x800.png",
+          src: "/2024.webp",
           alt: "Childhood theme",
           data_ai_hint: "childhood joy"
       }
