@@ -37,7 +37,7 @@ const leftDoorVariant = {
         transition: {
             duration: 1.2,
             ease: [0.87, 0, 0.13, 1],
-            delay: 0.3
+            delay: 0.2
         }
     }
 };
@@ -49,7 +49,7 @@ const rightDoorVariant = {
         transition: {
             duration: 1.2,
             ease: [0.87, 0, 0.13, 1],
-            delay: 0.3
+            delay: 0.2
         }
     }
 };
@@ -69,9 +69,9 @@ export const Loader: React.FC<LoaderProps> = ({ onLoadingComplete }) => {
     ];
 
     const timers = [
-      setTimeout(sequence[0], 500),   // Start after 500ms
-      setTimeout(sequence[1], 2500),  // Show text for 2s
-      setTimeout(sequence[2], 3800),  // Doors take 1.3s
+      setTimeout(sequence[0], 200),   // Start after 200ms
+      setTimeout(sequence[1], 1500),  // Show text for 1.3s
+      setTimeout(sequence[2], 2500),  // Doors take ~1s
     ];
 
     return () => {
