@@ -69,7 +69,7 @@ export default function GalleryPage() {
                   alt={image.alt}
                   width={1200}
                   height={800}
-                  className="h-auto w-full rounded-lg object-contain"
+                  className="h-auto w-full object-contain"
                   data-ai-hint={image.data_ai_hint}
                 />
               </DialogContent>
