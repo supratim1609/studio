@@ -146,7 +146,7 @@ export default function HistoryPage() {
             History
           </h1>
           <p className="mt-6 text-lg text-foreground/80">
-            Since its founding in 1979, Dubrajpur Sports Association (DSA) has evolved from a humble sports club into a vibrant hub of tradition, art, and unity. For over four decades, we have championed social engagement and cultural expression, with our signature Durga Puja becoming one of the most anticipated events in the region, drawing thousands of visitors annually.
+            Since its founding in <span className="text-primary font-bold text-xl">1979, Dubrajpur Sports Association (DSA)</span> has evolved from a humble sports club into a vibrant hub of tradition, art, and unity. For over four decades, we have championed social engagement and cultural expression, with our signature Durga Puja becoming one of the most anticipated events in the region, drawing thousands of visitors annually.
           </p>
         </div>
       </div>
