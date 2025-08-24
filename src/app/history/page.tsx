@@ -17,7 +17,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۱۳",
+      year: "২০১৩",
       title: "বর্ণপরিচয়",
       description: "Celebrating the foundations of Bengali literature and language.",
        image: {
@@ -27,7 +27,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۱۴",
+      year: "২০১৪",
       title: "শহর থেকে দূরে",
       description: "A theme celebrating the tranquility and beauty of life away from the city.",
        image: {
@@ -37,7 +37,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۱۵",
+      year: "২০১৫",
       title: "মাশরুম কিংডম",
       description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
        image: {
@@ -47,7 +47,7 @@ const history_events = [
       }
     },
      {
-      year: "۲۰۱۶",
+      year: "২০১৬",
       title: "প্লাস্টিকনাশীনি",
       description: "An innovative theme highlighting the destruction of plastic pollution.",
        image: {
@@ -57,7 +57,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۱۷",
+      year: "২০১৭",
       title: "মামা ভাগ্নে পাহাড়",
       description: "Thematically centered around the famous local hills of Birbhum.",
        image: {
@@ -67,7 +67,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۱۸",
+      year: "২০১৮",
       title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
       description: "A powerful theme addressing the evolution and impact of global warming.",
        image: {
@@ -77,7 +77,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۱۹",
+      year: "২০১৯",
       title: "ধারাপাত",
       description: "A theme based on the Bengali primer, evoking nostalgia for early education.",
        image: {
@@ -87,7 +87,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰۲۰",
+      year: "২০২০",
       title: "কোভিড বিধি মেনে পূজা",
       description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
        image: {
@@ -97,7 +97,7 @@ const history_events = [
       }
     },
      {
-      year: "۲۰২১",
+      year: "২০২১",
       title: "কেকামহল",
       description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
        image: {
@@ -127,7 +127,7 @@ const history_events = [
       }
     },
     {
-      year: "۲۰২৪",
+      year: "২০২৪",
       title: "শৈশব",
       description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
       image: {
