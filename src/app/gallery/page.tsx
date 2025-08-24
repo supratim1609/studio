@@ -59,7 +59,7 @@ export default function GalleryPage() {
                 </div>
               </DialogTrigger>
               <DialogContent 
-                className="max-w-7xl"
+                className="max-w-4xl max-h-[90vh] flex items-center justify-center"
               >
                  <DialogTitle className="sr-only">{image.alt}</DialogTitle>
                  <DialogDescription className="sr-only">A larger view of the {image.alt} image.</DialogDescription>
@@ -68,7 +68,7 @@ export default function GalleryPage() {
                   alt={image.alt}
                   width={1200}
                   height={800}
-                  className="h-auto w-full object-contain"
+                  className="h-full w-full object-contain"
                   data-ai-hint={image.data_ai_hint}
                 />
               </DialogContent>
