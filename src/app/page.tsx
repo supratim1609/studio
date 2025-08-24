@@ -28,10 +28,10 @@ export default function Home() {
                 <div className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
                     <TypingAnimation
                         texts={[
+                            "Beyond Celebrations – A Home for Culture, Sports & Togetherness.",
                             "Where tradition meets tomorrow.",
                             "A hub of culture and joy.",
                             "Celebrating community spirit.",
-                            "Beyond Celebrations – A Home for Culture, Sports & Togetherness.",
                         ]}
                         className="text-primary font-bold"
                     />
