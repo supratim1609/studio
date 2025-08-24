@@ -150,7 +150,7 @@ function HistoryEvent({ event }: { event: (typeof history_events)[0] }) {
   return (
     <div ref={ref} className="relative h-[150vh]">
         <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
-             <motion.div className="absolute inset-0" style={{ y }}>
+             <motion.div className="absolute inset-0 will-change-transform" style={{ y }}>
                  <Image
                     src={event.image.src}
                     alt={event.image.alt}
