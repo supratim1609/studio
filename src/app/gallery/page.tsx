@@ -59,8 +59,7 @@ export default function GalleryPage() {
                 </div>
               </DialogTrigger>
               <DialogContent 
-                className="max-w-2xl data-[orientation=landscape]:max-h-[80vh]"
-                data-orientation={image.orientation}
+                className="max-w-7xl"
               >
                  <DialogTitle className="sr-only">{image.alt}</DialogTitle>
                  <DialogDescription className="sr-only">A larger view of the {image.alt} image.</DialogDescription>
