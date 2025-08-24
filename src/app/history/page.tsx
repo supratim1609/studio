@@ -143,10 +143,10 @@ export default function HistoryPage() {
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-            Our Journey Through Time
+            History
           </h1>
            <p className="mt-6 text-lg text-foreground/80">
-            From our first themed puja in 2012 to today, each year has been a unique chapter in our story. Explore the themes that have defined our celebrations.
+            Since its founding in 1979, Dubrajpur Sports Association (DSA) has evolved from a humble sports club into a vibrant hub of tradition, art, and unity. For over four decades, we have championed social engagement and cultural expression, with our signature Durga Puja becoming one of the most anticipated events in the region, drawing thousands of visitors annually.
           </p>
         </div>
       </div>
