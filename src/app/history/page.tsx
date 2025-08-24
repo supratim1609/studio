@@ -2,81 +2,186 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const history_events = [
     {
-      year: "২০১০-২০২৪",
-      title: "বিবর্তনে ১৬ বছর",
-      description: "সেই ২০১০ সালে পথচলা শুরু। প্রথম দুই বছর প্যান্ডেলের পুজো দিয়ে শুরু হলেও ২০১২ সালে নিজেদের তৃতীয় বর্ষেই নিয়ে আসে দুবরাজপুরের প্রথম সার্বিক থিম পুজো।",
-      main: true,
+      year: "২০২৪",
+      title: "শৈশব",
+      description: "A journey back to the carefree days of childhood, celebrating innocence and joy.",
+      image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Childhood theme",
+          data_ai_hint: "childhood joy"
+      }
     },
-    { year: "২০১২", title: "আফ্রিকান জুলু কালচার" },
-    { year: "২০১৩", title: "বর্ণপরিচয়" },
-    { year: "২০১৪", title: "শহর থেকে দূরে" },
-    { year: "২০১৫", title: "মাশরুম কিংডম" },
-    { year: "২০১৬", title: "প্লাস্টিকনাশীনি" },
-    { year: "২০১৭", title: "মামা ভাগ্নে পাহাড়" },
-    { year: "২০১৮", title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন" },
-    { year: "২০১৯", title: "ধারাপাত" },
-    { year: "২০২০", title: "কোভিড বিধি মেনে পূজা" },
-    { year: "২০২১", title: "কেকামহল" },
-    { year: "২০২২", title: "বাংলা ও বাঙালীয়ানা" },
-    { year: "২০২৩", title: "ইচ্ছেডানা" },
-    { year: "২০২৪", title: "শৈশব" },
+    {
+      year: "২০২৩",
+      title: "ইচ্ছেডানা",
+      description: "A theme that celebrated the 'Wings of Desire', inspiring hope and aspiration.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Wings of Desire theme",
+          data_ai_hint: "abstract desire"
+      }
+    },
+    {
+      year: "২০২২",
+      title: "বাংলা ও বাঙালীয়ানা",
+      description: "A tribute to the rich culture and essence of Bengal and its heritage.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Bengal culture theme",
+          data_ai_hint: "bengali culture"
+      }
+    },
+     {
+      year: "২০২১",
+      title: "কেকামহল",
+      description: "Inspired by the dance of the peacock, a theme of beauty and grace.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Peacock palace theme",
+          data_ai_hint: "peacock feathers"
+      }
+    },
+    {
+      year: "২০২০",
+      title: "কোভিড বিধি মেনে পূজা",
+      description: "A celebration held with responsibility, adhering to all COVID-19 protocols.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Celebration with masks",
+          data_ai_hint: "social distancing"
+      }
+    },
+    {
+      year: "২০১৯",
+      title: "ধারাপাত",
+      description: "A theme based on the Bengali primer, evoking nostalgia for early education.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Bengali alphabet theme",
+          data_ai_hint: "vintage textbook"
+      }
+    },
+    {
+      year: "২০১৮",
+      title: "ক্রমবিবর্তনে বিশ্ব-উষ্ণায়ন",
+      description: "A powerful theme addressing the evolution and impact of global warming.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Global warming theme",
+          data_ai_hint: "melting glacier"
+      }
+    },
+    {
+      year: "২০১৭",
+      title: "মামা ভাগ্নে পাহাড়",
+      description: "Thematically centered around the famous local hills of Birbhum.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Mama Bhagne Pahar theme",
+          data_ai_hint: "rock formation"
+      }
+    },
+     {
+      year: "২০১৬",
+      title: "প্লাস্টিকনাশীনি",
+      description: "An innovative theme highlighting the destruction of plastic pollution.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Anti-plastic theme",
+          data_ai_hint: "plastic waste"
+      }
+    },
+    {
+      year: "২০১৫",
+      title: "মাশরুম কিংডম",
+      description: "A whimsical theme that transported visitors to a fantasy Mushroom Kingdom.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Mushroom Kingdom theme",
+          data_ai_hint: "fantasy mushroom"
+      }
+    },
+    {
+      year: "২০১৪",
+      title: "শহর থেকে দূরে",
+      description: "A theme celebrating the tranquility and beauty of life away from the city.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Rural life theme",
+          data_ai_hint: "village landscape"
+      }
+    },
+    {
+      year: "২০১৩",
+      title: "বর্ণপরিচয়",
+      description: "Celebrating the foundations of Bengali literature and language.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Bengali alphabet theme",
+          data_ai_hint: "bengali script"
+      }
+    },
+     {
+      year: "২০১২",
+      title: "আফ্রিকান জুলু কালচার",
+      description: "An exploration of the vibrant and rich culture of the African Zulu people.",
+       image: {
+          src: "https://placehold.co/1200x800.png",
+          alt: "Zulu culture theme",
+          data_ai_hint: "african tribe"
+      }
+    },
 ];
 
 export default function HistoryPage() {
   return (
-    <div className="bg-muted/30">
+    <div className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-            History
+            Our Journey Through Time
           </h1>
            <p className="mt-6 text-lg text-foreground/80">
-            Since its founding in <span className="font-bold text-xl text-primary">1979</span>, <span className="text-primary font-semibold">Dubrajpur Sports Association (DSA)</span> has been a cornerstone of community spirit in Dubrajpur. From a humble sports club, it has evolved into a vibrant hub for tradition and unity. Our signature Durga Puja is one of the region’s most anticipated events, drawing thousands to celebrate our creative excellence and deep-rooted devotion. At DSA, we build connections that last—through sport, service, and celebration.
+            From our first themed puja in 2012 to today, each year has been a unique chapter in our story. Explore the themes that have defined our celebrations.
           </p>
         </div>
-
-        <div className="relative mt-20">
-          <div
-            className="absolute left-1/2 top-0 -ml-px h-full w-0.5 bg-border"
-            aria-hidden="true"
-          />
-          {history_events.map((event, index) => (
-            <motion.div
-              key={index}
-              className="group relative mb-8 flex items-center md:mb-12"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-              variants={{
-                hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
-                visible: { opacity: 1, x: 0 },
-              }}
-            >
-              <div
-                className={`flex w-full items-center ${
-                  index % 2 === 0 ? "justify-start" : "justify-end"
-                }`}
-              >
-                <div className="w-full md:w-1/2">
-                  <div className={`p-4 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                    <div className="rounded-xl bg-card p-6 shadow-lg transition-shadow duration-300 group-hover:shadow-2xl">
-                       <p className="text-sm font-semibold text-primary">{event.year}</p>
-                       <h3 className="font-headline text-2xl font-bold font-bengali">{event.title}</h3>
-                       {event.description && <p className="mt-2 text-foreground/70 font-bengali">{event.description}</p>}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute left-1/2 -ml-4 hidden h-8 w-8 items-center justify-center rounded-full border-4 border-background bg-accent text-lg font-bold text-accent-foreground shadow-md md:flex">
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
+
+        <div className="relative">
+            {history_events.map((event, index) => (
+                <section key={index} className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
+                    <Image 
+                        src={event.image.src}
+                        alt={event.image.alt}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={event.image.data_ai_hint}
+                    />
+                    <div className="absolute inset-0 bg-black/50" />
+                    <motion.div
+                        className="relative z-10 flex h-full items-center justify-center"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 0.8 }}
+                         variants={{
+                            hidden: { opacity: 0, y: 50 },
+                            visible: { opacity: 1, y: 0 },
+                        }}
+                    >
+                         <div className="max-w-xl rounded-xl bg-background/80 p-8 text-center text-foreground shadow-2xl backdrop-blur-md">
+                            <p className="font-headline text-xl font-semibold text-primary">{event.year}</p>
+                            <h3 className="mt-2 font-headline text-4xl font-bold font-bengali">{event.title}</h3>
+                            {event.description && <p className="mt-4 text-foreground/80">{event.description}</p>}
+                        </div>
+                    </motion.div>
+                </section>
+            ))}
+        </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['"Poppins"', 'sans-serif'],
-        headline: ['"Poppins"', 'sans-serif'],
+        headline: ['"Playfair Display"', 'serif'],
         bengali: ['"Hind Siliguri"', 'sans-serif'],
         code: ['monospace'],
       },
