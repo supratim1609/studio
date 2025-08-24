@@ -1,4 +1,6 @@
 
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity } from "lucide-react";
@@ -65,7 +67,7 @@ export default function Home() {
                 src="/slideshow3.webp"
                 alt="DSA Club Members celebrating"
                 layout="fill"
-                objectFit="cover"
+                objectFit="fill"
                 className="rounded-xl"
                 data-ai-hint="indian festival crowd"
               />
