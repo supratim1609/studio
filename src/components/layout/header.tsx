@@ -37,12 +37,9 @@ export function Header() {
   }, []);
 
   const headerClasses = cn(
-    "sticky top-0 z-50 w-full transition-all duration-300 bg-transparent backdrop-blur-md"
+    "sticky top-0 z-50 w-full transition-all duration-300",
+    "bg-background/80 backdrop-blur-md border-b border-border/40"
   );
-  // const headerClasses = cn(
-  //   "sticky top-0 z-50 w-full transition-all duration-300",
-  //   "bg-background/30 backdrop-blur-md border-b border-border/40"
-  // );
   
 
   return (
