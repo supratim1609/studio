@@ -10,6 +10,7 @@ import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
 import { HeroSlideshow } from "@/components/hero-slideshow";
+import { InteractiveImage } from "@/components/interactive-image";
 
 export default function Home() {
   return (
@@ -164,15 +165,12 @@ export default function Home() {
       <section id="tshirt" className="py-20 lg:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-             <div className="relative h-[600px] w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
-               <Image
-                src="/tshirt.webp"
-                alt="DSA Official T-Shirt"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-xl"
-                data-ai-hint="tshirt design"
-              />
+             <div className="relative h-[600px] w-full rounded-xl shadow-2xl">
+                <InteractiveImage
+                    src="/tshirt.webp"
+                    alt="DSA Official T-Shirt"
+                    data_ai_hint="tshirt design"
+                />
             </div>
             <div>
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
