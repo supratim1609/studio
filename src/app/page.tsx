@@ -49,6 +49,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="tshirt" className="py-20 lg:py-32 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+             <div className="relative h-[600px] w-full rounded-xl shadow-2xl">
+                <InteractiveImage
+                    src="/tshirt.webp"
+                    alt="DSA Official T-Shirt"
+                    data_ai_hint="tshirt design"
+                />
+            </div>
+            <div>
+              <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                Get the Official DSA T-Shirt!
+              </h2>
+              <p className="mt-4 text-lg text-foreground/70">
+                Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Made from premium-quality cotton, it's perfect for events, sports, or casual wear. Show your support and become a part of the DSA legacy.
+              </p>
+              <Button asChild size="lg" className="mt-8 font-bold">
+                <Link href="tel:08906479173">
+                    <Phone className="mr-2"/>
+                    Call to Order
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="about" className="py-20 lg:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -86,7 +114,7 @@ export default function Home() {
             Dive into the heart of our celebration. Explore events, meet our team, relive memories, and learn about our rich past.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                 <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -104,7 +132,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -122,7 +150,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
+            <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -140,7 +168,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-             <Card className="transform text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-2xl">
+             <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
@@ -158,34 +186,6 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      <section id="tshirt" className="py-20 lg:py-32 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-             <div className="relative h-[600px] w-full rounded-xl shadow-2xl">
-                <InteractiveImage
-                    src="/tshirt.webp"
-                    alt="DSA Official T-Shirt"
-                    data_ai_hint="tshirt design"
-                />
-            </div>
-            <div>
-              <h2 className="font-headline text-3xl font-bold md:text-4xl">
-                Get the Official DSA T-Shirt!
-              </h2>
-              <p className="mt-4 text-lg text-foreground/70">
-                Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Made from premium-quality cotton, it's perfect for events, sports, or casual wear. Show your support and become a part of the DSA legacy.
-              </p>
-              <Button asChild size="lg" className="mt-8 font-bold">
-                <Link href="tel:08906479173">
-                    <Phone className="mr-2"/>
-                    Call to Order
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -210,3 +210,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
