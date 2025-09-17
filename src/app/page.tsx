@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative h-dvh w-full overflow-hidden -mt-24">
+      <section className="relative w-full overflow-hidden -mt-24 min-h-dvh">
         <div className="absolute inset-0">
           <HeroSlideshow />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
