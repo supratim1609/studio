@@ -90,13 +90,6 @@ export default function Home() {
                     </div>
                 </div>
                 
-                <div className="mt-10 flex flex-wrap gap-4 justify-center">
-                    <Button asChild size="lg" className="font-headline font-bold text-lg">
-                    <Link href="/schedule">
-                        View Events <ArrowRight className="ml-2" />
-                    </Link>
-                    </Button>
-                </div>
             </div>
         </div>
       </section>
