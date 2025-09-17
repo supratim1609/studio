@@ -144,6 +144,20 @@ export default {
             transform: 'scale(0.95)',
             boxShadow: '0 0 0 0 hsl(var(--secondary) / 0)',
           },
+        },
+        'color-cycle': {
+          '0%, 100%': { 
+            backgroundColor: 'hsl(var(--primary))',
+            color: 'hsl(var(--primary-foreground))' 
+          },
+          '33%': { 
+            backgroundColor: 'hsl(var(--secondary))',
+            color: 'hsl(var(--secondary-foreground))'
+          },
+          '66%': { 
+            backgroundColor: 'hsl(var(--accent))',
+            color: 'hsl(var(--accent-foreground))' 
+          },
         }
       },
       animation: {
@@ -155,6 +169,7 @@ export default {
         'ken-burns-right': 'ken-burns-right 12s ease-out both',
         'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'attention-pulse': 'attention-pulse 2s infinite',
+        'color-cycle': 'color-cycle 6s ease-in-out infinite',
       },
     },
   },

@@ -34,6 +34,7 @@ const TshirtIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+
 export const TshirtAdvert = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
@@ -86,13 +87,13 @@ export const TshirtAdvert = () => {
                 <button
                 onClick={() => setIsModalOpen(true)}
                 aria-label="Click here for a surprise"
-                className="fixed bottom-6 left-6 z-50 h-16 w-16 rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-attention-pulse"
+                className="fixed bottom-6 left-6 z-50 h-16 w-16 rounded-full bg-primary text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-color-cycle"
                 >
                 <TshirtIcon className="h-7 w-7" />
                 </button>
             </TooltipTrigger>
             <TooltipContent side="right">
-                <p>Click here to see the T-Shirt!</p>
+                <p>Click here for a surprise!</p>
             </TooltipContent>
         </Tooltip>
       )}
