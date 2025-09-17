@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity } from "lucide-react";
+import { ArrowRight, Calendar, GalleryHorizontal, History, Users, Activity, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Countdown } from "@/components/countdown";
@@ -157,6 +157,37 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="tshirt" className="py-20 lg:py-32 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+             <div className="relative h-[600px] w-full rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105">
+               <Image
+                src="/tshirt.webp"
+                alt="DSA Official T-Shirt"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+                data-ai-hint="tshirt design"
+              />
+            </div>
+            <div>
+              <h2 className="font-headline text-3xl font-bold md:text-4xl">
+                Get the Official DSA T-Shirt!
+              </h2>
+              <p className="mt-4 text-lg text-foreground/70">
+                Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Made from premium-quality cotton, it's perfect for events, sports, or casual wear. Show your support and become a part of the DSA legacy.
+              </p>
+              <Button asChild size="lg" className="mt-8 font-bold">
+                <Link href="tel:08906479173">
+                    <Phone className="mr-2"/>
+                    Call to Order
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
