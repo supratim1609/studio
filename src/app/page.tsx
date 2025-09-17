@@ -49,13 +49,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative h-dvh w-full overflow-hidden">
+      <section className="relative h-dvh w-full overflow-hidden -mt-24">
         <div className="absolute inset-0">
           <HeroSlideshow />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
         
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4 pt-24">
             <div className="flex flex-col items-center">
                  <h1 className="font-headline font-bold tracking-tight text-4xl md:text-5xl lg:text-6xl">
                   <span className="block text-2xl font-normal text-foreground/80 md:text-3xl">Welcome to</span>
@@ -187,7 +187,7 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
-             <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+             <Card className="transform text-left transition-all duration-300 hover:-translate-y-2 hover-shadow-2xl">
               <CardHeader>
                  <div className="flex items-center gap-4">
                   <div className="rounded-full bg-primary/10 p-3 text-primary">
