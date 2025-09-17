@@ -70,7 +70,7 @@ export default function Home() {
                     />
                 </div>
 
-                <div className="mt-10 grid w-full max-w-4xl grid-cols-1 items-center gap-8 rounded-xl bg-background/20 p-8 shadow-lg backdrop-blur-md md:grid-cols-3">
+                <div className="mt-10 grid w-full max-w-4xl grid-cols-1 items-center gap-8 rounded-xl bg-background p-8 shadow-lg backdrop-blur-md md:grid-cols-3">
                     <div className="relative h-64 w-full md:h-full">
                          <InteractiveImage
                           src="/tshirt.webp"
@@ -79,8 +79,8 @@ export default function Home() {
                       />
                     </div>
                     <div className="text-left md:col-span-2">
-                        <h2 className="font-headline text-3xl font-bold text-white">Get the Official DSA T-Shirt!</h2>
-                        <p className="mt-2 text-white/80">Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Show your support and become a part of the DSA legacy.</p>
+                        <h2 className="font-headline text-3xl font-bold">Get the Official DSA T-Shirt!</h2>
+                        <p className="mt-2 text-foreground/80">Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Show your support and become a part of the DSA legacy.</p>
                         <Button asChild size="lg" className="mt-6 font-bold">
                             <Link href="tel:08906479173">
                                 <Phone className="mr-2"/>
