@@ -127,6 +127,10 @@ export default {
             'transform-origin': 'right',
           },
         },
+         'pulse-slow': {
+            '0%, 100%': { opacity: '0.5' },
+            '50%': { opacity: '1' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -135,6 +139,7 @@ export default {
         'ken-burns-bottom': 'ken-burns-bottom 12s ease-out both',
         'ken-burns-left': 'ken-burns-left 12s ease-out both',
         'ken-burns-right': 'ken-burns-right 12s ease-out both',
+        'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
