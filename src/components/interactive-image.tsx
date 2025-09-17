@@ -35,9 +35,6 @@ export const InteractiveImage: React.FC<InteractiveImageProps> = ({
   const rotateX = useTransform(mouseYSpring, [0, 1], ['10deg', '-10deg']);
   const rotateY = useTransform(mouseXSpring, [0, 1], ['-10deg', '10deg']);
 
-  const glareX = useTransform(mouseXSpring, [0, 1], ['100%', '-100%']);
-  const glareY = useTransform(mouseYSpring, [0, 1], ['100%', '-100%']);
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
@@ -73,29 +70,9 @@ export const InteractiveImage: React.FC<InteractiveImageProps> = ({
           src={src}
           alt={alt}
           fill
-          className="object-cover"
+          className="object-contain"
           data-ai-hint={data_ai_hint}
         />
-        {/* Glare Effect */}
-        <motion.div
-            className="pointer-events-none absolute inset-0"
-            style={{
-                background: `radial-gradient(circle at ${mouseX.get() * 100}% ${mouseY.get() * 100}%, rgba(255,255,255,0.2) 0%, transparent 50%)`,
-                opacity: useTransform(mouseYSpring, [0, 0.5, 1], [0, 1, 0]),
-            }}
-        />
-
-        {/* Sheen Effect */}
-        <motion.div 
-            className="pointer-events-none absolute inset-[-100%] z-10"
-            style={{
-                x: glareX,
-                y: glareY,
-                background: 'linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%)',
-                opacity: useTransform(mouseYSpring, [0, 0.5, 1], [0.1, 0.5, 0.1]),
-            }}
-        />
-
       </motion.div>
     </motion.div>
   );

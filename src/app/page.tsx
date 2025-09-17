@@ -71,7 +71,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-10 grid w-full max-w-4xl grid-cols-1 items-center gap-8 rounded-xl bg-background p-8 shadow-lg backdrop-blur-md md:grid-cols-3">
-                    <div className="relative h-64 w-full md:h-full">
+                    <div className="relative h-64 w-full md:h-auto md:aspect-square">
                          <InteractiveImage
                           src="/tshirt.webp"
                           alt="DSA Official T-Shirt"
@@ -227,5 +227,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
