@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -31,10 +32,10 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <DialogPortal>
-    <DialogOverlay />
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & { asChild?: boolean }
+>(({ className, children, asChild, ...props }, ref) => {
+  const Comp = asChild ? React.Fragment : "div";
+  const content = (
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
@@ -49,8 +50,15 @@ const DialogContent = React.forwardRef<
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
-  </DialogPortal>
-))
+  );
+
+  return (
+    <DialogPortal>
+      <DialogOverlay />
+      {asChild ? React.cloneElement(children as React.ReactElement, { children: content }) : content}
+    </DialogPortal>
+  );
+});
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
 const DialogHeader = ({
