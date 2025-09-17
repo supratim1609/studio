@@ -71,7 +71,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-10 w-full max-w-3xl rounded-xl bg-background/80 p-8 shadow-lg backdrop-blur-lg">
-                    <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="flex flex-col items-center gap-8 md:flex-row">
                         <div className="relative h-64 w-64 flex-shrink-0">
                              <InteractiveImage
                               src="/tshirt.webp"
@@ -229,5 +229,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
