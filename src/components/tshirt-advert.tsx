@@ -15,7 +15,7 @@ import { InteractiveImage } from "./interactive-image";
 import Link from "next/link";
 import { StaggeredTextAnimation } from "./staggered-text-animation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 const SESSION_STORAGE_KEY = "dsa-tshirt-advert-shown";
 
@@ -64,7 +64,7 @@ export const TshirtAdvert = () => {
   };
 
   return (
-    <>
+    <TooltipProvider>
       {showFloatingButton && (
         <Tooltip>
             <TooltipTrigger asChild>
@@ -131,6 +131,6 @@ export const TshirtAdvert = () => {
           </Dialog>
         )}
       </AnimatePresence>
-    </>
+    </TooltipProvider>
   );
 };
