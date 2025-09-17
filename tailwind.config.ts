@@ -23,6 +23,9 @@ export default {
         bengali: ['"Hind Siliguri"', 'sans-serif'],
         code: ['monospace'],
       },
+      spacing: {
+        '52': '13rem',
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -175,3 +178,5 @@ export default {
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
+
+    
