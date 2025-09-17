@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Phone } from "lucide-react";
+import { Phone, PackageOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,11 +15,13 @@ import { InteractiveImage } from "./interactive-image";
 import Link from "next/link";
 import { StaggeredTextAnimation } from "./staggered-text-animation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const SESSION_STORAGE_KEY = "dsa-tshirt-advert-shown";
 
 export const TshirtAdvert = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showFloatingButton, setShowFloatingButton] = useState(false);
 
   useEffect(() => {
     const hasBeenShown = sessionStorage.getItem(SESSION_STORAGE_KEY);
@@ -28,16 +30,19 @@ export const TshirtAdvert = () => {
         setIsModalOpen(true);
       }, 2000); // 2-second delay
       return () => clearTimeout(timer);
+    } else {
+      setShowFloatingButton(true);
     }
   }, []);
 
   const handleOpenChange = (open: boolean) => {
+    setIsModalOpen(open);
     if (!open) {
       sessionStorage.setItem(SESSION_STORAGE_KEY, "true");
+      setShowFloatingButton(true);
     }
-    setIsModalOpen(open);
   };
-
+  
   const dialogVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { 
@@ -60,6 +65,23 @@ export const TshirtAdvert = () => {
 
   return (
     <>
+      {showFloatingButton && (
+        <Tooltip>
+            <TooltipTrigger asChild>
+                <button
+                onClick={() => setIsModalOpen(true)}
+                aria-label="Click here for a surprise"
+                className="fixed bottom-6 left-6 z-50 h-16 w-16 rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-attention-pulse"
+                >
+                <PackageOpen className="h-7 w-7" />
+                </button>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+                <p>Click here for a surprise!</p>
+            </TooltipContent>
+        </Tooltip>
+      )}
+
       <AnimatePresence>
         {isModalOpen && (
           <Dialog open={isModalOpen} onOpenChange={handleOpenChange}>
