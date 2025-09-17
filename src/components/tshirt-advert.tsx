@@ -15,7 +15,6 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { InteractiveImage } from "./interactive-image";
 import Link from "next/link";
 import { StaggeredTextAnimation } from "./staggered-text-animation";
-import { motion } from "framer-motion";
 
 export const TshirtAdvert = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,23 +24,13 @@ export const TshirtAdvert = () => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-             <motion.button
+             <button
                 onClick={() => setIsModalOpen(true)}
                 aria-label="Click here for a surprise"
-                className="h-14 w-14 rounded-full bg-secondary text-secondary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center absolute"
-                initial={{ opacity: 0, y: 10, x: 10 }}
-                animate={{
-                    opacity: 1,
-                    y: -60,
-                    x: 0,
-                    transition: { type: "spring", stiffness: 260, damping: 20 }
-                }}
-                exit={{ opacity: 0, y: 10, x: 10 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                className="h-14 w-14 rounded-full bg-secondary text-secondary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center"
               >
                 <Shirt className="h-7 w-7" />
-              </motion.button>
+              </button>
           </TooltipTrigger>
           <TooltipContent side="left">
             <p>Click here for a surprise!</p>
