@@ -17,8 +17,6 @@ import { StaggeredTextAnimation } from "./staggered-text-animation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
-const SESSION_STORAGE_KEY = "dsa-tshirt-advert-shown";
-
 const TshirtIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       {...props}
@@ -40,21 +38,15 @@ export const TshirtAdvert = () => {
   const [showFloatingButton, setShowFloatingButton] = useState(false);
 
   useEffect(() => {
-    const hasBeenShown = sessionStorage.getItem(SESSION_STORAGE_KEY);
-    if (!hasBeenShown) {
-      const timer = setTimeout(() => {
-        setIsModalOpen(true);
-      }, 2000); // 2-second delay
-      return () => clearTimeout(timer);
-    } else {
-      setShowFloatingButton(true);
-    }
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 2000); // 2-second delay
+    return () => clearTimeout(timer);
   }, []);
 
   const handleOpenChange = (open: boolean) => {
     setIsModalOpen(open);
     if (!open) {
-      sessionStorage.setItem(SESSION_STORAGE_KEY, "true");
       setShowFloatingButton(true);
     }
   };
