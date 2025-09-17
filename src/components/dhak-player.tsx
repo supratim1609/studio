@@ -25,7 +25,7 @@ export const DhakPlayer = () => {
         if (isPlaying) {
             audioRef.current.pause();
         } else {
-            audio.current.play().catch(error => {
+            audioRef.current.play().catch(error => {
                 console.error("Audio playback failed:", error);
                 setIsPlaying(false);
             });
