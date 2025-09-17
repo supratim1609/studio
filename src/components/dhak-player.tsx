@@ -6,7 +6,7 @@ import { Volume2, VolumeX } from "lucide-react";
 
 export const DhakPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -14,6 +14,13 @@ export const DhakPlayer = () => {
     audioRef.current = new Audio("/audio/dhak-beats.mp3");
     audioRef.current.loop = true;
     
+    // Attempt to play audio automatically
+    audioRef.current.play().catch(error => {
+        // Autoplay was prevented.
+        console.warn("Dhak music autoplay was prevented by the browser.");
+        setIsPlaying(false);
+    });
+
     return () => {
       audioRef.current?.pause();
     };
