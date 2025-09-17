@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Phone, PackageOpen } from "lucide-react";
+import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -18,6 +18,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 const SESSION_STORAGE_KEY = "dsa-tshirt-advert-shown";
+
+const TshirtIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20.38 3.46 16 2a4 4 0 0 0-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
+    </svg>
+);
 
 export const TshirtAdvert = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,11 +88,11 @@ export const TshirtAdvert = () => {
                 aria-label="Click here for a surprise"
                 className="fixed bottom-6 left-6 z-50 h-16 w-16 rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-attention-pulse"
                 >
-                <PackageOpen className="h-7 w-7" />
+                <TshirtIcon className="h-7 w-7" />
                 </button>
             </TooltipTrigger>
             <TooltipContent side="right">
-                <p>Click here for a surprise!</p>
+                <p>Click here to see the T-Shirt!</p>
             </TooltipContent>
         </Tooltip>
       )}
