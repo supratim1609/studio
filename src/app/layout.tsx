@@ -7,7 +7,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { DhakPlayer } from "@/components/dhak-player";
 import React from "react";
 import { LayoutProvider } from "@/components/layout-provider";
-import { TshirtAdvert } from "@/components/tshirt-advert";
 
 // Metadata can't be in a client component, but we can export it separately.
 export const metadata: Metadata = {
@@ -47,7 +46,6 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
               <Toaster />
-              <TshirtAdvert />
               <DhakPlayer />
             </div>
           </LayoutProvider>
