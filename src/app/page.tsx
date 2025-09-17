@@ -70,23 +70,25 @@ export default function Home() {
                     />
                 </div>
 
-                <div className="mt-10 grid w-full max-w-3xl grid-cols-1 items-center gap-8 rounded-xl bg-background/80 p-8 shadow-lg backdrop-blur-lg md:grid-cols-3">
-                    <div className="relative h-64 w-full md:h-auto md:aspect-square">
-                         <InteractiveImage
-                          src="/tshirt.webp"
-                          alt="DSA Official T-Shirt"
-                          data_ai_hint="tshirt design"
-                      />
-                    </div>
-                    <div className="text-left md:col-span-2">
-                        <h2 className="font-headline text-3xl font-bold">Get the Official DSA T-Shirt!</h2>
-                        <p className="mt-2 text-foreground/80">Exclusively “<strong>ত্রসন</strong>” designed high-quality T-shirt available for Rs. 350, only at DSA.  যারা এবারের থিমের সাথে নিজেদের জুড়ে নিতে চাও, তাদের জন্য ৩৫০ টাকার বিনিময়ে এক্সক্লুসিভলি "<strong>ত্রসন</strong>" ডিজাইনের টি-শার্ট।</p>
-                        <Button asChild size="lg" className="mt-6 font-bold">
-                            <Link href="tel:7001406223">
-                                <Phone className="mr-2"/>
-                                Call to Order
-                            </Link>
-                        </Button>
+                <div className="mt-10 w-full max-w-3xl rounded-xl bg-background/80 p-8 shadow-lg backdrop-blur-lg">
+                    <div className="flex flex-col md:flex-row items-center gap-8">
+                        <div className="relative h-64 w-64 flex-shrink-0">
+                             <InteractiveImage
+                              src="/tshirt.webp"
+                              alt="DSA Official T-Shirt"
+                              data_ai_hint="tshirt design"
+                          />
+                        </div>
+                        <div className="text-center md:text-left">
+                            <h2 className="font-headline text-3xl font-bold">Get the Official DSA T-Shirt!</h2>
+                            <p className="mt-2 text-foreground/80">Exclusively “<strong>ত্রসন</strong>” designed high-quality T-shirt available for Rs. 350, only at DSA.  যারা এবারের থিমের সাথে নিজেদের জুড়ে নিতে চাও, তাদের জন্য ৩৫০ টাকার বিনিময়ে এক্সক্লুসিভলি "<strong>ত্রসন</strong>" ডিজাইনের টি-শার্ট।</p>
+                            <Button asChild size="lg" className="mt-6 font-bold">
+                                <Link href="tel:7001406223">
+                                    <Phone className="mr-2"/>
+                                    Call to Order
+                                </Link>
+                            </Button>
+                        </div>
                     </div>
                 </div>
                 
@@ -228,4 +230,5 @@ export default function Home() {
   );
 }
 
+    
     
