@@ -40,6 +40,12 @@ export const TshirtAdvert = () => {
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="max-w-4xl p-0">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Get the Official DSA T-Shirt!</DialogTitle>
+            <DialogDescription>
+              A pop-up showing the official DSA t-shirt with an option to call to order.
+            </DialogDescription>
+          </DialogHeader>
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="relative h-[400px] md:h-full w-full rounded-t-lg md:rounded-l-lg md:rounded-tr-none overflow-hidden">
                 <InteractiveImage
