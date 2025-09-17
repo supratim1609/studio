@@ -3,7 +3,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { Volume2, VolumeX } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export const DhakPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -39,15 +39,15 @@ export const DhakPlayer = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <button
+    <motion.button
         onClick={togglePlay}
         aria-label={isPlaying ? "Pause Dhak music" : "Play Dhak music"}
-        className="h-14 w-14 rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center"
+        className="h-16 w-16 rounded-full bg-primary/90 text-primary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center relative z-10"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
       >
-        {isPlaying ? <Volume2 className="h-6 w-6" /> : <VolumeX className="h-6 w-6" />}
+        {isPlaying ? <Volume2 className="h-7 w-7" /> : <VolumeX className="h-7 w-7" />}
         <span className="sr-only">Toggle Sound</span>
-      </button>
-    </div>
+    </motion.button>
   );
 };
