@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Shirt, Phone, ArrowRight } from "lucide-react";
+import { Shirt, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -27,7 +27,7 @@ export const TshirtAdvert = () => {
              <button
                 onClick={() => setIsModalOpen(true)}
                 aria-label="Click here for a surprise"
-                className="h-14 w-14 rounded-full bg-secondary text-secondary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center"
+                className="fixed bottom-24 right-6 z-50 h-14 w-14 rounded-full bg-secondary text-secondary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-attention-pulse"
               >
                 <Shirt className="h-7 w-7" />
               </button>

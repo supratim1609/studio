@@ -8,7 +8,6 @@ import { DhakPlayer } from "@/components/dhak-player";
 import React from "react";
 import { LayoutProvider } from "@/components/layout-provider";
 import { TshirtAdvert } from "@/components/tshirt-advert";
-import { FloatingActionMenu } from "@/components/floating-action-menu";
 
 // Metadata can't be in a client component, but we can export it separately.
 export const metadata: Metadata = {
@@ -47,10 +46,12 @@ export default function RootLayout({
               <Header />
               <main className="flex-1">{children}</main>
               <Footer />
+              <Toaster />
+              <TshirtAdvert />
+              <DhakPlayer />
             </div>
-            
-            <Toaster />
-            <FloatingActionMenu />
           </LayoutProvider>
       </body>
     </html>
+  );
+}
