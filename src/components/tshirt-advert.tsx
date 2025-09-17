@@ -27,7 +27,7 @@ export const TshirtAdvert = () => {
             <button
               onClick={() => setIsModalOpen(true)}
               aria-label="Get the Official DSA T-Shirt"
-              className="fixed bottom-6 left-6 z-50 h-14 w-14 rounded-full bg-secondary/90 text-secondary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-pulse-slow"
+              className="fixed bottom-6 left-6 z-50 h-14 w-14 rounded-full bg-secondary text-secondary-foreground shadow-lg backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center justify-center animate-attention-pulse"
             >
               <Shirt className="h-7 w-7" />
             </button>

@@ -130,6 +130,20 @@ export default {
          'pulse-slow': {
             '0%, 100%': { opacity: '0.5' },
             '50%': { opacity: '1' },
+        },
+        'attention-pulse': {
+          '0%': {
+            transform: 'scale(0.95)',
+            boxShadow: '0 0 0 0 hsl(var(--secondary) / 0.7)',
+          },
+          '70%': {
+            transform: 'scale(1)',
+            boxShadow: '0 0 0 10px hsl(var(--secondary) / 0)',
+          },
+          '100%': {
+            transform: 'scale(0.95)',
+            boxShadow: '0 0 0 0 hsl(var(--secondary) / 0)',
+          },
         }
       },
       animation: {
@@ -140,6 +154,7 @@ export default {
         'ken-burns-left': 'ken-burns-left 12s ease-out both',
         'ken-burns-right': 'ken-burns-right 12s ease-out both',
         'pulse-slow': 'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'attention-pulse': 'attention-pulse 2s infinite',
       },
     },
   },
