@@ -11,8 +11,32 @@ import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { InteractiveImage } from "@/components/interactive-image";
+import { motion } from "framer-motion";
 
 export default function Home() {
+
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        duration: 0.5,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+  
+  const textVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+
   return (
     <div className="flex flex-col">
       <section className="relative h-dvh w-full overflow-hidden">
@@ -49,17 +73,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="tshirt" className="py-20 lg:py-32 bg-background">
+      <motion.section 
+        id="tshirt" 
+        className="py-20 lg:py-32 bg-background overflow-hidden"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-             <div className="relative h-[600px] w-full rounded-xl shadow-2xl">
+             <motion.div 
+              className="relative h-[600px] w-full rounded-xl shadow-2xl"
+              variants={itemVariants}
+             >
                 <InteractiveImage
                     src="/tshirt.webp"
                     alt="DSA Official T-Shirt"
                     data_ai_hint="tshirt design"
                 />
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={textVariants}>
               <h2 className="font-headline text-3xl font-bold md:text-4xl">
                 Get the Official DSA T-Shirt!
               </h2>
@@ -72,10 +106,10 @@ export default function Home() {
                     Call to Order
                 </Link>
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <section id="about" className="py-20 lg:py-32 bg-background">
         <div className="container mx-auto px-4">
@@ -210,5 +244,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
