@@ -80,7 +80,7 @@ export default function Home() {
                     </div>
                     <div className="text-left md:col-span-2">
                         <h2 className="font-headline text-3xl font-bold">Get the Official DSA T-Shirt!</h2>
-                        <p className="mt-2 text-foreground/80">Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Show your support and become a part of the DSA legacy.</p>
+                        <p className="mt-2 text-foreground/80">Exclusively “ত্রসন” designed high-quality T-shirt available for Rs. 350, only at DSA.  যারা এবারের থিমের সাথে নিজেদের জুড়ে নিতে চাও, তাদের জন্য ৩৫০ টাকার বিনিময়ে এক্সক্লুসিভলি "ত্রসন" ডিজাইনের টি-শার্ট।</p>
                         <Button asChild size="lg" className="mt-6 font-bold">
                             <Link href="tel:08906479173">
                                 <Phone className="mr-2"/>
@@ -113,7 +113,7 @@ export default function Home() {
                 src="/slideshow8.webp"
                 alt="DSA Club Members celebrating"
                 layout="fill"
-                objectFit="fill"
+                objectFit="cover"
                 className="rounded-xl"
                 data-ai-hint="indian festival crowd"
               />
