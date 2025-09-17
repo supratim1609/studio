@@ -10,9 +10,7 @@ import { Countdown } from "@/components/countdown";
 import { HeadlineAnimation } from "@/components/headline-animation";
 import { TypingAnimation } from "@/components/typing-animation";
 import { HeroSlideshow } from "@/components/hero-slideshow";
-import { InteractiveImage } from "@/components/interactive-image";
 import { motion } from "framer-motion";
-import { StaggeredTextAnimation } from "@/components/staggered-text-animation";
 
 export default function Home() {
 
@@ -84,59 +82,6 @@ export default function Home() {
             </div>
         </div>
       </section>
-
-      <motion.section 
-        id="tshirt" 
-        className="py-20 lg:py-32 bg-background overflow-hidden"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={sectionVariants}
-      >
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-             <motion.div 
-              className="relative h-[600px] w-full rounded-xl shadow-2xl"
-              variants={imageVariants}
-             >
-                <InteractiveImage
-                    src="/tshirt.webp"
-                    alt="DSA Official T-Shirt"
-                    data_ai_hint="tshirt design"
-                />
-            </motion.div>
-            <motion.div variants={textContainerVariants}>
-              <StaggeredTextAnimation
-                  text="Get the Official DSA T-Shirt!"
-                  el="h2"
-                  className="font-headline text-3xl font-bold md:text-4xl"
-                />
-              <motion.p 
-                className="mt-4 text-lg text-foreground/70"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-                }}
-              >
-                Wear your pride! This limited edition t-shirt features a unique design celebrating our club's heritage. Made from premium-quality cotton, it's perfect for events, sports, or casual wear. Show your support and become a part of the DSA legacy.
-              </motion.p>
-              <motion.div
-                 variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-                }}
-              >
-                <Button asChild size="lg" className="mt-8 font-bold">
-                  <Link href="tel:08906479173">
-                      <Phone className="mr-2"/>
-                      Call to Order
-                  </Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
 
       <section id="about" className="py-20 lg:py-32 bg-background">
         <div className="container mx-auto px-4">
