@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Gift, Phone } from "lucide-react";
+import { PackageOpen, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -69,7 +69,7 @@ export const TshirtAdvert = () => {
                 variants={shakeVariants}
                 animate={isShaking ? "shake" : "initial"}
               >
-                <Gift className="h-7 w-7" />
+                <PackageOpen className="h-7 w-7" />
               </motion.button>
           </TooltipTrigger>
           <TooltipContent side="left">
